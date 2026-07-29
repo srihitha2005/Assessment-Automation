@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is the digestive system?",
+      "answer": "The digestive system breaks down food into nutrients that the body can absorb and use."
+    },
+    {
+      "question": "Digestion begins in the mouth.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which organ pumps food into the stomach?",
+      "options": [
+        "Esophagus",
+        "Lungs",
+        "Heart",
+        "Kidneys"
+      ],
+      "answer": "Esophagus"
+    },
+    {
+      "question": "Fill in the blank: The ______ is the largest digestive organ.",
+      "answer": "liver"
+    },
+    {
+      "question": "What is the function of the stomach?",
+      "answer": "It mixes food with digestive juices to break it down."
+    },
+    {
+      "question": "Observe the image and identify the organ shown.",
+      "image": "images/digestive_system.png",
+      "answer": "Digestive System"
+    },
+    {
+      "question": "Which image represents the stomach?",
+      "images": [
+        "images/stomach.png",
+        "images/liver.png",
+        "images/small_intestine.png"
+      ],
+      "options": [
+        "Stomach",
+        "Liver",
+        "Small Intestine"
+      ],
+      "answer": "Stomach"
+    },
+    {
+      "question": "The small intestine is where most nutrients are absorbed.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: Food first enters the ______.",
+      "answer": "mouth"
+    },
+    {
+      "question": "Which organ absorbs most nutrients from food?",
+      "options": [
+        "Small Intestine",
+        "Large Intestine",
+        "Stomach",
+        "Esophagus"
+      ],
+      "answer": "Small Intestine"
+    },
+    {
+      "question": "What is the function of the liver in digestion?",
+      "answer": "It produces bile, which helps digest fats."
+    },
+    {
+      "question": "The large intestine absorbs water from undigested food.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the highlighted organ.",
+      "image": "images/small_intestine.png",
+      "answer": "Small Intestine"
+    },
+    {
+      "question": "Which image shows the liver?",
+      "images": [
+        "images/liver.png",
+        "images/stomach.png",
+        "images/pancreas.png"
+      ],
+      "options": [
+        "Liver",
+        "Stomach",
+        "Pancreas"
+      ],
+      "answer": "Liver"
+    },
+    {
+      "question": "Explain the difference between the small intestine and the large intestine.",
+      "answer": "The small intestine absorbs nutrients, while the large intestine absorbs water and forms waste."
+    },
+    {
+      "question": "Fill in the blank: The ______ helps chew food into smaller pieces.",
+      "answer": "teeth"
+    },
+    {
+      "question": "Saliva helps begin the digestion of food.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which organ stores bile produced by the liver?",
+      "options": [
+        "Gallbladder",
+        "Pancreas",
+        "Kidney",
+        "Heart"
+      ],
+      "answer": "Gallbladder"
+    },
+    {
+      "question": "Why is the digestive system important?",
+      "answer": "It breaks down food and provides nutrients and energy for the body."
+    },
+    {
+      "question": "Explain the journey of food through the digestive system.",
+      "answer": "Food passes through the mouth, esophagus, stomach, small intestine, large intestine, rectum, and finally leaves the body through the anus."
+    }
+  ]
+}

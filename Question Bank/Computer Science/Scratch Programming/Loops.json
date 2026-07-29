@@ -1,0 +1,158 @@
+{
+  "questions": [
+    {
+      "question": "What is a loop?",
+      "answer": "A loop is a programming construct that repeatedly executes a block of code until a condition is met."
+    },
+    {
+      "question": "Loops are used to execute a block of code multiple times.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which loop is guaranteed to execute at least once?",
+      "options": [
+        "for loop",
+        "while loop",
+        "do-while loop",
+        "None of the above"
+      ],
+      "answer": "do-while loop"
+    },
+    {
+      "question": "Fill in the blank: A ______ loop is commonly used when the number of iterations is known.",
+      "answer": "for"
+    },
+    {
+      "question": "Which loop continues executing as long as its condition is true?",
+      "options": [
+        "for loop",
+        "while loop",
+        "switch statement",
+        "if statement"
+      ],
+      "answer": "while loop"
+    },
+    {
+      "question": "What is an infinite loop?",
+      "answer": "A loop that never terminates because its condition always remains true."
+    },
+    {
+      "question": "Observe the image and identify the loop represented.",
+      "image": "images/for_loop_flowchart.png",
+      "options": [
+        "for loop",
+        "while loop",
+        "do-while loop",
+        "Nested loop"
+      ],
+      "answer": "for loop"
+    },
+    {
+      "question": "Which image represents a while loop?",
+      "images": [
+        "images/for_loop_flowchart.png",
+        "images/while_loop_flowchart.png",
+        "images/do_while_loop_flowchart.png"
+      ],
+      "options": [
+        "for loop",
+        "while loop",
+        "do-while loop"
+      ],
+      "answer": "while loop"
+    },
+    {
+      "question": "A for loop is best used when the number of iterations is known in advance.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The ______ statement immediately exits a loop.",
+      "answer": "break"
+    },
+    {
+      "question": "Which statement skips the current iteration and moves to the next iteration of a loop?",
+      "options": [
+        "break",
+        "continue",
+        "return",
+        "exit"
+      ],
+      "answer": "continue"
+    },
+    {
+      "question": "What is a nested loop?",
+      "answer": "A loop that exists inside another loop."
+    },
+    {
+      "question": "The condition of a while loop is checked before executing the loop body.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is NOT a looping statement?",
+      "options": [
+        "for",
+        "while",
+        "if",
+        "do-while"
+      ],
+      "answer": "if"
+    },
+    {
+      "question": "Observe the image. Which loop is shown?",
+      "image": "images/do_while_loop_flowchart.png",
+      "options": [
+        "for loop",
+        "while loop",
+        "do-while loop",
+        "Nested loop"
+      ],
+      "answer": "do-while loop"
+    },
+    {
+      "question": "Fill in the blank: A ______ loop checks its condition after executing the loop body.",
+      "answer": "do-while"
+    },
+    {
+      "question": "What is the primary purpose of using loops?",
+      "answer": "To avoid writing repetitive code by executing a block of statements multiple times."
+    },
+    {
+      "question": "Observe the images and identify the loop that always executes at least once.",
+      "images": [
+        "images/for_loop_flowchart.png",
+        "images/while_loop_flowchart.png",
+        "images/do_while_loop_flowchart.png"
+      ],
+      "options": [
+        "for loop",
+        "while loop",
+        "do-while loop"
+      ],
+      "answer": "do-while loop"
+    },
+    {
+      "question": "A break statement terminates the entire loop immediately.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Explain the difference between a for loop and a while loop.",
+      "answer": "A for loop is typically used when the number of iterations is known beforehand, whereas a while loop is used when the number of iterations depends on a condition evaluated during execution."
+    }
+  ]
+}

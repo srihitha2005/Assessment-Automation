@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is the circulatory system?",
+      "answer": "The circulatory system is the body system that transports blood, oxygen, nutrients, and waste throughout the body."
+    },
+    {
+      "question": "The heart is the main organ of the circulatory system.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which blood vessel carries blood away from the heart?",
+      "options": [
+        "Veins",
+        "Arteries",
+        "Capillaries",
+        "Nerves"
+      ],
+      "answer": "Arteries"
+    },
+    {
+      "question": "Fill in the blank: The heart has ______ chambers.",
+      "answer": "four"
+    },
+    {
+      "question": "What is the function of blood?",
+      "answer": "Blood transports oxygen, nutrients, hormones, and waste products throughout the body."
+    },
+    {
+      "question": "Observe the image and identify the organ shown.",
+      "image": "images/heart_diagram.png",
+      "answer": "Heart"
+    },
+    {
+      "question": "Which image represents an artery?",
+      "images": [
+        "images/artery.png",
+        "images/vein.png",
+        "images/capillary.png"
+      ],
+      "options": [
+        "Artery",
+        "Vein",
+        "Capillary"
+      ],
+      "answer": "Artery"
+    },
+    {
+      "question": "Veins carry blood back to the heart.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: Tiny blood vessels that connect arteries and veins are called ______.",
+      "answer": "capillaries"
+    },
+    {
+      "question": "Which part of the blood carries oxygen?",
+      "options": [
+        "Red blood cells",
+        "White blood cells",
+        "Platelets",
+        "Plasma"
+      ],
+      "answer": "Red blood cells"
+    },
+    {
+      "question": "What is the function of the heart?",
+      "answer": "It pumps blood throughout the body."
+    },
+    {
+      "question": "The circulatory system helps remove waste products from the body.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the blood vessel.",
+      "image": "images/vein_diagram.png",
+      "answer": "Vein"
+    },
+    {
+      "question": "Which image shows blood circulation?",
+      "images": [
+        "images/blood_circulation.png",
+        "images/digestive_system.png",
+        "images/respiratory_system.png"
+      ],
+      "options": [
+        "Circulatory System",
+        "Digestive System",
+        "Respiratory System"
+      ],
+      "answer": "Circulatory System"
+    },
+    {
+      "question": "Explain the difference between arteries and veins.",
+      "answer": "Arteries carry blood away from the heart, while veins carry blood back to the heart."
+    },
+    {
+      "question": "Fill in the blank: Blood is pumped by the ______.",
+      "answer": "heart"
+    },
+    {
+      "question": "White blood cells help fight infections.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which blood component helps in clotting?",
+      "options": [
+        "Platelets",
+        "Red blood cells",
+        "White blood cells",
+        "Plasma"
+      ],
+      "answer": "Platelets"
+    },
+    {
+      "question": "Why is the circulatory system important?",
+      "answer": "It delivers oxygen and nutrients to cells and removes waste products."
+    },
+    {
+      "question": "Explain how the heart and blood vessels work together.",
+      "answer": "The heart pumps blood through arteries to the body, and veins return the blood back to the heart."
+    }
+  ]
+}

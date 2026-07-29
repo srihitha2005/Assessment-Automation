@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a fraction?",
+      "answer": "A fraction represents a part of a whole."
+    },
+    {
+      "question": "A fraction has a numerator and a denominator.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "In the fraction 3/4, what is the denominator?",
+      "options": [
+        "3",
+        "4",
+        "7",
+        "1"
+      ],
+      "answer": "4"
+    },
+    {
+      "question": "Fill in the blank: The top number of a fraction is called the ______.",
+      "answer": "numerator"
+    },
+    {
+      "question": "What does the denominator of a fraction represent?",
+      "answer": "The total number of equal parts into which the whole is divided."
+    },
+    {
+      "question": "Observe the image and identify the fraction represented.",
+      "image": "images/fraction_half.png",
+      "answer": "1/2"
+    },
+    {
+      "question": "Which image represents three-fourths?",
+      "images": [
+        "images/fraction_three_fourths.png",
+        "images/fraction_one_half.png",
+        "images/fraction_one_fourth.png"
+      ],
+      "options": [
+        "3/4",
+        "1/2",
+        "1/4"
+      ],
+      "answer": "3/4"
+    },
+    {
+      "question": "Two fractions with the same value are called equivalent fractions.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: In the fraction 5/8, 5 is the ______.",
+      "answer": "numerator"
+    },
+    {
+      "question": "Which fraction is greater?",
+      "options": [
+        "1/2",
+        "3/4",
+        "1/4",
+        "2/8"
+      ],
+      "answer": "3/4"
+    },
+    {
+      "question": "What is an equivalent fraction of 1/2?",
+      "answer": "2/4"
+    },
+    {
+      "question": "A proper fraction has a numerator smaller than its denominator.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the shaded fraction.",
+      "image": "images/shaded_fraction.png",
+      "answer": "The fraction represented by the shaded part."
+    },
+    {
+      "question": "Which image represents a whole?",
+      "images": [
+        "images/fraction_whole.png",
+        "images/fraction_half.png",
+        "images/fraction_one_fourth.png"
+      ],
+      "options": [
+        "1",
+        "1/2",
+        "1/4"
+      ],
+      "answer": "1"
+    },
+    {
+      "question": "Explain the difference between a proper fraction and an improper fraction.",
+      "answer": "A proper fraction has a numerator smaller than the denominator, while an improper fraction has a numerator greater than or equal to the denominator."
+    },
+    {
+      "question": "Fill in the blank: Fractions with the same denominator are called ______ fractions.",
+      "answer": "like"
+    },
+    {
+      "question": "1/2 is equal to 2/4.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is a proper fraction?",
+      "options": [
+        "7/5",
+        "4/4",
+        "3/8",
+        "9/6"
+      ],
+      "answer": "3/8"
+    },
+    {
+      "question": "Why are fractions useful in everyday life?",
+      "answer": "Fractions are used to represent parts of a whole in situations like measuring, cooking, shopping, and sharing."
+    },
+    {
+      "question": "Explain how to compare two fractions with the same denominator.",
+      "answer": "Compare their numerators. The fraction with the larger numerator is greater."
+    }
+  ]
+}

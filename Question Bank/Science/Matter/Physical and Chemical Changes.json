@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a physical change?",
+      "answer": "A physical change is a change in which the substance's form changes but no new substance is formed."
+    },
+    {
+      "question": "Melting of ice is a physical change.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is a chemical change?",
+      "options": [
+        "Melting butter",
+        "Rusting of iron",
+        "Breaking glass",
+        "Cutting paper"
+      ],
+      "answer": "Rusting of iron"
+    },
+    {
+      "question": "Fill in the blank: A chemical change produces a ______ substance.",
+      "answer": "new"
+    },
+    {
+      "question": "What happens during a chemical change?",
+      "answer": "One or more new substances are formed with different properties."
+    },
+    {
+      "question": "Observe the image and identify the change.",
+      "image": "images/rusting_iron.png",
+      "answer": "Chemical Change"
+    },
+    {
+      "question": "Which image represents a physical change?",
+      "images": [
+        "images/melting_ice.png",
+        "images/burning_paper.png",
+        "images/rusting_iron.png"
+      ],
+      "options": [
+        "Melting Ice",
+        "Burning Paper",
+        "Rusting Iron"
+      ],
+      "answer": "Melting Ice"
+    },
+    {
+      "question": "Burning wood is a chemical change.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: Dissolving sugar in water is a ______ change.",
+      "answer": "physical"
+    },
+    {
+      "question": "Which process forms a new substance?",
+      "options": [
+        "Boiling water",
+        "Freezing water",
+        "Burning a candle wick",
+        "Cutting vegetables"
+      ],
+      "answer": "Burning a candle wick"
+    },
+    {
+      "question": "What is one sign of a chemical change?",
+      "answer": "A change in color, production of gas, heat, light, or formation of a new substance."
+    },
+    {
+      "question": "Breaking a pencil is a physical change.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the change.",
+      "image": "images/burning_paper.png",
+      "answer": "Chemical Change"
+    },
+    {
+      "question": "Which image shows a chemical change?",
+      "images": [
+        "images/cutting_paper.png",
+        "images/freezing_water.png",
+        "images/rusting_iron.png"
+      ],
+      "options": [
+        "Cutting Paper",
+        "Freezing Water",
+        "Rusting Iron"
+      ],
+      "answer": "Rusting Iron"
+    },
+    {
+      "question": "Explain the difference between a physical change and a chemical change.",
+      "answer": "A physical change changes only the appearance or state of a substance, while a chemical change forms a new substance."
+    },
+    {
+      "question": "Fill in the blank: Melting and freezing are examples of ______ changes.",
+      "answer": "physical"
+    },
+    {
+      "question": "Cooking food usually involves chemical changes.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is a physical change?",
+      "options": [
+        "Rusting",
+        "Burning",
+        "Boiling Water",
+        "Cooking Food"
+      ],
+      "answer": "Boiling Water"
+    },
+    {
+      "question": "Why is rusting considered a chemical change?",
+      "answer": "Because iron reacts with oxygen to form a new substance called iron oxide."
+    },
+    {
+      "question": "Explain two examples each of physical and chemical changes.",
+      "answer": "Physical changes include melting ice and breaking glass. Chemical changes include rusting iron and burning paper."
+    }
+  ]
+}

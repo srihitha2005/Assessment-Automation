@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a linear equation?",
+      "answer": "A linear equation is an equation in which the highest power of the variable is 1."
+    },
+    {
+      "question": "A linear equation has only one solution.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is a linear equation?",
+      "options": [
+        "2x + 5 = 11",
+        "x² + 3 = 7",
+        "x³ = 8",
+        "y = x²"
+      ],
+      "answer": "2x + 5 = 11"
+    },
+    {
+      "question": "Fill in the blank: In the equation x + 7 = 10, the value of x is ______.",
+      "answer": "3"
+    },
+    {
+      "question": "What is the solution of the equation 4x = 20?",
+      "answer": "5"
+    },
+    {
+      "question": "Observe the image and identify the equation shown.",
+      "image": "images/linear_equation_board.png",
+      "answer": "Linear Equation"
+    },
+    {
+      "question": "Which graph represents a linear equation?",
+      "images": [
+        "images/straight_line_graph.png",
+        "images/parabola_graph.png",
+        "images/circle_graph.png"
+      ],
+      "options": [
+        "Straight Line",
+        "Parabola",
+        "Circle"
+      ],
+      "answer": "Straight Line"
+    },
+    {
+      "question": "The graph of a linear equation is a straight line.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The unknown value in an equation is called a ______.",
+      "answer": "variable"
+    },
+    {
+      "question": "Solve: x - 9 = 6",
+      "options": [
+        "12",
+        "15",
+        "9",
+        "3"
+      ],
+      "answer": "15"
+    },
+    {
+      "question": "Why do we solve linear equations?",
+      "answer": "To find the value of the unknown variable."
+    },
+    {
+      "question": "Adding the same number to both sides keeps an equation balanced.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the solution step.",
+      "image": "images/equation_solving.png",
+      "answer": "Balancing the equation"
+    },
+    {
+      "question": "Which image shows the graph of a linear equation?",
+      "images": [
+        "images/straight_line_graph.png",
+        "images/hyperbola_graph.png",
+        "images/circle_graph.png"
+      ],
+      "options": [
+        "Straight Line",
+        "Hyperbola",
+        "Circle"
+      ],
+      "answer": "Straight Line"
+    },
+    {
+      "question": "Explain what it means to balance an equation.",
+      "answer": "Performing the same operation on both sides so that both sides remain equal."
+    },
+    {
+      "question": "Fill in the blank: To solve x ÷ 5 = 4, multiply both sides by ______.",
+      "answer": "5"
+    },
+    {
+      "question": "Every linear equation contains at least one variable.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Solve: 5x + 10 = 35",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": "5"
+    },
+    {
+      "question": "What is the first step in solving most linear equations?",
+      "answer": "Simplify the equation and isolate the variable."
+    },
+    {
+      "question": "Explain how inverse operations are used to solve linear equations.",
+      "answer": "Inverse operations such as addition and subtraction or multiplication and division are used to isolate the variable and find its value."
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a line?",
+      "answer": "A straight path that extends infinitely in both directions."
+    },
+    {
+      "question": "Two intersecting lines always meet at one point.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "An angle measuring 90° is called a:",
+      "options": [
+        "Acute Angle",
+        "Obtuse Angle",
+        "Right Angle",
+        "Straight Angle"
+      ],
+      "answer": "Right Angle"
+    },
+    {
+      "question": "Fill in the blank: An angle less than 90° is called an ______ angle.",
+      "answer": "acute"
+    },
+    {
+      "question": "What is a straight angle?",
+      "answer": "An angle measuring exactly 180 degrees."
+    },
+    {
+      "question": "Observe the image and identify the angle.",
+      "image": "images/right_angle.png",
+      "answer": "Right Angle"
+    },
+    {
+      "question": "Which image shows an obtuse angle?",
+      "images": [
+        "images/acute_angle.png",
+        "images/right_angle.png",
+        "images/obtuse_angle.png"
+      ],
+      "options": [
+        "Acute",
+        "Right",
+        "Obtuse"
+      ],
+      "answer": "Obtuse"
+    },
+    {
+      "question": "Parallel lines never intersect.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: Two lines that never meet are called ______ lines.",
+      "answer": "parallel"
+    },
+    {
+      "question": "Which pair of angles always add up to 90°?",
+      "options": [
+        "Supplementary Angles",
+        "Complementary Angles",
+        "Vertically Opposite Angles",
+        "Reflex Angles"
+      ],
+      "answer": "Complementary Angles"
+    },
+    {
+      "question": "What are vertically opposite angles?",
+      "answer": "The opposite angles formed when two lines intersect."
+    },
+    {
+      "question": "Vertically opposite angles are always equal.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the pair of lines.",
+      "image": "images/parallel_lines.png",
+      "answer": "Parallel Lines"
+    },
+    {
+      "question": "Which image represents intersecting lines?",
+      "images": [
+        "images/intersecting_lines.png",
+        "images/parallel_lines.png",
+        "images/perpendicular_lines.png"
+      ],
+      "options": [
+        "Intersecting",
+        "Parallel",
+        "Perpendicular"
+      ],
+      "answer": "Intersecting"
+    },
+    {
+      "question": "Explain the difference between parallel and perpendicular lines.",
+      "answer": "Parallel lines never meet, while perpendicular lines intersect at 90 degrees."
+    },
+    {
+      "question": "Fill in the blank: Angles that add up to 180° are called ______ angles.",
+      "answer": "supplementary"
+    },
+    {
+      "question": "Perpendicular lines form four right angles.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which angle is greater than 180° but less than 360°?",
+      "options": [
+        "Straight Angle",
+        "Obtuse Angle",
+        "Reflex Angle",
+        "Acute Angle"
+      ],
+      "answer": "Reflex Angle"
+    },
+    {
+      "question": "What is a transversal?",
+      "answer": "A line that intersects two or more lines at distinct points."
+    },
+    {
+      "question": "Explain why vertically opposite angles are equal.",
+      "answer": "They are formed by intersecting lines, and each pair shares equal angle measures due to the geometry of the intersection."
+    }
+  ]
+}

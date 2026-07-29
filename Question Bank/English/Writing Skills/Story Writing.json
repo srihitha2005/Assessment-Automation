@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a story?",
+      "answer": "A story is a sequence of events involving characters, a setting, and a plot."
+    },
+    {
+      "question": "Every story should have a beginning, middle, and end.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which element is essential in every story?",
+      "options": [
+        "Characters",
+        "Formula",
+        "Map",
+        "Table"
+      ],
+      "answer": "Characters"
+    },
+    {
+      "question": "Fill in the blank: The ______ is where and when the story takes place.",
+      "answer": "setting"
+    },
+    {
+      "question": "What is the plot of a story?",
+      "answer": "The sequence of events that make up the story."
+    },
+    {
+      "question": "Observe the image and write a short story based on it.",
+      "image": "images/lost_puppy.png",
+      "answer": "Students should create a story using the image as inspiration."
+    },
+    {
+      "question": "Which image would make the best beginning for an adventure story?",
+      "images": [
+        "images/treasure_map.png",
+        "images/classroom.png",
+        "images/kitchen.png"
+      ],
+      "options": [
+        "Treasure Map",
+        "Classroom",
+        "Kitchen"
+      ],
+      "answer": "Treasure Map"
+    },
+    {
+      "question": "Stories usually have a problem that needs to be solved.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The main person in a story is called the ______.",
+      "answer": "character"
+    },
+    {
+      "question": "Which of the following is the best ending for a story?",
+      "options": [
+        "A clear conclusion",
+        "Stopping in the middle",
+        "Random sentences",
+        "Repeating the title"
+      ],
+      "answer": "A clear conclusion"
+    },
+    {
+      "question": "Why is a setting important in a story?",
+      "answer": "It helps readers imagine where and when the events happen."
+    },
+    {
+      "question": "A story should have a logical sequence of events.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and continue the story.",
+      "image": "images/forest_path.png",
+      "answer": "Students should continue the story based on the forest scene."
+    },
+    {
+      "question": "Which image could inspire a mystery story?",
+      "images": [
+        "images/old_house.png",
+        "images/playground.png",
+        "images/classroom.png"
+      ],
+      "options": [
+        "Old House",
+        "Playground",
+        "Classroom"
+      ],
+      "answer": "Old House"
+    },
+    {
+      "question": "Explain why stories should have a conclusion.",
+      "answer": "A conclusion gives the story a satisfying ending and resolves the main events."
+    },
+    {
+      "question": "Fill in the blank: The ______ is the problem faced by the characters in a story.",
+      "answer": "conflict"
+    },
+    {
+      "question": "Good stories include descriptive language.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following makes a story more interesting?",
+      "options": [
+        "Interesting characters",
+        "Random events",
+        "No ending",
+        "Repeated sentences"
+      ],
+      "answer": "Interesting characters"
+    },
+    {
+      "question": "What should you do before writing a story?",
+      "answer": "Plan the characters, setting, plot, and ending."
+    },
+    {
+      "question": "Explain the qualities of a good story.",
+      "answer": "A good story has engaging characters, an interesting plot, a clear setting, logical events, and a satisfying conclusion."
+    }
+  ]
+}

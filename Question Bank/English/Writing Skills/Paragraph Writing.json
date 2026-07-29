@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a paragraph?",
+      "answer": "A paragraph is a group of related sentences that develop a single main idea."
+    },
+    {
+      "question": "A good paragraph should focus on one main idea.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which sentence is usually found at the beginning of a paragraph?",
+      "options": [
+        "Supporting sentence",
+        "Topic sentence",
+        "Conclusion",
+        "Example"
+      ],
+      "answer": "Topic sentence"
+    },
+    {
+      "question": "Fill in the blank: The ______ sentence introduces the main idea of a paragraph.",
+      "answer": "topic"
+    },
+    {
+      "question": "Why are supporting sentences important in a paragraph?",
+      "answer": "They explain, develop, and support the main idea."
+    },
+    {
+      "question": "Observe the image and write a paragraph describing it.",
+      "image": "images/park_scene.png",
+      "answer": "Students should describe the park scene using complete sentences."
+    },
+    {
+      "question": "Which image would be suitable for writing a descriptive paragraph?",
+      "images": [
+        "images/beach.png",
+        "images/mountain.png",
+        "images/city_street.png"
+      ],
+      "options": [
+        "Beach",
+        "Mountain",
+        "City Street"
+      ],
+      "answer": "Beach"
+    },
+    {
+      "question": "Every paragraph should have a concluding sentence.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: A paragraph is made up of several ______.",
+      "answer": "sentences"
+    },
+    {
+      "question": "Which of the following best describes a good paragraph?",
+      "options": [
+        "Random ideas",
+        "One main idea with supporting details",
+        "Only one sentence",
+        "Unrelated facts"
+      ],
+      "answer": "One main idea with supporting details"
+    },
+    {
+      "question": "Why should a paragraph have a clear structure?",
+      "answer": "It helps readers understand the ideas easily."
+    },
+    {
+      "question": "A paragraph can contain unrelated ideas.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False"
+    },
+    {
+      "question": "Observe the image and write a paragraph about the activity shown.",
+      "image": "images/classroom.png",
+      "answer": "Students should write a paragraph describing the classroom activity."
+    },
+    {
+      "question": "Which image would inspire a paragraph about nature?",
+      "images": [
+        "images/forest.png",
+        "images/computer_lab.png",
+        "images/library.png"
+      ],
+      "options": [
+        "Forest",
+        "Computer Lab",
+        "Library"
+      ],
+      "answer": "Forest"
+    },
+    {
+      "question": "Explain the purpose of a concluding sentence.",
+      "answer": "It summarizes or reinforces the main idea of the paragraph."
+    },
+    {
+      "question": "Fill in the blank: Supporting ______ provide details about the topic sentence.",
+      "answer": "sentences"
+    },
+    {
+      "question": "Good paragraphs should have correct grammar and punctuation.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which paragraph is easier to read?",
+      "options": [
+        "One with clear organization",
+        "One with random ideas",
+        "One without punctuation",
+        "One with incomplete sentences"
+      ],
+      "answer": "One with clear organization"
+    },
+    {
+      "question": "What should you do before writing a paragraph?",
+      "answer": "Plan the main idea and supporting points."
+    },
+    {
+      "question": "Explain the characteristics of an effective paragraph.",
+      "answer": "An effective paragraph has a topic sentence, supporting details, logical order, and a concluding sentence."
+    }
+  ]
+}

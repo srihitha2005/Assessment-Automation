@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "Where did the Indus Valley Civilization develop?",
+      "answer": "Along the Indus River and its tributaries."
+    },
+    {
+      "question": "The Indus Valley Civilization was one of the world's earliest civilizations.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which city belonged to the Indus Valley Civilization?",
+      "options": [
+        "Mohenjo-daro",
+        "Athens",
+        "Rome",
+        "Beijing"
+      ],
+      "answer": "Mohenjo-daro"
+    },
+    {
+      "question": "Fill in the blank: Another famous city of the Indus Valley Civilization was ______.",
+      "answer": "Harappa"
+    },
+    {
+      "question": "What was the main river of the Indus Valley Civilization?",
+      "answer": "The Indus River."
+    },
+    {
+      "question": "Observe the image and identify the ancient city.",
+      "image": "images/mohenjo_daro.png",
+      "answer": "Mohenjo-daro"
+    },
+    {
+      "question": "Which image represents the Great Bath?",
+      "images": [
+        "images/great_bath.png",
+        "images/granary.png",
+        "images/seal.png"
+      ],
+      "options": [
+        "Great Bath",
+        "Granary",
+        "Seal"
+      ],
+      "answer": "Great Bath"
+    },
+    {
+      "question": "The cities of the Indus Valley Civilization had well-planned streets.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: Houses in the Indus Valley Civilization were commonly made of ______ bricks.",
+      "answer": "baked"
+    },
+    {
+      "question": "Which feature is the Indus Valley Civilization especially famous for?",
+      "options": [
+        "Drainage System",
+        "Castles",
+        "Skyscrapers",
+        "Canals"
+      ],
+      "answer": "Drainage System"
+    },
+    {
+      "question": "What was the Great Bath used for?",
+      "answer": "It was probably used for religious ceremonies and bathing."
+    },
+    {
+      "question": "The Indus Valley Civilization had an advanced drainage system.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the object.",
+      "image": "images/indus_seal.png",
+      "answer": "Indus Seal"
+    },
+    {
+      "question": "Which image shows Harappa?",
+      "images": [
+        "images/harappa.png",
+        "images/mohenjo_daro.png",
+        "images/great_bath.png"
+      ],
+      "options": [
+        "Harappa",
+        "Mohenjo-daro",
+        "Great Bath"
+      ],
+      "answer": "Harappa"
+    },
+    {
+      "question": "Explain why the Indus Valley Civilization is called an urban civilization.",
+      "answer": "Because it had well-planned cities with roads, drainage systems, public buildings, and organized settlements."
+    },
+    {
+      "question": "Fill in the blank: The script of the Indus Valley Civilization has not yet been ______.",
+      "answer": "deciphered"
+    },
+    {
+      "question": "Most houses in the Indus Valley Civilization had access to drainage facilities.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following was an important public building in Mohenjo-daro?",
+      "options": [
+        "Great Bath",
+        "Parliament",
+        "Temple",
+        "Palace"
+      ],
+      "answer": "Great Bath"
+    },
+    {
+      "question": "Why was the Indus River important to the civilization?",
+      "answer": "It provided water, fertile land for farming, and supported trade and transportation."
+    },
+    {
+      "question": "Explain three important features of the Indus Valley Civilization.",
+      "answer": "The civilization had planned cities, advanced drainage systems, standardized bricks, and important cities such as Harappa and Mohenjo-daro."
+    }
+  ]
+}

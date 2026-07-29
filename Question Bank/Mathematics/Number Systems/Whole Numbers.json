@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What are whole numbers?",
+      "answer": "Whole numbers are the numbers 0, 1, 2, 3, and so on."
+    },
+    {
+      "question": "Zero is a whole number.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is NOT a whole number?",
+      "options": [
+        "0",
+        "12",
+        "-3",
+        "45"
+      ],
+      "answer": "-3"
+    },
+    {
+      "question": "Fill in the blank: The smallest whole number is ______.",
+      "answer": "0"
+    },
+    {
+      "question": "What comes after the whole number 99?",
+      "answer": "100"
+    },
+    {
+      "question": "Observe the image and identify the number shown.",
+      "image": "images/number_line_25.png",
+      "answer": "25"
+    },
+    {
+      "question": "Which image represents the number 50?",
+      "images": [
+        "images/number_50.png",
+        "images/number_15.png",
+        "images/number_75.png"
+      ],
+      "options": [
+        "50",
+        "15",
+        "75"
+      ],
+      "answer": "50"
+    },
+    {
+      "question": "Whole numbers do not include negative numbers.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The number before 20 is ______.",
+      "answer": "19"
+    },
+    {
+      "question": "Which is the greatest whole number?",
+      "options": [
+        "999",
+        "1000",
+        "100",
+        "99"
+      ],
+      "answer": "1000"
+    },
+    {
+      "question": "What is place value?",
+      "answer": "The value of a digit based on its position in a number."
+    },
+    {
+      "question": "Every natural number is also a whole number.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the highlighted digit.",
+      "image": "images/place_value_chart.png",
+      "answer": "The highlighted digit according to the chart."
+    },
+    {
+      "question": "Which image shows a number line?",
+      "images": [
+        "images/number_line.png",
+        "images/clock.png",
+        "images/bar_graph.png"
+      ],
+      "options": [
+        "Number Line",
+        "Clock",
+        "Bar Graph"
+      ],
+      "answer": "Number Line"
+    },
+    {
+      "question": "Explain the difference between whole numbers and natural numbers.",
+      "answer": "Whole numbers include 0, while natural numbers usually begin with 1."
+    },
+    {
+      "question": "Fill in the blank: The successor of 49 is ______.",
+      "answer": "50"
+    },
+    {
+      "question": "Zero has no predecessor among whole numbers.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which number has the digit 6 in the hundreds place?",
+      "options": [
+        "642",
+        "264",
+        "426",
+        "246"
+      ],
+      "answer": "642"
+    },
+    {
+      "question": "Why is place value important?",
+      "answer": "It helps us read, write, compare, and perform calculations with numbers correctly."
+    },
+    {
+      "question": "Explain how a number line helps in understanding whole numbers.",
+      "answer": "A number line shows the order, position, and relative size of whole numbers."
+    }
+  ]
+}

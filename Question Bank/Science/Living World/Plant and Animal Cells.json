@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a cell?",
+      "answer": "A cell is the basic structural and functional unit of life."
+    },
+    {
+      "question": "Both plant and animal cells have a nucleus.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which structure is found only in plant cells?",
+      "options": [
+        "Cell Wall",
+        "Nucleus",
+        "Cell Membrane",
+        "Cytoplasm"
+      ],
+      "answer": "Cell Wall"
+    },
+    {
+      "question": "Fill in the blank: Plant cells contain ______ for photosynthesis.",
+      "answer": "chloroplasts"
+    },
+    {
+      "question": "What is the function of the cell membrane?",
+      "answer": "It controls the movement of substances into and out of the cell."
+    },
+    {
+      "question": "Observe the image and identify the cell.",
+      "image": "images/plant_cell.png",
+      "answer": "Plant Cell"
+    },
+    {
+      "question": "Which image represents an animal cell?",
+      "images": [
+        "images/animal_cell.png",
+        "images/plant_cell.png",
+        "images/bacterial_cell.png"
+      ],
+      "options": [
+        "Animal Cell",
+        "Plant Cell",
+        "Bacterial Cell"
+      ],
+      "answer": "Animal Cell"
+    },
+    {
+      "question": "Animal cells do not have chloroplasts.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The ______ controls the activities of the cell.",
+      "answer": "nucleus"
+    },
+    {
+      "question": "Which organelle is known as the powerhouse of the cell?",
+      "options": [
+        "Mitochondria",
+        "Nucleus",
+        "Ribosome",
+        "Vacuole"
+      ],
+      "answer": "Mitochondria"
+    },
+    {
+      "question": "What is the function of chloroplasts?",
+      "answer": "They carry out photosynthesis to make food for the plant."
+    },
+    {
+      "question": "Plant cells have a large central vacuole.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the highlighted organelle.",
+      "image": "images/chloroplast.png",
+      "answer": "Chloroplast"
+    },
+    {
+      "question": "Which image shows the cell wall?",
+      "images": [
+        "images/cell_wall.png",
+        "images/cell_membrane.png",
+        "images/nucleus.png"
+      ],
+      "options": [
+        "Cell Wall",
+        "Cell Membrane",
+        "Nucleus"
+      ],
+      "answer": "Cell Wall"
+    },
+    {
+      "question": "Explain one difference between plant and animal cells.",
+      "answer": "Plant cells have a cell wall and chloroplasts, while animal cells do not."
+    },
+    {
+      "question": "Fill in the blank: The jelly-like material inside the cell is called the ______.",
+      "answer": "cytoplasm"
+    },
+    {
+      "question": "Both plant and animal cells contain mitochondria.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which organelle contains the genetic material of the cell?",
+      "options": [
+        "Nucleus",
+        "Cell Wall",
+        "Chloroplast",
+        "Vacuole"
+      ],
+      "answer": "Nucleus"
+    },
+    {
+      "question": "Why do plant cells need chloroplasts?",
+      "answer": "They use chloroplasts to make food through photosynthesis."
+    },
+    {
+      "question": "Explain the similarities between plant and animal cells.",
+      "answer": "Both have a cell membrane, cytoplasm, nucleus, mitochondria, and other organelles needed for life."
+    }
+  ]
+}

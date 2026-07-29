@@ -1,0 +1,13 @@
+# constants.py
+
+SUCCESS = "SUCCESS"
+FAILED = "FAILED"
+
+DEFAULT_GENERATED_BY = "SYSTEM"
+
+QUESTION_BANK_ROOT = "QuestionBank"
+
+OLLAMA_CLASSIFICATION_PROMPT = "classify_prompt.txt"
+OLLAMA_GENERATION_PROMPT = "generate_prompt.txt"
+
+MAX_GENERATION_RETRIES = 3

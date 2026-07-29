@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What are the three common states of matter?",
+      "answer": "Solid, liquid, and gas."
+    },
+    {
+      "question": "A solid has a fixed shape and fixed volume.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which state of matter takes the shape of its container but has a fixed volume?",
+      "options": [
+        "Solid",
+        "Liquid",
+        "Gas",
+        "Plasma"
+      ],
+      "answer": "Liquid"
+    },
+    {
+      "question": "Fill in the blank: Gases have neither fixed shape nor fixed ______.",
+      "answer": "volume"
+    },
+    {
+      "question": "What is matter?",
+      "answer": "Matter is anything that has mass and occupies space."
+    },
+    {
+      "question": "Observe the image and identify the state of matter shown.",
+      "image": "images/solid_particles.png",
+      "answer": "Solid"
+    },
+    {
+      "question": "Which image represents a gas?",
+      "images": [
+        "images/gas_particles.png",
+        "images/liquid_particles.png",
+        "images/solid_particles.png"
+      ],
+      "options": [
+        "Gas",
+        "Liquid",
+        "Solid"
+      ],
+      "answer": "Gas"
+    },
+    {
+      "question": "Liquids can flow from one container to another.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: Particles in a solid are packed ______ together.",
+      "answer": "closely"
+    },
+    {
+      "question": "Which state of matter has particles that move freely in all directions?",
+      "options": [
+        "Solid",
+        "Liquid",
+        "Gas",
+        "Ice"
+      ],
+      "answer": "Gas"
+    },
+    {
+      "question": "What happens during melting?",
+      "answer": "A solid changes into a liquid."
+    },
+    {
+      "question": "Evaporation changes a liquid into a gas.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the process shown.",
+      "image": "images/melting_ice.png",
+      "answer": "Melting"
+    },
+    {
+      "question": "Which image shows condensation?",
+      "images": [
+        "images/condensation.png",
+        "images/evaporation.png",
+        "images/freezing.png"
+      ],
+      "options": [
+        "Condensation",
+        "Evaporation",
+        "Freezing"
+      ],
+      "answer": "Condensation"
+    },
+    {
+      "question": "Explain one difference between solids and liquids.",
+      "answer": "Solids have a fixed shape, while liquids take the shape of their container."
+    },
+    {
+      "question": "Fill in the blank: Freezing changes a ______ into a solid.",
+      "answer": "liquid"
+    },
+    {
+      "question": "Water can exist as a solid, liquid, and gas.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which process changes a gas into a liquid?",
+      "options": [
+        "Evaporation",
+        "Melting",
+        "Condensation",
+        "Freezing"
+      ],
+      "answer": "Condensation"
+    },
+    {
+      "question": "Why do gases spread out to fill a container?",
+      "answer": "Because their particles move freely and are far apart."
+    },
+    {
+      "question": "Explain how particle arrangement differs in solids, liquids, and gases.",
+      "answer": "In solids, particles are tightly packed. In liquids, particles are close but can move past one another. In gases, particles are far apart and move freely."
+    }
+  ]
+}

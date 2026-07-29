@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a triangle?",
+      "answer": "A triangle is a polygon with three sides and three angles."
+    },
+    {
+      "question": "The sum of the interior angles of a triangle is 180°.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which triangle has all three sides equal?",
+      "options": [
+        "Scalene Triangle",
+        "Equilateral Triangle",
+        "Isosceles Triangle",
+        "Right Triangle"
+      ],
+      "answer": "Equilateral Triangle"
+    },
+    {
+      "question": "Fill in the blank: A triangle with exactly two equal sides is called an ______ triangle.",
+      "answer": "isosceles"
+    },
+    {
+      "question": "What is a scalene triangle?",
+      "answer": "A triangle with all three sides of different lengths."
+    },
+    {
+      "question": "Observe the image and identify the type of triangle.",
+      "image": "images/equilateral_triangle.png",
+      "answer": "Equilateral Triangle"
+    },
+    {
+      "question": "Which image represents a right triangle?",
+      "images": [
+        "images/right_triangle.png",
+        "images/equilateral_triangle.png",
+        "images/scalene_triangle.png"
+      ],
+      "options": [
+        "Right Triangle",
+        "Equilateral Triangle",
+        "Scalene Triangle"
+      ],
+      "answer": "Right Triangle"
+    },
+    {
+      "question": "An equilateral triangle has three equal angles.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: A triangle with one angle greater than 90° is called an ______ triangle.",
+      "answer": "obtuse"
+    },
+    {
+      "question": "Which triangle has one angle measuring exactly 90°?",
+      "options": [
+        "Acute Triangle",
+        "Obtuse Triangle",
+        "Right Triangle",
+        "Equilateral Triangle"
+      ],
+      "answer": "Right Triangle"
+    },
+    {
+      "question": "What is an acute triangle?",
+      "answer": "A triangle in which all three angles are less than 90 degrees."
+    },
+    {
+      "question": "Every equilateral triangle is also an isosceles triangle.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the triangle.",
+      "image": "images/isosceles_triangle.png",
+      "answer": "Isosceles Triangle"
+    },
+    {
+      "question": "Which image shows a scalene triangle?",
+      "images": [
+        "images/scalene_triangle.png",
+        "images/equilateral_triangle.png",
+        "images/isosceles_triangle.png"
+      ],
+      "options": [
+        "Scalene",
+        "Equilateral",
+        "Isosceles"
+      ],
+      "answer": "Scalene"
+    },
+    {
+      "question": "Explain the difference between an equilateral triangle and an isosceles triangle.",
+      "answer": "An equilateral triangle has three equal sides, while an isosceles triangle has exactly two equal sides."
+    },
+    {
+      "question": "Fill in the blank: A triangle has ______ sides.",
+      "answer": "three"
+    },
+    {
+      "question": "A right triangle always has one right angle.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which triangle has all angles less than 90°?",
+      "options": [
+        "Right Triangle",
+        "Obtuse Triangle",
+        "Acute Triangle",
+        "Scalene Triangle"
+      ],
+      "answer": "Acute Triangle"
+    },
+    {
+      "question": "Why is the sum of the interior angles of a triangle always 180°?",
+      "answer": "Because of the geometric properties of triangles in Euclidean geometry."
+    },
+    {
+      "question": "Explain the different ways triangles are classified.",
+      "answer": "Triangles are classified based on their sides (equilateral, isosceles, scalene) and their angles (acute, right, obtuse)."
+    }
+  ]
+}

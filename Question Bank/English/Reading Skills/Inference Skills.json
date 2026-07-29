@@ -1,0 +1,144 @@
+{
+  "questions": [
+    {
+      "question": "What is an inference?",
+      "answer": "An inference is a conclusion drawn using clues from the text and prior knowledge."
+    },
+    {
+      "question": "Inference involves reading between the lines.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following best describes an inference?",
+      "options": [
+        "A direct fact from the passage",
+        "A conclusion based on evidence",
+        "A random guess",
+        "A summary of the passage"
+      ],
+      "answer": "A conclusion based on evidence"
+    },
+    {
+      "question": "Fill in the blank: Good readers use ______ from the text to make inferences.",
+      "answer": "clues"
+    },
+    {
+      "question": "Why is inference an important reading skill?",
+      "answer": "It helps readers understand ideas that are implied rather than directly stated."
+    },
+    {
+      "question": "The sentence 'The ground was wet and people carried umbrellas' suggests that it had rained.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image. What can you infer?",
+      "image": "images/rainy_street.png",
+      "answer": "It has recently rained."
+    },
+    {
+      "question": "Which image suggests that someone is studying?",
+      "images": [
+        "images/student_reading.png",
+        "images/football_match.png",
+        "images/cooking.png"
+      ],
+      "options": [
+        "Student Reading",
+        "Football Match",
+        "Cooking"
+      ],
+      "answer": "Student Reading"
+    },
+    {
+      "question": "Inference is based only on imagination.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False"
+    },
+    {
+      "question": "Fill in the blank: Inference combines text evidence with prior ______.",
+      "answer": "knowledge"
+    },
+    {
+      "question": "Which statement is an inference?",
+      "options": [
+        "The boy is holding an umbrella.",
+        "It is probably raining.",
+        "The umbrella is blue.",
+        "The passage has five sentences."
+      ],
+      "answer": "It is probably raining."
+    },
+    {
+      "question": "Explain how readers make inferences.",
+      "answer": "Readers combine clues from the text with what they already know to reach logical conclusions."
+    },
+    {
+      "question": "A reader should always support an inference with evidence.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the images. Which one suggests winter?",
+      "images": [
+        "images/snowman.png",
+        "images/beach.png",
+        "images/desert.png"
+      ],
+      "options": [
+        "Snowman",
+        "Beach",
+        "Desert"
+      ],
+      "answer": "Snowman"
+    },
+    {
+      "question": "Why is making inferences useful while reading?",
+      "answer": "It improves understanding by helping readers identify ideas that are implied."
+    },
+    {
+      "question": "Fill in the blank: An inference should be supported by ______.",
+      "answer": "evidence"
+    },
+    {
+      "question": "Inference is the same as guessing without evidence.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False"
+    },
+    {
+      "question": "Which skill is most closely related to inference?",
+      "options": [
+        "Reasoning",
+        "Typing",
+        "Drawing",
+        "Counting"
+      ],
+      "answer": "Reasoning"
+    },
+    {
+      "question": "Observe the image and infer what the person might be doing.",
+      "image": "images/library_student.png",
+      "answer": "The person is studying or reading."
+    },
+    {
+      "question": "Explain the difference between a fact and an inference.",
+      "answer": "A fact is directly stated or proven, while an inference is a conclusion based on evidence."
+    }
+  ]
+}

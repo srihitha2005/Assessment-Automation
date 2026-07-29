@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a variable?",
+      "answer": "A variable is a symbol that represents an unknown or changing value."
+    },
+    {
+      "question": "An algebraic expression contains numbers, variables, and operations.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is an algebraic expression?",
+      "options": [
+        "3x + 5",
+        "4 = 9",
+        "10 > 7",
+        "Yes"
+      ],
+      "answer": "3x + 5"
+    },
+    {
+      "question": "Fill in the blank: In the expression 5x + 2, x is called the ______.",
+      "answer": "variable"
+    },
+    {
+      "question": "What is the coefficient of x in the expression 7x + 4?",
+      "answer": "7"
+    },
+    {
+      "question": "Observe the image and identify the algebraic expression.",
+      "image": "images/algebra_expression.png",
+      "answer": "Algebraic Expression"
+    },
+    {
+      "question": "Which image contains an algebraic expression?",
+      "images": [
+        "images/algebra_expression.png",
+        "images/arithmetic_problem.png",
+        "images/number_chart.png"
+      ],
+      "options": [
+        "Algebraic Expression",
+        "Arithmetic Problem",
+        "Number Chart"
+      ],
+      "answer": "Algebraic Expression"
+    },
+    {
+      "question": "Variables are usually represented using letters.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The number multiplied by a variable is called the ______.",
+      "answer": "coefficient"
+    },
+    {
+      "question": "Which of the following is a variable?",
+      "options": [
+        "x",
+        "5",
+        "+",
+        "="
+      ],
+      "answer": "x"
+    },
+    {
+      "question": "What is a constant in an algebraic expression?",
+      "answer": "A fixed value that does not change."
+    },
+    {
+      "question": "The expression 4a + 6 has one variable.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the variable.",
+      "image": "images/variable_highlight.png",
+      "answer": "Variable"
+    },
+    {
+      "question": "Which image highlights the coefficient?",
+      "images": [
+        "images/coefficient_highlight.png",
+        "images/constant_highlight.png",
+        "images/operator_highlight.png"
+      ],
+      "options": [
+        "Coefficient",
+        "Constant",
+        "Operator"
+      ],
+      "answer": "Coefficient"
+    },
+    {
+      "question": "Explain the difference between a variable and a constant.",
+      "answer": "A variable can change its value, while a constant always remains the same."
+    },
+    {
+      "question": "Fill in the blank: The expression 8 + y has one ______ and one constant.",
+      "answer": "variable"
+    },
+    {
+      "question": "An equation and an expression are the same.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False"
+    },
+    {
+      "question": "Which expression has two variables?",
+      "options": [
+        "x + y",
+        "3x + 5",
+        "7 + 2",
+        "15"
+      ],
+      "answer": "x + y"
+    },
+    {
+      "question": "Why are variables used in mathematics?",
+      "answer": "They represent unknown or changing quantities and help solve mathematical problems."
+    },
+    {
+      "question": "Explain the parts of the expression 6x + 4.",
+      "answer": "6 is the coefficient, x is the variable, + is the operator, and 4 is the constant."
+    }
+  ]
+}

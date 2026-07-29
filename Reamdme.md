@@ -1,0 +1,435 @@
+# Assessment Automation System Design Document
+
+## 1. Overview
+
+### Objective
+Develop an AI-powered assessment generation system that automatically creates balanced assessments from curriculum planners using a curated question bank and Ollama.
+
+### Tech Stack
+
+### Frontend
+- React.js
+- Material UI
+- Axios
+
+### Backend
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- Ollama
+- Google Sheets API
+- python-docx
+
+---
+
+# 2. System Architecture
+
+```
+React Frontend
+        │
+        ▼
+ FastAPI Backend
+        │
+ ┌──────┼────────┐
+ │      │        │
+ ▼      ▼        ▼
+Google  Ollama  PostgreSQL
+Sheets           Database
+        │
+        ▼
+ Question Bank JSON
+```
+
+---
+
+# 3. Frontend
+
+## Pages
+
+### Dashboard
+- Total Assessments
+- Total Planners
+- Recent Assessments
+
+### Curriculum Management
+- View Curriculum
+- Add/Edit Curriculum
+
+### Planner Management
+- View Planner
+- Upload Planner
+- Learning Outcomes
+
+### Generate Assessment
+- Select Planner
+- Generate Assessment
+- Preview Assessment
+
+### Assessment History
+- Previous Assessments
+- Download DOCX/PDF
+
+### Question Bank
+- View Questions
+- Generated Questions
+- Images
+
+---
+
+# 4. Backend Structure
+
+```
+backend/
+
+controller/
+    assessment_controller.py
+
+service/
+    assessment_service.py
+
+repository/
+    assessment_repository.py
+    assessment_question_repository.py
+
+entity/
+    assessment.py
+    assessment_question.py
+
+data/
+    google_sheets.py
+
+prompts/
+    classify_prompt.txt
+    generate_prompt.txt
+
+config.py
+constants.py
+database.py
+main.py
+```
+
+---
+
+# 5. Database
+
+## assessment
+
+- assessment_id
+- planner_id
+- assessment_number
+- version
+- total_marks
+- generated_by
+- generated_on
+- updated_by
+- updated_on
+
+## assessment_question
+
+- question_id
+- assessment_id
+- question_number
+- question
+- answer
+- question_type
+- difficulty
+- bloom_level
+- learning_outcome
+- marks
+- image
+- images
+
+Relationship
+
+```
+Assessment
+    │
+    │ 1
+    ▼
+AssessmentQuestion
+```
+
+---
+
+# 6. Google Sheets
+
+## Planner Sheet
+
+Contains
+
+- Planner ID
+- Curriculum ID
+- Planner Name
+- Learning Outcomes
+- Version
+
+## Curriculum Sheet
+
+Contains
+
+- Curriculum ID
+- Grade
+- Course
+- Unit
+- Chapter
+
+---
+
+# 7. Question Bank
+
+```
+QuestionBank/
+
+Science/
+    Human Body/
+        Digestive System.json
+
+Mathematics/
+    Algebra/
+        Linear Equations.json
+
+images/
+```
+
+Question Format
+
+```json
+{
+  "questions": [
+    {
+      "question": "...",
+      "options": [],
+      "answer": "...",
+      "image": "...",
+      "images": []
+    }
+  ]
+}
+```
+
+---
+
+# 8. Assessment Generation Workflow
+
+```
+Planner ID
+      │
+      ▼
+Read Planner Sheet
+      │
+      ▼
+Read Curriculum Sheet
+      │
+      ▼
+Load Question Bank
+      │
+      ▼
+Remove Questions Used in Previous
+Assessment for Same Planner
+      │
+      ▼
+Classify Questions (Ollama)
+      │
+      ▼
+Assessment Planning
+      │
+      ▼
+Question Selection Engine
+      │
+      ▼
+Enough Questions?
+      │
+ ┌────┴─────┐
+ │          │
+Yes         No
+ │          │
+ │          ▼
+ │   Generate Missing Questions
+ │          │
+ │          ▼
+ │   Save Generated Questions
+ │   into Question Bank
+ └────┬─────┘
+      │
+      ▼
+Final Validation
+      │
+      ▼
+Store Assessment
+      │
+      ▼
+Store Assessment Questions
+      │
+      ▼
+Return SUCCESS
+```
+
+---
+
+# 9. Question Classification
+
+Ollama classifies every question.
+
+Returns
+
+- Difficulty
+- Bloom Level
+- Question Type
+- Learning Outcome Match
+- Grade Suitability
+- Suggested Marks
+
+---
+
+# 10. Assessment Planning
+
+Creates an assessment blueprint.
+
+Example
+
+- Total Questions
+- Total Marks
+- Easy / Medium / Hard Ratio
+- Bloom Distribution
+- Question Type Distribution
+
+---
+
+# 11. Question Selection Engine
+
+Scores every question using
+
+- Learning Outcome Match
+- Difficulty Match
+- Bloom Match
+- Grade Suitability
+- Question Type
+
+Highest scoring questions are selected first.
+
+---
+
+# 12. Missing Question Generation
+
+If blueprint requirements cannot be satisfied
+
+↓
+
+Generate only missing questions.
+
+Examples
+
+- Missing Hard Question
+- Missing Bloom Level
+- Missing Learning Outcome
+- Missing Question Type
+
+Generated questions are
+
+```
+Generated
+    │
+    ▼
+Classified
+    │
+    ▼
+Saved into Question Bank
+    │
+    ▼
+Added to Assessment
+```
+
+---
+
+# 13. Validation
+
+Checks
+
+- Total Questions
+- Total Marks
+- Difficulty Ratio
+- Bloom Coverage
+- Learning Outcome Coverage
+- Grade Suitability
+- Duplicate Questions
+
+---
+
+# 14. API
+
+## Generate Assessment
+
+```
+POST /assessment/generate
+```
+
+Request
+
+```json
+{
+    "plannerId": 10
+}
+```
+
+Response
+
+```json
+{
+    "status": "SUCCESS"
+}
+```
+
+---
+
+# 15. Configuration
+
+config.py
+
+Contains
+
+- PostgreSQL URL
+- Google Sheet IDs
+- Google Credentials
+- Ollama URL
+- Ollama Model
+- Question Bank Path
+
+---
+
+# 16. Constants
+
+Contains
+
+- SUCCESS
+- FAILED
+- Prompt Names
+- Default Generated By
+- Retry Count
+
+---
+
+# 17. Future Enhancements
+
+- Teacher Dashboard
+- Assessment Versioning
+- Question Approval Workflow
+- Analytics Dashboard
+- Multi-language Support
+- Semantic Search
+- Vector Database
+- Difficulty Learning
+- Student Performance Analytics
+
+---
+
+# 18. Key Design Decisions
+
+- Google Sheets act as the source of truth for Planner and Curriculum.
+- PostgreSQL stores generated assessments.
+- Question Bank is the primary source of questions.
+- Ollama first classifies existing questions.
+- Missing questions are generated only when required.
+- Generated questions are permanently added to the Question Bank.
+- Previous assessment questions are excluded for the same planner to reduce repetition.
+- Assessment planning is deterministic and handled in Python.
+- Ollama is responsible only for classification and fallback generation.

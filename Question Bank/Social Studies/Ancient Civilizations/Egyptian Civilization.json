@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "Where did the Egyptian civilization develop?",
+      "answer": "Along the Nile River in northeastern Africa."
+    },
+    {
+      "question": "The Nile River was important to the Egyptian civilization.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Who was the ruler of ancient Egypt?",
+      "options": [
+        "King",
+        "Emperor",
+        "Pharaoh",
+        "Chief"
+      ],
+      "answer": "Pharaoh"
+    },
+    {
+      "question": "Fill in the blank: The Egyptians built large ______ as tombs for their pharaohs.",
+      "answer": "pyramids"
+    },
+    {
+      "question": "What was the main river of ancient Egypt?",
+      "answer": "The Nile River."
+    },
+    {
+      "question": "Observe the image and identify the monument.",
+      "image": "images/pyramids_giza.png",
+      "answer": "Pyramids"
+    },
+    {
+      "question": "Which image shows an Egyptian pharaoh?",
+      "images": [
+        "images/pharaoh.png",
+        "images/farmer.png",
+        "images/priest.png"
+      ],
+      "options": [
+        "Pharaoh",
+        "Farmer",
+        "Priest"
+      ],
+      "answer": "Pharaoh"
+    },
+    {
+      "question": "The Nile River provided fertile land for farming.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: Egyptians wrote using ______.",
+      "answer": "hieroglyphics"
+    },
+    {
+      "question": "What material did the Egyptians use to make paper?",
+      "options": [
+        "Bamboo",
+        "Papyrus",
+        "Cotton",
+        "Leather"
+      ],
+      "answer": "Papyrus"
+    },
+    {
+      "question": "What was the purpose of the pyramids?",
+      "answer": "They were built as tombs for pharaohs."
+    },
+    {
+      "question": "Ancient Egyptians believed in life after death.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the writing system.",
+      "image": "images/hieroglyphics.png",
+      "answer": "Hieroglyphics"
+    },
+    {
+      "question": "Which image shows the Nile River?",
+      "images": [
+        "images/nile_river.png",
+        "images/desert.png",
+        "images/mountain.png"
+      ],
+      "options": [
+        "Nile River",
+        "Desert",
+        "Mountain"
+      ],
+      "answer": "Nile River"
+    },
+    {
+      "question": "Explain why the Nile River was called the 'Gift of Egypt.'",
+      "answer": "Because it provided water, fertile soil, transportation, and supported agriculture."
+    },
+    {
+      "question": "Fill in the blank: The preserved dead bodies of ancient Egyptians are called ______.",
+      "answer": "mummies"
+    },
+    {
+      "question": "Mummification helped preserve bodies after death.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which structure is one of the Seven Wonders of the Ancient World?",
+      "options": [
+        "Great Pyramid of Giza",
+        "Colosseum",
+        "Great Wall of China",
+        "Stonehenge"
+      ],
+      "answer": "Great Pyramid of Giza"
+    },
+    {
+      "question": "Why did the Egyptians develop irrigation systems?",
+      "answer": "To use the Nile River's water for farming."
+    },
+    {
+      "question": "Explain three important achievements of the Egyptian civilization.",
+      "answer": "The Egyptians built pyramids, developed hieroglyphic writing, and made advances in agriculture, medicine, and architecture."
+    }
+  ]
+}

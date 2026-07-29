@@ -1,0 +1,144 @@
+{
+  "questions": [
+    {
+      "question": "What is the purpose of reading comprehension?",
+      "answer": "To understand, interpret, and analyze written text."
+    },
+    {
+      "question": "Reading comprehension involves understanding the meaning of a passage.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which strategy helps improve reading comprehension?",
+      "options": [
+        "Skimming",
+        "Guessing randomly",
+        "Ignoring headings",
+        "Reading only the last sentence"
+      ],
+      "answer": "Skimming"
+    },
+    {
+      "question": "Fill in the blank: The ______ idea is the central point of a passage.",
+      "answer": "main"
+    },
+    {
+      "question": "What is the main idea of a passage?",
+      "answer": "The central message or most important point."
+    },
+    {
+      "question": "Details in a passage support the main idea.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify what the student is doing.",
+      "image": "images/student_reading_book.png",
+      "answer": "Reading"
+    },
+    {
+      "question": "Which image best represents reading comprehension?",
+      "images": [
+        "images/student_reading_book.png",
+        "images/football_match.png",
+        "images/cooking.png"
+      ],
+      "options": [
+        "Reading",
+        "Football",
+        "Cooking"
+      ],
+      "answer": "Reading"
+    },
+    {
+      "question": "A summary includes every detail from the passage.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False"
+    },
+    {
+      "question": "Fill in the blank: Supporting ______ help explain the main idea.",
+      "answer": "details"
+    },
+    {
+      "question": "Which question helps identify the main idea?",
+      "options": [
+        "What is the passage mostly about?",
+        "Who published the book?",
+        "How many pages are there?",
+        "What color is the cover?"
+      ],
+      "answer": "What is the passage mostly about?"
+    },
+    {
+      "question": "Why should readers identify supporting details?",
+      "answer": "They help explain and strengthen the main idea."
+    },
+    {
+      "question": "Reading comprehension includes making predictions while reading.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the images. Which one shows someone reading?",
+      "images": [
+        "images/student_reading_book.png",
+        "images/basketball_game.png",
+        "images/chef_cooking.png"
+      ],
+      "options": [
+        "Reading",
+        "Basketball",
+        "Cooking"
+      ],
+      "answer": "Reading"
+    },
+    {
+      "question": "Why is identifying the main idea important?",
+      "answer": "It helps readers understand the overall message of the passage."
+    },
+    {
+      "question": "Fill in the blank: Good readers ask ______ while reading.",
+      "answer": "questions"
+    },
+    {
+      "question": "Reading comprehension only involves reading words correctly.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False"
+    },
+    {
+      "question": "Which skill helps readers understand unfamiliar words?",
+      "options": [
+        "Using context clues",
+        "Ignoring the word",
+        "Skipping the sentence",
+        "Memorizing page numbers"
+      ],
+      "answer": "Using context clues"
+    },
+    {
+      "question": "Observe the image and explain what activity is taking place.",
+      "image": "images/classroom_reading.png",
+      "answer": "Students are reading or participating in a reading activity."
+    },
+    {
+      "question": "Explain why reading comprehension is important.",
+      "answer": "It enables readers to understand, analyze, remember, and apply information from written texts."
+    }
+  ]
+}

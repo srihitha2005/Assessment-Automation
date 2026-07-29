@@ -1,0 +1,158 @@
+{
+  "questions": [
+    {
+      "question": "What is a flowchart?",
+      "answer": "A graphical representation of an algorithm or process."
+    },
+    {
+      "question": "Flowcharts help in understanding the logic of a program.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which flowchart symbol represents the start or end of a process?",
+      "options": [
+        "Rectangle",
+        "Diamond",
+        "Oval",
+        "Parallelogram"
+      ],
+      "answer": "Oval"
+    },
+    {
+      "question": "Fill in the blank: A ______ symbol is used to represent a process in a flowchart.",
+      "answer": "Rectangle"
+    },
+    {
+      "question": "Which symbol is used to represent a decision in a flowchart?",
+      "options": [
+        "Rectangle",
+        "Diamond",
+        "Oval",
+        "Arrow"
+      ],
+      "answer": "Diamond"
+    },
+    {
+      "question": "What does the parallelogram symbol represent in a flowchart?",
+      "answer": "Input or Output."
+    },
+    {
+      "question": "Observe the image and identify the flowchart symbol.",
+      "image": "images/process_symbol.png",
+      "options": [
+        "Process",
+        "Decision",
+        "Input/Output",
+        "Connector"
+      ],
+      "answer": "Process"
+    },
+    {
+      "question": "Which image represents a decision symbol?",
+      "images": [
+        "images/process_symbol.png",
+        "images/decision_symbol.png",
+        "images/start_end_symbol.png"
+      ],
+      "options": [
+        "Process",
+        "Decision",
+        "Start/End"
+      ],
+      "answer": "Decision"
+    },
+    {
+      "question": "Flowcharts are language independent.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: Flowcharts use ______ to show the direction of control flow.",
+      "answer": "arrows"
+    },
+    {
+      "question": "Which symbol represents a process?",
+      "options": [
+        "Rectangle",
+        "Diamond",
+        "Oval",
+        "Circle"
+      ],
+      "answer": "Rectangle"
+    },
+    {
+      "question": "What is the purpose of arrows in a flowchart?",
+      "answer": "They indicate the direction of execution."
+    },
+    {
+      "question": "A flowchart can contain multiple decision symbols.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is NOT a standard flowchart symbol?",
+      "options": [
+        "Rectangle",
+        "Diamond",
+        "Triangle",
+        "Parallelogram"
+      ],
+      "answer": "Triangle"
+    },
+    {
+      "question": "Observe the image. Which flowchart symbol is shown?",
+      "image": "images/input_output_symbol.png",
+      "options": [
+        "Input/Output",
+        "Decision",
+        "Process",
+        "Connector"
+      ],
+      "answer": "Input/Output"
+    },
+    {
+      "question": "Fill in the blank: Every flowchart should begin with a ______ symbol.",
+      "answer": "Start"
+    },
+    {
+      "question": "What is the main advantage of using flowcharts?",
+      "answer": "They make the logic of a process easy to understand and communicate."
+    },
+    {
+      "question": "Observe the images and identify which one represents the Start/End symbol.",
+      "images": [
+        "images/start_end_symbol.png",
+        "images/process_symbol.png",
+        "images/decision_symbol.png"
+      ],
+      "options": [
+        "Start/End",
+        "Process",
+        "Decision"
+      ],
+      "answer": "Start/End"
+    },
+    {
+      "question": "Flowcharts can be used before writing program code.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Explain why flowcharts are useful during software development.",
+      "answer": "Flowcharts help visualize program logic, simplify problem-solving, improve communication, and make debugging and maintenance easier."
+    }
+  ]
+}

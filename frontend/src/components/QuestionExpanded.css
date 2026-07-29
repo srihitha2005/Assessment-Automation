@@ -1,0 +1,10 @@
+.question-expanded{
+
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    margin-top:24px;
+    padding-top:24px;
+    border-top:1px solid #E2E8F0;
+
+}

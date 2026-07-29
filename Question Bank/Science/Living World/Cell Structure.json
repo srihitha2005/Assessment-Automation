@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a cell?",
+      "answer": "A cell is the basic structural and functional unit of life."
+    },
+    {
+      "question": "Cells are the building blocks of all living organisms.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which part of the cell controls all its activities?",
+      "options": [
+        "Cell Membrane",
+        "Nucleus",
+        "Cytoplasm",
+        "Vacuole"
+      ],
+      "answer": "Nucleus"
+    },
+    {
+      "question": "Fill in the blank: The jelly-like substance inside the cell is called the ______.",
+      "answer": "cytoplasm"
+    },
+    {
+      "question": "What is the function of the cell membrane?",
+      "answer": "It controls the movement of substances into and out of the cell."
+    },
+    {
+      "question": "Observe the image and identify the cell shown.",
+      "image": "images/animal_cell.png",
+      "answer": "Animal Cell"
+    },
+    {
+      "question": "Which image represents a plant cell?",
+      "images": [
+        "images/plant_cell.png",
+        "images/animal_cell.png",
+        "images/bacterial_cell.png"
+      ],
+      "options": [
+        "Plant Cell",
+        "Animal Cell",
+        "Bacterial Cell"
+      ],
+      "answer": "Plant Cell"
+    },
+    {
+      "question": "Plant cells have a cell wall.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: ______ are the green organelles where photosynthesis takes place.",
+      "answer": "Chloroplasts"
+    },
+    {
+      "question": "Which organelle produces energy for the cell?",
+      "options": [
+        "Mitochondria",
+        "Nucleus",
+        "Ribosome",
+        "Cell Wall"
+      ],
+      "answer": "Mitochondria"
+    },
+    {
+      "question": "What is the function of the nucleus?",
+      "answer": "It controls the activities of the cell and contains genetic material."
+    },
+    {
+      "question": "Animal cells do not have cell walls.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the highlighted organelle.",
+      "image": "images/nucleus.png",
+      "answer": "Nucleus"
+    },
+    {
+      "question": "Which image shows chloroplasts?",
+      "images": [
+        "images/chloroplast.png",
+        "images/mitochondria.png",
+        "images/vacuole.png"
+      ],
+      "options": [
+        "Chloroplast",
+        "Mitochondria",
+        "Vacuole"
+      ],
+      "answer": "Chloroplast"
+    },
+    {
+      "question": "Explain one difference between plant cells and animal cells.",
+      "answer": "Plant cells have a cell wall and chloroplasts, while animal cells do not."
+    },
+    {
+      "question": "Fill in the blank: The ______ is known as the powerhouse of the cell.",
+      "answer": "mitochondria"
+    },
+    {
+      "question": "The cytoplasm contains the cell's organelles.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which organelle is responsible for photosynthesis?",
+      "options": [
+        "Chloroplast",
+        "Nucleus",
+        "Mitochondria",
+        "Ribosome"
+      ],
+      "answer": "Chloroplast"
+    },
+    {
+      "question": "Why are cells called the basic unit of life?",
+      "answer": "Because all living organisms are made up of cells, and cells perform all life processes."
+    },
+    {
+      "question": "Explain the functions of the cell membrane, nucleus, and cytoplasm.",
+      "answer": "The cell membrane controls movement of substances, the nucleus controls cell activities, and the cytoplasm contains organelles where many life processes occur."
+    }
+  ]
+}

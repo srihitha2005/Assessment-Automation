@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "How many continents are there on Earth?",
+      "answer": "Seven"
+    },
+    {
+      "question": "The Pacific Ocean is the largest ocean on Earth.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which is the largest continent?",
+      "options": [
+        "Africa",
+        "Asia",
+        "Europe",
+        "North America"
+      ],
+      "answer": "Asia"
+    },
+    {
+      "question": "Fill in the blank: The ______ Ocean is the smallest ocean.",
+      "answer": "Arctic"
+    },
+    {
+      "question": "Name the seven continents.",
+      "answer": "Asia, Africa, North America, South America, Antarctica, Europe, and Australia."
+    },
+    {
+      "question": "Observe the image and identify the highlighted continent.",
+      "image": "images/asia_map.png",
+      "answer": "Asia"
+    },
+    {
+      "question": "Which image shows the Indian Ocean?",
+      "images": [
+        "images/indian_ocean_map.png",
+        "images/atlantic_ocean_map.png",
+        "images/arctic_ocean_map.png"
+      ],
+      "options": [
+        "Indian Ocean",
+        "Atlantic Ocean",
+        "Arctic Ocean"
+      ],
+      "answer": "Indian Ocean"
+    },
+    {
+      "question": "Antarctica is the coldest continent.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The continent known as the 'Dark Continent' is ______.",
+      "answer": "Africa"
+    },
+    {
+      "question": "Which ocean lies between Africa, Asia, and Australia?",
+      "options": [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Pacific Ocean",
+        "Arctic Ocean"
+      ],
+      "answer": "Indian Ocean"
+    },
+    {
+      "question": "What is an ocean?",
+      "answer": "A large body of salt water that covers much of Earth's surface."
+    },
+    {
+      "question": "Australia is the smallest continent.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the highlighted ocean.",
+      "image": "images/pacific_ocean_map.png",
+      "answer": "Pacific Ocean"
+    },
+    {
+      "question": "Which image represents Antarctica?",
+      "images": [
+        "images/antarctica_map.png",
+        "images/europe_map.png",
+        "images/south_america_map.png"
+      ],
+      "options": [
+        "Antarctica",
+        "Europe",
+        "South America"
+      ],
+      "answer": "Antarctica"
+    },
+    {
+      "question": "Explain the difference between a continent and an ocean.",
+      "answer": "A continent is a large landmass, while an ocean is a vast body of salt water."
+    },
+    {
+      "question": "Fill in the blank: There are ______ oceans on Earth.",
+      "answer": "five"
+    },
+    {
+      "question": "Europe and Asia together are sometimes called Eurasia.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which is the deepest ocean?",
+      "options": [
+        "Indian Ocean",
+        "Atlantic Ocean",
+        "Pacific Ocean",
+        "Southern Ocean"
+      ],
+      "answer": "Pacific Ocean"
+    },
+    {
+      "question": "Why are oceans important?",
+      "answer": "They regulate climate, support marine life, and provide transportation and resources."
+    },
+    {
+      "question": "Explain why continents and oceans are important for studying geography.",
+      "answer": "They help us understand Earth's physical features, locations, climate, and the distribution of land and water."
+    }
+  ]
+}

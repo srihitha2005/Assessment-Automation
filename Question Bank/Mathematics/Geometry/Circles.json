@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a circle?",
+      "answer": "A circle is a closed shape consisting of all points that are the same distance from a fixed point called the center."
+    },
+    {
+      "question": "All points on a circle are equidistant from its center.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "What is the longest chord of a circle called?",
+      "options": [
+        "Radius",
+        "Diameter",
+        "Arc",
+        "Sector"
+      ],
+      "answer": "Diameter"
+    },
+    {
+      "question": "Fill in the blank: The distance from the center of a circle to any point on the circle is called the ______.",
+      "answer": "radius"
+    },
+    {
+      "question": "What is a chord?",
+      "answer": "A line segment joining any two points on a circle."
+    },
+    {
+      "question": "Observe the image and identify the highlighted part.",
+      "image": "images/circle_radius.png",
+      "answer": "Radius"
+    },
+    {
+      "question": "Which image shows the diameter of a circle?",
+      "images": [
+        "images/circle_diameter.png",
+        "images/circle_radius.png",
+        "images/circle_arc.png"
+      ],
+      "options": [
+        "Diameter",
+        "Radius",
+        "Arc"
+      ],
+      "answer": "Diameter"
+    },
+    {
+      "question": "The diameter is twice the radius.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: A ______ is a part of the circumference of a circle.",
+      "answer": "arc"
+    },
+    {
+      "question": "Which part of a circle divides it into two equal halves?",
+      "options": [
+        "Radius",
+        "Diameter",
+        "Sector",
+        "Arc"
+      ],
+      "answer": "Diameter"
+    },
+    {
+      "question": "What is the circumference of a circle?",
+      "answer": "The boundary or outer edge of the circle."
+    },
+    {
+      "question": "Every diameter is also a chord.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the shaded region.",
+      "image": "images/circle_sector.png",
+      "answer": "Sector"
+    },
+    {
+      "question": "Which image represents a semicircle?",
+      "images": [
+        "images/semicircle.png",
+        "images/full_circle.png",
+        "images/circle_sector.png"
+      ],
+      "options": [
+        "Semicircle",
+        "Circle",
+        "Sector"
+      ],
+      "answer": "Semicircle"
+    },
+    {
+      "question": "Explain the difference between a radius and a diameter.",
+      "answer": "A radius joins the center to the circle, while a diameter joins two points on the circle through the center."
+    },
+    {
+      "question": "Fill in the blank: The center of a circle is ______ from every point on the circle.",
+      "answer": "equidistant"
+    },
+    {
+      "question": "A tangent touches the circle at exactly one point.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which line touches a circle at only one point?",
+      "options": [
+        "Secant",
+        "Tangent",
+        "Diameter",
+        "Radius"
+      ],
+      "answer": "Tangent"
+    },
+    {
+      "question": "What is a sector of a circle?",
+      "answer": "The region enclosed by two radii and the arc between them."
+    },
+    {
+      "question": "Explain why the diameter is the longest chord of a circle.",
+      "answer": "Because it passes through the center, giving it the maximum possible length among all chords."
+    }
+  ]
+}

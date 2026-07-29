@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a map?",
+      "answer": "A map is a drawing that represents all or part of Earth's surface."
+    },
+    {
+      "question": "A globe is a model of the Earth.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which tool shows the Earth in three dimensions?",
+      "options": [
+        "Map",
+        "Globe",
+        "Atlas",
+        "Chart"
+      ],
+      "answer": "Globe"
+    },
+    {
+      "question": "Fill in the blank: A collection of maps is called an ______.",
+      "answer": "atlas"
+    },
+    {
+      "question": "What is the purpose of a map?",
+      "answer": "It helps us locate places and understand geographical features."
+    },
+    {
+      "question": "Observe the image and identify the object.",
+      "image": "images/globe.png",
+      "answer": "Globe"
+    },
+    {
+      "question": "Which image shows a political map?",
+      "images": [
+        "images/political_map.png",
+        "images/physical_map.png",
+        "images/world_globe.png"
+      ],
+      "options": [
+        "Political Map",
+        "Physical Map",
+        "Globe"
+      ],
+      "answer": "Political Map"
+    },
+    {
+      "question": "Maps are generally easier to carry than globes.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The imaginary line dividing Earth into the Northern and Southern Hemispheres is the ______.",
+      "answer": "Equator"
+    },
+    {
+      "question": "Which map shows mountains, rivers, and other natural features?",
+      "options": [
+        "Political Map",
+        "Road Map",
+        "Physical Map",
+        "Weather Map"
+      ],
+      "answer": "Physical Map"
+    },
+    {
+      "question": "What is a globe?",
+      "answer": "A globe is a three-dimensional model of the Earth."
+    },
+    {
+      "question": "A political map mainly shows countries, states, and cities.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the map type.",
+      "image": "images/physical_map.png",
+      "answer": "Physical Map"
+    },
+    {
+      "question": "Which image represents a compass rose?",
+      "images": [
+        "images/compass_rose.png",
+        "images/map_scale.png",
+        "images/map_key.png"
+      ],
+      "options": [
+        "Compass Rose",
+        "Map Scale",
+        "Map Key"
+      ],
+      "answer": "Compass Rose"
+    },
+    {
+      "question": "Explain one advantage of using a globe instead of a map.",
+      "answer": "A globe shows the Earth's true shape and relative positions with less distortion."
+    },
+    {
+      "question": "Fill in the blank: A ______ explains the symbols used on a map.",
+      "answer": "map key"
+    },
+    {
+      "question": "Every map has a title.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which direction is opposite to east?",
+      "options": [
+        "North",
+        "South",
+        "West",
+        "Northeast"
+      ],
+      "answer": "West"
+    },
+    {
+      "question": "Why is a map scale important?",
+      "answer": "It helps determine the actual distance between places."
+    },
+    {
+      "question": "Explain the differences between a map and a globe.",
+      "answer": "A map is a flat representation of Earth's surface, while a globe is a three-dimensional model that represents Earth more accurately."
+    }
+  ]
+}

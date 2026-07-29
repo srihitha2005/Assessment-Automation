@@ -1,0 +1,76 @@
+.learning-outcome-panel{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.learning-outcome-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.learning-outcome-title{
+    font-weight:600;
+    color:#1E293B;
+}
+
+.learning-outcome-button{
+    background:#EFF6FF;
+    border:1px solid #BFDBFE;
+    border-radius:8px;
+    padding:8px 14px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    color:#2563EB;
+    transition:0.2s;
+}
+
+.learning-outcome-button:hover{
+    background:#DBEAFE;
+}
+
+.learning-outcome-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    padding:16px;
+    background:#F8FAFC;
+    border:1px solid #E2E8F0;
+    border-radius:10px;
+}
+
+.learning-outcome-item{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+}
+
+.learning-outcome-id{
+    min-width:55px;
+    font-weight:700;
+    color:#2563EB;
+}
+
+.learning-outcome-description{
+    color:#475569;
+    line-height:1.5;
+}
+
+@media(max-width:768px){
+    .learning-outcome-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+    }
+
+    .learning-outcome-button{
+        width:100%;
+    }
+
+    .learning-outcome-item{
+        flex-direction:column;
+        gap:6px;
+    }
+}

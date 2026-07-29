@@ -1,0 +1,158 @@
+{
+  "questions": [
+    {
+      "question": "What is a Motion Block in block-based programming?",
+      "answer": "A Motion Block is used to move or rotate a sprite on the stage."
+    },
+    {
+      "question": "Motion Blocks are primarily used to control the movement of sprites.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which Motion Block moves a sprite forward by a specified number of steps?",
+      "options": [
+        "say",
+        "move () steps",
+        "wait () seconds",
+        "repeat ()"
+      ],
+      "answer": "move () steps"
+    },
+    {
+      "question": "Fill in the blank: The ______ block changes the sprite's direction.",
+      "answer": "turn"
+    },
+    {
+      "question": "Which Motion Block moves a sprite directly to specific x and y coordinates?",
+      "options": [
+        "go to x: () y: ()",
+        "move () steps",
+        "next costume",
+        "show"
+      ],
+      "answer": "go to x: () y: ()"
+    },
+    {
+      "question": "What does the 'move 10 steps' block do?",
+      "answer": "It moves the sprite forward by 10 steps in its current direction."
+    },
+    {
+      "question": "Observe the image and identify the Motion Block shown.",
+      "image": "images/move_steps_block.png",
+      "options": [
+        "move () steps",
+        "turn () degrees",
+        "go to x: y:",
+        "glide () secs"
+      ],
+      "answer": "move () steps"
+    },
+    {
+      "question": "Which image represents the 'turn 15 degrees' block?",
+      "images": [
+        "images/move_steps_block.png",
+        "images/turn_block.png",
+        "images/glide_block.png"
+      ],
+      "options": [
+        "Move",
+        "Turn",
+        "Glide"
+      ],
+      "answer": "Turn"
+    },
+    {
+      "question": "The 'glide' block moves a sprite smoothly to a new position.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The ______ block changes only the x-coordinate of a sprite.",
+      "answer": "change x by"
+    },
+    {
+      "question": "Which Motion Block changes only the y-coordinate?",
+      "options": [
+        "change y by",
+        "turn right",
+        "move steps",
+        "go to"
+      ],
+      "answer": "change y by"
+    },
+    {
+      "question": "What is the purpose of the 'glide' block?",
+      "answer": "It moves the sprite smoothly to a specified position over a given time."
+    },
+    {
+      "question": "A sprite can move backward using a negative number of steps.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is NOT a Motion Block?",
+      "options": [
+        "move () steps",
+        "glide () secs",
+        "say Hello!",
+        "turn () degrees"
+      ],
+      "answer": "say Hello!"
+    },
+    {
+      "question": "Observe the image. Which Motion Block is shown?",
+      "image": "images/glide_block.png",
+      "options": [
+        "Glide",
+        "Move",
+        "Turn",
+        "Point in Direction"
+      ],
+      "answer": "Glide"
+    },
+    {
+      "question": "Fill in the blank: The ______ block points the sprite toward a specified direction.",
+      "answer": "point in direction"
+    },
+    {
+      "question": "What is the difference between 'move' and 'glide' blocks?",
+      "answer": "The move block changes position instantly, while the glide block moves the sprite smoothly over time."
+    },
+    {
+      "question": "Observe the images and identify the block used to point a sprite in a direction.",
+      "images": [
+        "images/point_direction_block.png",
+        "images/move_steps_block.png",
+        "images/change_x_block.png"
+      ],
+      "options": [
+        "Point in Direction",
+        "Move",
+        "Change X"
+      ],
+      "answer": "Point in Direction"
+    },
+    {
+      "question": "The 'go to x: () y: ()' block instantly moves a sprite to the specified coordinates.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Explain how Motion Blocks help in creating animations.",
+      "answer": "Motion Blocks allow sprites to move, rotate, glide, and change position, making it possible to create animations, games, and interactive stories."
+    }
+  ]
+}

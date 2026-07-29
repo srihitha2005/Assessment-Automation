@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a decimal number?",
+      "answer": "A decimal number is a number that includes a decimal point to represent fractions of a whole."
+    },
+    {
+      "question": "The decimal point separates the whole number part from the fractional part.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which decimal represents one-half?",
+      "options": [
+        "0.5",
+        "0.2",
+        "0.25",
+        "0.75"
+      ],
+      "answer": "0.5"
+    },
+    {
+      "question": "Fill in the blank: In the number 4.75, the digit 7 is in the ______ place.",
+      "answer": "tenths"
+    },
+    {
+      "question": "Write the decimal form of three and one-tenth.",
+      "answer": "3.1"
+    },
+    {
+      "question": "Observe the image and identify the decimal shown.",
+      "image": "images/decimal_place_value.png",
+      "answer": "Decimal Number"
+    },
+    {
+      "question": "Which image represents the decimal 0.75?",
+      "images": [
+        "images/three_fourths.png",
+        "images/one_half.png",
+        "images/one_fourth.png"
+      ],
+      "options": [
+        "Three Fourths",
+        "One Half",
+        "One Fourth"
+      ],
+      "answer": "Three Fourths"
+    },
+    {
+      "question": "0.50 and 0.5 represent the same value.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The digit immediately to the right of the decimal point is the ______ place.",
+      "answer": "tenths"
+    },
+    {
+      "question": "Which decimal is greater?",
+      "options": [
+        "0.45",
+        "0.54",
+        "Both are equal",
+        "Cannot be determined"
+      ],
+      "answer": "0.54"
+    },
+    {
+      "question": "What is the decimal form of one-fourth?",
+      "answer": "0.25"
+    },
+    {
+      "question": "Decimals can be compared by comparing place values.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the shaded decimal.",
+      "image": "images/hundred_grid_decimal.png",
+      "answer": "The decimal represented by the shaded portion."
+    },
+    {
+      "question": "Which image represents the greatest decimal value?",
+      "images": [
+        "images/decimal_03.png",
+        "images/decimal_06.png",
+        "images/decimal_09.png"
+      ],
+      "options": [
+        "0.3",
+        "0.6",
+        "0.9"
+      ],
+      "answer": "0.9"
+    },
+    {
+      "question": "Explain how to compare two decimal numbers.",
+      "answer": "Compare the digits from left to right using place values until a difference is found."
+    },
+    {
+      "question": "Fill in the blank: The place immediately after the tenths place is the ______ place.",
+      "answer": "hundredths"
+    },
+    {
+      "question": "0.8 is greater than 0.75.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which decimal is the smallest?",
+      "options": [
+        "0.12",
+        "0.21",
+        "0.31",
+        "0.41"
+      ],
+      "answer": "0.12"
+    },
+    {
+      "question": "Why are trailing zeros after a decimal sometimes unnecessary?",
+      "answer": "They do not change the value of the decimal number."
+    },
+    {
+      "question": "Explain the importance of place value when working with decimals.",
+      "answer": "Place value helps us read, compare, order, and perform calculations accurately with decimal numbers."
+    }
+  ]
+}

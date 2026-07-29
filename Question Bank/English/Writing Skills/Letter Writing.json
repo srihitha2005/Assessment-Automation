@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is a letter?",
+      "answer": "A written message sent from one person to another."
+    },
+    {
+      "question": "Formal letters use polite and professional language.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is a type of formal letter?",
+      "options": [
+        "Complaint Letter",
+        "Birthday Letter",
+        "Friendly Letter",
+        "Invitation to a Friend"
+      ],
+      "answer": "Complaint Letter"
+    },
+    {
+      "question": "Fill in the blank: Every formal letter begins with the ______.",
+      "answer": "sender's address"
+    },
+    {
+      "question": "What is the purpose of a salutation in a letter?",
+      "answer": "It is used to greet the recipient."
+    },
+    {
+      "question": "Observe the image and identify the part of the letter.",
+      "image": "images/letter_format.png",
+      "answer": "Letter Format"
+    },
+    {
+      "question": "Which image shows a formal letter?",
+      "images": [
+        "images/formal_letter.png",
+        "images/postcard.png",
+        "images/greeting_card.png"
+      ],
+      "options": [
+        "Formal Letter",
+        "Postcard",
+        "Greeting Card"
+      ],
+      "answer": "Formal Letter"
+    },
+    {
+      "question": "An informal letter is usually written to friends or family.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: The closing phrase 'Yours faithfully' is commonly used in a ______ letter.",
+      "answer": "formal"
+    },
+    {
+      "question": "Which of the following is an appropriate salutation for a formal letter?",
+      "options": [
+        "Dear Sir/Madam",
+        "Hey Buddy",
+        "Hi Friend",
+        "What's up?"
+      ],
+      "answer": "Dear Sir/Madam"
+    },
+    {
+      "question": "Why do we write letters?",
+      "answer": "To communicate information, requests, feelings, or ideas."
+    },
+    {
+      "question": "A formal letter should avoid slang and informal language.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the section highlighted.",
+      "image": "images/letter_salutation.png",
+      "answer": "Salutation"
+    },
+    {
+      "question": "Which image represents an informal letter?",
+      "images": [
+        "images/informal_letter.png",
+        "images/official_notice.png",
+        "images/report.png"
+      ],
+      "options": [
+        "Informal Letter",
+        "Official Notice",
+        "Report"
+      ],
+      "answer": "Informal Letter"
+    },
+    {
+      "question": "Explain the difference between a formal and an informal letter.",
+      "answer": "A formal letter uses professional language for official purposes, while an informal letter is written casually to friends or family."
+    },
+    {
+      "question": "Fill in the blank: The ______ contains the main message of the letter.",
+      "answer": "body"
+    },
+    {
+      "question": "Which of the following is an appropriate closing for an informal letter?",
+      "options": [
+        "Yours lovingly",
+        "Yours faithfully",
+        "Respectfully submitted",
+        "Sincerely, Manager"
+      ],
+      "answer": "Yours lovingly"
+    },
+    {
+      "question": "Every letter should have a date.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "What information is usually written in the sender's address?",
+      "answer": "The address of the person writing the letter."
+    },
+    {
+      "question": "Explain why following the correct letter format is important.",
+      "answer": "A proper format makes the letter clear, organized, professional, and easy to understand."
+    }
+  ]
+}

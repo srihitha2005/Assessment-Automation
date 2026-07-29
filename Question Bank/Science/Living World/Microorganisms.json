@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What are microorganisms?",
+      "answer": "Microorganisms are tiny living organisms that can only be seen with a microscope."
+    },
+    {
+      "question": "Bacteria are microorganisms.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which of the following is a microorganism?",
+      "options": [
+        "Elephant",
+        "Bacteria",
+        "Tree",
+        "Fish"
+      ],
+      "answer": "Bacteria"
+    },
+    {
+      "question": "Fill in the blank: Microorganisms are also called ______.",
+      "answer": "microbes"
+    },
+    {
+      "question": "Name one useful microorganism.",
+      "answer": "Yeast"
+    },
+    {
+      "question": "Observe the image and identify the microorganism.",
+      "image": "images/bacteria.png",
+      "answer": "Bacteria"
+    },
+    {
+      "question": "Which image shows a fungus?",
+      "images": [
+        "images/fungus.png",
+        "images/bacteria.png",
+        "images/protozoa.png"
+      ],
+      "options": [
+        "Fungus",
+        "Bacteria",
+        "Protozoa"
+      ],
+      "answer": "Fungus"
+    },
+    {
+      "question": "Some microorganisms can cause diseases.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: Yeast is used in making ______.",
+      "answer": "bread"
+    },
+    {
+      "question": "Which microorganism is used to make curd?",
+      "options": [
+        "Lactobacillus",
+        "Virus",
+        "Protozoa",
+        "Algae"
+      ],
+      "answer": "Lactobacillus"
+    },
+    {
+      "question": "What is the role of bacteria in nature?",
+      "answer": "They help decompose dead plants and animals and recycle nutrients."
+    },
+    {
+      "question": "Viruses are smaller than bacteria.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the microorganism.",
+      "image": "images/virus.png",
+      "answer": "Virus"
+    },
+    {
+      "question": "Which image represents protozoa?",
+      "images": [
+        "images/protozoa.png",
+        "images/algae.png",
+        "images/fungus.png"
+      ],
+      "options": [
+        "Protozoa",
+        "Algae",
+        "Fungus"
+      ],
+      "answer": "Protozoa"
+    },
+    {
+      "question": "Explain one benefit of microorganisms.",
+      "answer": "Microorganisms help make foods like curd, bread, and cheese, and they also decompose waste."
+    },
+    {
+      "question": "Fill in the blank: Disease-causing microorganisms are called ______.",
+      "answer": "pathogens"
+    },
+    {
+      "question": "All microorganisms are harmful.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False"
+    },
+    {
+      "question": "Which microorganism cannot reproduce without a host cell?",
+      "options": [
+        "Virus",
+        "Bacteria",
+        "Fungus",
+        "Algae"
+      ],
+      "answer": "Virus"
+    },
+    {
+      "question": "Why are microorganisms important?",
+      "answer": "They help in food production, decomposition, medicine, and maintaining ecological balance."
+    },
+    {
+      "question": "Explain the difference between useful and harmful microorganisms.",
+      "answer": "Useful microorganisms help in food production and decomposition, while harmful microorganisms cause diseases and spoil food."
+    }
+  ]
+}

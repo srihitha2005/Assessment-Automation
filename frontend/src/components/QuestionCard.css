@@ -1,0 +1,31 @@
+.question-card{
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:24px;
+
+    margin-bottom:24px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+
+    transition:0.25s;
+
+}
+
+.question-card:hover{
+
+    box-shadow:0 10px 24px rgba(0,0,0,0.12);
+
+}
+
+@media(max-width:768px){
+
+    .question-card{
+
+        padding:18px;
+
+    }
+
+}

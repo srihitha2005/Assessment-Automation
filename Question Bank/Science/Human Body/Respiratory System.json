@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is the respiratory system?",
+      "answer": "The respiratory system is the body system responsible for breathing and exchanging oxygen and carbon dioxide."
+    },
+    {
+      "question": "The lungs are the main organs of the respiratory system.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which gas do humans inhale during breathing?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Fill in the blank: The ______ separates the chest cavity from the abdomen and helps in breathing.",
+      "answer": "diaphragm"
+    },
+    {
+      "question": "What is the function of the lungs?",
+      "answer": "They exchange oxygen and carbon dioxide between the air and the blood."
+    },
+    {
+      "question": "Observe the image and identify the organ shown.",
+      "image": "images/lungs.png",
+      "answer": "Lungs"
+    },
+    {
+      "question": "Which image represents the trachea?",
+      "images": [
+        "images/trachea.png",
+        "images/lungs.png",
+        "images/diaphragm.png"
+      ],
+      "options": [
+        "Trachea",
+        "Lungs",
+        "Diaphragm"
+      ],
+      "answer": "Trachea"
+    },
+    {
+      "question": "Breathing in is called inhalation.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: Tiny air sacs in the lungs are called ______.",
+      "answer": "alveoli"
+    },
+    {
+      "question": "Where does the exchange of oxygen and carbon dioxide take place?",
+      "options": [
+        "Trachea",
+        "Alveoli",
+        "Nose",
+        "Bronchi"
+      ],
+      "answer": "Alveoli"
+    },
+    {
+      "question": "What is the function of the diaphragm?",
+      "answer": "It helps the lungs expand and contract during breathing."
+    },
+    {
+      "question": "Carbon dioxide is removed from the body during exhalation.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the highlighted structure.",
+      "image": "images/alveoli.png",
+      "answer": "Alveoli"
+    },
+    {
+      "question": "Which image shows the respiratory system?",
+      "images": [
+        "images/respiratory_system.png",
+        "images/digestive_system.png",
+        "images/circulatory_system.png"
+      ],
+      "options": [
+        "Respiratory System",
+        "Digestive System",
+        "Circulatory System"
+      ],
+      "answer": "Respiratory System"
+    },
+    {
+      "question": "Explain the difference between inhalation and exhalation.",
+      "answer": "Inhalation brings oxygen-rich air into the lungs, while exhalation removes carbon dioxide-rich air from the body."
+    },
+    {
+      "question": "Fill in the blank: Air enters the body through the ______ or mouth.",
+      "answer": "nose"
+    },
+    {
+      "question": "The trachea is also called the windpipe.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which organ carries air from the nose to the lungs?",
+      "options": [
+        "Trachea",
+        "Heart",
+        "Esophagus",
+        "Liver"
+      ],
+      "answer": "Trachea"
+    },
+    {
+      "question": "Why is the respiratory system important?",
+      "answer": "It supplies oxygen to the body and removes carbon dioxide."
+    },
+    {
+      "question": "Explain how oxygen reaches the body's cells after entering the lungs.",
+      "answer": "Oxygen moves from the alveoli into the blood, which carries it to all body cells."
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "question": "What is vocabulary?",
+      "answer": "The collection of words a person knows and uses."
+    },
+    {
+      "question": "Learning new words improves communication skills.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Which word is a synonym of 'Happy'?",
+      "options": [
+        "Sad",
+        "Joyful",
+        "Angry",
+        "Weak"
+      ],
+      "answer": "Joyful"
+    },
+    {
+      "question": "Fill in the blank: A word with the opposite meaning is called an ______.",
+      "answer": "antonym"
+    },
+    {
+      "question": "What is a synonym?",
+      "answer": "A word that has the same or nearly the same meaning as another word."
+    },
+    {
+      "question": "Observe the image and identify the object.",
+      "image": "images/dictionary.png",
+      "answer": "Dictionary"
+    },
+    {
+      "question": "Which image represents learning vocabulary?",
+      "images": [
+        "images/dictionary.png",
+        "images/football.png",
+        "images/bicycle.png"
+      ],
+      "options": [
+        "Dictionary",
+        "Football",
+        "Bicycle"
+      ],
+      "answer": "Dictionary"
+    },
+    {
+      "question": "The word 'Ancient' means very old.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Fill in the blank: A dictionary helps us find the ______ of words.",
+      "answer": "meaning"
+    },
+    {
+      "question": "Which word is an antonym of 'Strong'?",
+      "options": [
+        "Powerful",
+        "Weak",
+        "Healthy",
+        "Tall"
+      ],
+      "answer": "Weak"
+    },
+    {
+      "question": "Why is vocabulary important?",
+      "answer": "It helps us understand, communicate, read, and write more effectively."
+    },
+    {
+      "question": "Context clues help us understand unfamiliar words.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True"
+    },
+    {
+      "question": "Observe the image and identify the learning resource.",
+      "image": "images/thesaurus.png",
+      "answer": "Thesaurus"
+    },
+    {
+      "question": "Which image is commonly used to improve vocabulary?",
+      "images": [
+        "images/thesaurus.png",
+        "images/cricket.png",
+        "images/car.png"
+      ],
+      "options": [
+        "Thesaurus",
+        "Cricket",
+        "Car"
+      ],
+      "answer": "Thesaurus"
+    },
+    {
+      "question": "Explain the difference between a synonym and an antonym.",
+      "answer": "A synonym has a similar meaning, while an antonym has the opposite meaning."
+    },
+    {
+      "question": "Fill in the blank: Reading books regularly helps improve your ______.",
+      "answer": "vocabulary"
+    },
+    {
+      "question": "Which word best completes the sentence? 'The child was ______ after winning the competition.'",
+      "options": [
+        "Joyful",
+        "Sleepy",
+        "Tiny",
+        "Heavy"
+      ],
+      "answer": "Joyful"
+    },
+    {
+      "question": "Vocabulary building is useful only for English exams.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False"
+    },
+    {
+      "question": "What is one effective way to improve vocabulary?",
+      "answer": "Reading books, newspapers, and learning new words daily."
+    },
+    {
+      "question": "Explain why using a variety of words improves communication.",
+      "answer": "It makes communication clearer, more interesting, and more precise."
+    }
+  ]
+}

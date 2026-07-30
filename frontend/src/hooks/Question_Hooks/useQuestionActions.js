@@ -1,5 +1,5 @@
 import { useState } from "react";
-import api from "../utils/api.js";
+import api from "../../utils/api.js";
 import useQuestions from "./useQuestions";
 
 function useQuestionActions(assessmentId) {

@@ -1,4 +1,4 @@
-import "./QuestionExpanded.css";
+import "./styles/QuestionExpanded.css";
 
 import QuestionMetadata from "./QuestionMetadata.jsx";
 import QuestionToolbar from "./QuestionToolBar.jsx";

@@ -1,6 +1,6 @@
-import "./QuestionToolBar.css";
-import Button from "./Button.jsx";
-import useQuestionToolbarActions from "../hooks/useQuestionToolbarActions.js";
+import "./styles/QuestionToolBar.css";
+import Button from "../Commons/Button.jsx";
+import useQuestionToolbarActions from "../../hooks/Question_Hooks/useQuestionToolbarActions.js";
 
 function QuestionToolbar({
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./LearningOutcomePanel.css";
+import "./styles/LearningOutcomePanel.css";
 
 function LearningOutcomePanel({ learningOutcomes }) {
     const [expanded, setExpanded] = useState(false);

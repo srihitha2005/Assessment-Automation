@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import api from "../utils/api.js";
+import api from "../../utils/api.js";
 
 const useGetAllQuestions = (assessmentId) => {
     const [questions, setQuestions] = useState([]);

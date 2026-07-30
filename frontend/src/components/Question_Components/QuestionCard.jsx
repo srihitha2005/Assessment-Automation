@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "./QuestionCard.css";
+import "./styles/QuestionCard.css";
 
 import QuestionCollapsed from "./QuestionCollapsed.jsx";
 import QuestionExpanded from "./QuestionExpanded.jsx";

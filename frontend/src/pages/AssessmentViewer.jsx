@@ -1,6 +1,6 @@
-import "./AssessmentViewer.css";
-import AssesssmentCard from "../components/AssesssmentCard.jsx";
-import useAssessment from "../hooks/useAssessment.js";
+import "./styles/AssessmentViewer.css";
+import AssesssmentCard from "../components/Assessment_Components/AssesssmentCard.jsx";
+import useAssessment from "../hooks/Assessment_Hooks/useAssessment.js";
 import { useNavigate } from "react-router-dom";
 
 function AssessmentViewer() {

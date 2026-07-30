@@ -1,6 +1,6 @@
-import "./AssessmentHeader.css";
-import Button from "./Button.jsx";
-import useAssessmentActions from "../hooks/useAssessmentActions.js";
+import "./styles/AssessmentHeader.css";
+import Button from "../Commons/Button.jsx";
+import useAssessmentActions from "../../hooks/Assessment_Hooks/useAssessmentActions.js";
 
 function AssessmentHeader({ assessment }) {
     const {

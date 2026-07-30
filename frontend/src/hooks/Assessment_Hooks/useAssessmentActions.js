@@ -1,6 +1,6 @@
 import { useState } from "react";
-import api from "../utils/api.js";
-import useGetAllQuestions from "./useGetAllQuestions.js";
+import api from "../../utils/api.js";
+import useGetAllQuestions from "../Question_Hooks/useGetAllQuestions.js";
 
 function useAssessmentActions(assessmentId) {
 

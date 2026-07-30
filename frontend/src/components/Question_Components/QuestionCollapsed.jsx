@@ -1,7 +1,7 @@
-import "./QuestionCollapsed.css";
+import "./styles/QuestionCollapsed.css";
 
-import { QUESTION_TYPES } from "../utils/constants.js";
-import {getDifficultyColor, getQuestionTypeBadgeColor} from "../utils/helper.js";
+import { QUESTION_TYPES } from "../../utils/constants.js";
+import {getDifficultyColor, getQuestionTypeBadgeColor} from "../../utils/helper.js";
 
 function QuestionCollapsed({
 

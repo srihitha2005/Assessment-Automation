@@ -1,7 +1,7 @@
-import "./QuestionMetadata.css";
+import "./styles/QuestionMetadata.css";
 
-import LearningOutcomePanel from "./LearningOutcomePanel.jsx";
-import {formatVersion, getDifficultyColor,getQuestionTypeBadgeColor} from "../utils/helper.js";
+import LearningOutcomePanel from "../Commons/LearningOutcomePanel.jsx";
+import {formatVersion, getDifficultyColor,getQuestionTypeBadgeColor} from "../../utils/helper.js";
 function QuestionMetadata({
 
                               question,

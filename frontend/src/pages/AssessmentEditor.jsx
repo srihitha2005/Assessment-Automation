@@ -1,12 +1,12 @@
-import "./AssessmentEditor.css";
+import "./styles/AssessmentEditor.css";
 
 import { useParams } from "react-router-dom";
 
-import AssessmentHeader from "../components/AssessmentHeader.jsx";
-import QuestionCard from "../components/QuestionCard.jsx";
+import AssessmentHeader from "../components/Assessment_Components/AssessmentHeader.jsx";
+import QuestionCard from "../components/Question_Components/QuestionCard.jsx";
 
-import useAssessmentByID from "../hooks/useAssessmentByID.js";
-import useGetAllQuestions from "../hooks/useGetAllQuestions.js";
+import useAssessmentByID from "../hooks/Assessment_Hooks/useAssessmentByID.js";
+import useGetAllQuestions from "../hooks/Question_Hooks/useGetAllQuestions.js";
 
 const AssessmentEditor = () => {
     // alert("AssessmentEditor loaded");

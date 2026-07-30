@@ -1,10 +1,10 @@
-import "./AssessmentCard.css";
-import Button from "./Button.jsx";
+import "./styles/AssessmentCard.css";
+import Button from "../Commons/Button.jsx";
 import {
     formatVersion,
     getLearningOutcomeCount,
     getStatusColor,
-} from "../utils/helper.js";
+} from "../../utils/helper.js";
 
 function AssesssmentCard({ assessment = {}, onView }) {
     const {

@@ -11,7 +11,7 @@ Built for the **Technical Assessment: End-to-End Assessment Automation** brief. 
 Prereq: **Docker Desktop** running.
 
 ```bash
-git clone https://github.com/deepgaura/Assessment-Automation.git
+git clone https://github.com/srihitha2005/Assessment-Automation.git
 cd Assessment-Automation
 docker compose up --build
 ```

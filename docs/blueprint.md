@@ -178,13 +178,3 @@ Rewrites a model answer for an existing question, given its outcomes and grade. 
 - **Manual UI walkthrough** — 10-step demo in the README, verifiable end-to-end.
 
 ---
-
-## 8. What was fixed vs. the initial prototype
-
-- Controllers were 100 % dummy JSON stubs — every one is now wired to a service with real Pydantic bodies.
-- SQLite/Postgres portability via a dialect-neutral GUID type.
-- Rollback lost Bloom levels due to a `bloomsLevel`/`bloomLevel` key mismatch — normalised via `_row_from_dict`.
-- `classify_many` sent 30–100 questions in one prompt and lost indices — chunked to 8, missing indices fall back per-question.
-- DOCX had no image embedding, PDF didn't exist, parsing was fragile — reportlab PDF added, images embedded, lossless JSON footer added.
-- Publish had no auth, no retries, no digest — Bearer token, jittered retries, SHA-256 digest column, demo-artifact fallback.
-- Missing: submissions/immutability, planner-change propagation, teacher dashboard — all present as first-class features.

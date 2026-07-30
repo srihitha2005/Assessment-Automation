@@ -1,33 +1,53 @@
 import logging
+from helper.google_sheet_helper import GoogleSheetHelper
+from config.sheetsConfig import CURRICULUM_SHEET
+
 logger = logging.getLogger(__name__)
 
 
 class CurriculumService:
+    def __init__(self):
+        self.google_sheet_helper = GoogleSheetHelper()
 
     # 1. Get All Grades
     def get_all_grades(self):
         logger.info("[CurriculumService][get_all_grades] Entered")
-        return {
-            "totalGrades": 3,
-            "grades": [
-                {
-                    "gradeId": 1,
-                    "gradeName": "Grade 6",
-                    "numberOfUnits": 5
-                },
-                {
-                    "gradeId": 2,
-                    "gradeName": "Grade 7",
-                    "numberOfUnits": 6
-                },
-                {
-                    "gradeId": 3,
-                    "gradeName": "Grade 8",
-                    "numberOfUnits": 4
-                }
-            ]
-        }
 
+        try:
+            rows = self.google_sheet_helper.get_all_records(CURRICULUM_SHEET)
+            logger.info(f"[CurriculumService][get_all_grades] Retrieved {len(rows)} records from Google Sheet")
+            grades = {}
+            for row in rows:
+                grade = row["Grade"]
+                course_id = row["Course_ID"]
+                if grade not in grades:
+                    grades[grade] = set()
+                grades[grade].add(course_id)
+
+            grade_list = []
+            grade_id = 1
+            for grade_name in sorted(grades.keys()):
+                grade_list.append({
+                    "gradeId": grade_id,
+                    "gradeName": grade_name,
+                    "numberOfUnits": len(grades[grade_name])
+                })
+                grade_id += 1
+
+            logger.info(f"[CurriculumService][get_all_grades] Successfully prepared {len(grade_list)} grades")
+
+            return {
+                "totalGrades": len(grade_list),
+                "grades": grade_list
+            }
+
+        except KeyError as e:
+            logger.error(f"[CurriculumService][get_all_grades] Missing column in Google Sheet: {str(e)}")
+            raise Exception(f"Missing column in Google Sheet: {str(e)}")
+
+        except Exception as e:
+            logger.exception("[CurriculumService][get_all_grades] Failed to fetch grades")
+            raise Exception(f"Failed to fetch grades: {str(e)}")
 
     # 2. Get Courses by Grade
     def get_courses_by_grade(self, grade_id: int):

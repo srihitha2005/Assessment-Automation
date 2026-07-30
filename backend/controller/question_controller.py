@@ -61,6 +61,7 @@ def upload_images(question_id: int):
     return service.upload_images(question_id)
 
 
+
 # 23. Delete Image
 @router.delete("/images/{image_id}")
 def delete_image(image_id: int):

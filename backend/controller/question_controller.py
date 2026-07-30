@@ -23,7 +23,10 @@ def get_question( question_id: int):
         "marks": 2,
         "learningOutcome": "Explain the process of digestion.",
         "difficulty": "Medium",
-        "bloomLevel": "Understand"
+        "bloomLevel": "Understand",
+        "version": "v3",
+        "lastModifiedAt": "28 July 2026 05:45 PM",
+        "lastModifiedBy": "John Doe"
     }
 
 #17. Delete Questions

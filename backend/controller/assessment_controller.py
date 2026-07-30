@@ -34,6 +34,7 @@ def get_assessment_details( assessment_id: int):
         "updatedBy": "SYSTEM",
         "marks": 50,
         "numberOfQuestions": 15,
+        "learningOutcomes" : 23,
         "status" : "Generated"
     }
 

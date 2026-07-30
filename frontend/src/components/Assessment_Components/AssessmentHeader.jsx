@@ -126,10 +126,6 @@ function AssessmentHeader({ assessment, chapterName, onRefresh, onDeleted }) {
                         <strong>Total Marks:</strong> {assessment.marks}
                     </div>
 
-                    <div className="metadata-item">
-                        <strong>Learning Outcomes:</strong> {assessment.learningOutcomeCount ?? "-"}
-                    </div>
-
                 </div>
 
                 <div className="metadata-column">

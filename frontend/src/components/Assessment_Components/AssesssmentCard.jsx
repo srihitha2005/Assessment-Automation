@@ -1,7 +1,6 @@
 import "./styles/AssessmentCard.css";
 import Button from "../Commons/Button.jsx";
 import {
-    formatVersion,
     getLearningOutcomeCount,
     getStatusColor,
 } from "../../utils/helper.js";
@@ -16,7 +15,6 @@ function AssesssmentCard({ assessment = {}, onView, onDelete, disabled = false }
         questionCount,
         numberOfQuestions,
         status,
-        version,
     } = assessment;
 
     const questions = questionCount ?? numberOfQuestions;
@@ -89,12 +87,6 @@ function AssesssmentCard({ assessment = {}, onView, onDelete, disabled = false }
                     <strong>Marks</strong>
                     <br />
                     {marks ?? "--"}
-                </div>
-
-                <div>
-                    <strong>Version</strong>
-                    <br />
-                    {formatVersion(version)}
                 </div>
             </div>
 

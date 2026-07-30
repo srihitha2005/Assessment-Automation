@@ -1,27 +1,17 @@
-import { defineConfig } from 'vite'
-import react, { reactCompilerPreset } from '@vitejs/plugin-react'
-import babel from '@rolldown/plugin-babel'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
+const backend = process.env.VITE_BACKEND_URL || "http://localhost:8000";
+
 export default defineConfig({
-  plugins: [
-    react(),
-    babel({ presets: [reactCompilerPreset()] })
-  ],
-  server: {
-    proxy: {
-      '/curriculum': {
-        target: 'http://localhost:8000',
-        changeOrigin: true
-      },
-      '/assessments': {
-        target: 'http://localhost:8000',
-        changeOrigin: true
-      },
-      '/questions': {
-        target: 'http://localhost:8000',
-        changeOrigin: true
-      }
-    }
-  }
-})
+    plugins: [react()],
+    server: {
+        port: 5173,
+        proxy: {
+            "/api": { target: backend, changeOrigin: true },
+            "/uploads": { target: backend, changeOrigin: true },
+            "/static": { target: backend, changeOrigin: true },
+            "/downloads": { target: backend, changeOrigin: true },
+        },
+    },
+});

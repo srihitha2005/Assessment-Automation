@@ -1,18 +1,36 @@
-# React + Vite
+# Assessment Automation — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React 19 + Vite + React Query. See the top-level [README](../README.md) for the full project overview.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install     # once
+npm run dev     # dev server on http://localhost:5173, proxies /api to VITE_BACKEND_URL (default http://localhost:8000)
+npm run build   # production build → dist/
+npm run preview # serve the production build locally
+npm run lint    # oxlint
+```
 
-## React Compiler
+## Environment
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- `VITE_BACKEND_URL` — dev-only; sets the proxy target for `/api`, `/uploads`, `/static`, `/downloads`.
+- `VITE_API_BASE_URL` — used at runtime; defaults to `/api`. Override for cross-origin setups.
 
-Note: This will impact Vite dev & build performances.
+## Layout
 
-## Expanding the Oxlint configuration
+```
+src/
+    main.jsx                 # React root, providers (QueryClient, BrowserRouter, Toaster)
+    App.jsx                  # route table
+    AppShell.jsx             # sidebar + topbar layout
+    lib/                     # http, api client, query client, format, constants
+    hooks/                   # React Query wrappers grouped by domain
+    components/ui/           # design-token primitives
+    components/assessment/   # AssessmentToolbar, SubmissionPanel
+    components/question/     # QuestionCard
+    pages/                   # one file per route
+    styles/                  # tokens + base css
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+All CSS is plain (no framework). Design tokens live in `styles/tokens.css` and every component references them via `var(--...)`.

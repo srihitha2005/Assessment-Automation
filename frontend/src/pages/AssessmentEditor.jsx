@@ -1,188 +1,89 @@
-import "./styles/AssessmentEditor.css";
-import "./styles/CurriculumPages.css";
+import { useParams } from "react-router-dom";
 
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { CircularProgress } from "@mui/material";
-
-import AssessmentHeader from "../components/Assessment_Components/AssessmentHeader.jsx";
-import QuestionCard from "../components/Question_Components/QuestionCard.jsx";
-import CurriculumBreadcrumb from "../components/Curriculum_Components/CurriculumBreadcrumb.jsx";
-import Button from "../components/Commons/Button.jsx";
-
-import useAssessmentByID from "../hooks/Assessment_Hooks/useAssessmentByID.js";
-import useGetAllQuestions from "../hooks/Question_Hooks/useGetAllQuestions.js";
+import AssessmentToolbar from "../components/assessment/AssessmentToolbar.jsx";
+import SubmissionPanel from "../components/assessment/SubmissionPanel.jsx";
+import Card, { CardBody, CardHeader } from "../components/ui/Card.jsx";
+import EmptyState from "../components/ui/EmptyState.jsx";
+import Spinner from "../components/ui/Spinner.jsx";
+import QuestionCard from "../components/question/QuestionCard.jsx";
+import { useAssessment, useAssessmentQuestions } from "../hooks/useAssessments.js";
+import "./AssessmentEditor.css";
 
 const AssessmentEditor = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const { assessmentId, assessmentID } = useParams();
-    const id = assessmentId || assessmentID;
+    const { assessmentId } = useParams();
+    const assessment = useAssessment(assessmentId);
+    const questions = useAssessmentQuestions(assessmentId);
 
-    console.log("[AssessmentEditor] Assessment ID:", id);
-
-    const {
-        assessment,
-        loading: loadingAssessment,
-        error: errorAssessment,
-        refresh: refreshAssessment
-    } = useAssessmentByID(id);
-
-    const {
-        questions,
-        loading: loadingQuestions,
-        error: errorQuestions,
-        refresh: refreshQuestions
-    } = useGetAllQuestions(id);
-
-    const chapterName = location.state?.chapterName || assessment?.chapterName;
-    const gradeId = location.state?.gradeId;
-    const courseId = location.state?.courseId;
-    const unitId = location.state?.unitId;
-    const chapterId = location.state?.chapterId;
-    const gradeName = location.state?.gradeName;
-    const courseName = location.state?.courseName;
-    const unitName = location.state?.unitName;
-
-    const handleRefreshAll = async () => {
-        console.log("[AssessmentEditor] Refreshing assessment and questions...");
-        await Promise.all([
-            refreshAssessment(id),
-            refreshQuestions(id)
-        ]);
-    };
-
-    const handleBack = () => {
-        console.log("[AssessmentEditor] Back to assessments clicked.");
-
-        if (gradeId && courseId && unitId && chapterId) {
-            navigate(
-                `/grades/${gradeId}/courses/${courseId}/units/${unitId}/chapters/${chapterId}/assessments`,
-                {
-                    state: {
-                        gradeName,
-                        courseName,
-                        unitName,
-                        chapterName
-                    }
-                }
-            );
-            return;
-        }
-
-        navigate("/");
-    };
-
-    if (loadingAssessment) {
+    if (assessment.isLoading) return <Spinner label="Loading assessment…" size="lg" />;
+    if (assessment.isError || !assessment.data) {
         return (
-            <div className="assessment-editor-message">
-                <CircularProgress size={28} sx={{ mr: 1.5 }} />
-                Loading Assessment...
-            </div>
+            <EmptyState
+                icon="!"
+                title="Assessment not found"
+                description={assessment.error?.message || "It may have been deleted."}
+            />
         );
     }
-
-    if (errorAssessment) {
-        return (
-            <div className="assessment-editor-message error">
-                {errorAssessment}
-            </div>
-        );
-    }
-
-    const breadcrumbItems = [
-        { label: "Curriculum", to: "/" }
-    ];
-
-    if (gradeId) {
-        breadcrumbItems.push({
-            label: gradeName || `Grade ${gradeId}`,
-            to: `/grades/${gradeId}/courses`
-        });
-    }
-
-    if (courseId) {
-        breadcrumbItems.push({
-            label: courseName || `Course ${courseId}`,
-            to: `/grades/${gradeId}/courses/${courseId}/units`
-        });
-    }
-
-    if (unitId) {
-        breadcrumbItems.push({
-            label: unitName || `Unit ${unitId}`,
-            to: `/grades/${gradeId}/courses/${courseId}/units/${unitId}/chapters`
-        });
-    }
-
-    if (chapterId) {
-        breadcrumbItems.push({
-            label: chapterName || `Chapter ${chapterId}`,
-            to: `/grades/${gradeId}/courses/${courseId}/units/${unitId}/chapters/${chapterId}/assessments`
-        });
-    }
-
-    breadcrumbItems.push({
-        label: `Assessment ${assessment?.assessmentNumber ?? id}`
-    });
 
     return (
-        <div className="assessment-editor">
-            <CurriculumBreadcrumb items={breadcrumbItems} />
+        <>
+            <AssessmentToolbar assessment={assessment.data} />
 
-            <div className="page-actions" style={{ justifyContent: "flex-start" }}>
-                <Button text="← Back to Assessments" onClick={handleBack} />
-            </div>
-
-            <AssessmentHeader
-                assessment={assessment}
-                chapterName={chapterName}
-                onRefresh={handleRefreshAll}
-                onDeleted={handleBack}
-            />
-
-            {
-                loadingQuestions ?
-                    (
-                        <div className="assessment-editor-message">
-                            <CircularProgress size={28} sx={{ mr: 1.5 }} />
-                            Loading Questions...
+            <Card padding="none" className="assessment-editor__outcomes">
+                <CardHeader>
+                    <div>
+                        <div className="assessment-editor__section-title">Learning outcomes</div>
+                        <div className="assessment-editor__section-hint">
+                            Coverage across the assessment. Any gaps are surfaced in the toolbar warning above.
                         </div>
-                    )
-                    :
-                    errorQuestions ?
-                        (
-                            <div className="assessment-editor-message error">
-                                {errorQuestions}
-                            </div>
-                        )
-                        :
-                        questions.length === 0 ?
-                            (
-                                <div className="assessment-editor-message">
-                                    No questions found for this assessment.
-                                </div>
-                            )
-                            :
-                            (
-                                <div className="question-grid">
-                                    {
-                                        questions.map((question) => (
-                                            <QuestionCard
-                                                key={question.questionId}
-                                                question={question}
-                                                learningOutcomes={
-                                                    question.learningOutcome
-                                                        ? [question.learningOutcome]
-                                                        : []
-                                                }
-                                                onRefresh={handleRefreshAll}
-                                            />
-                                        ))
-                                    }
-                                </div>
-                            )
-            }
-        </div>
+                    </div>
+                </CardHeader>
+                <CardBody>
+                    <ul className="assessment-editor__outcome-list">
+                        {(assessment.data.learningOutcomes || []).map((outcome, index) => (
+                            <li key={outcome}>
+                                <span className="assessment-editor__outcome-index">{index + 1}</span>
+                                {outcome}
+                            </li>
+                        ))}
+                    </ul>
+                </CardBody>
+            </Card>
+
+            <section className="assessment-editor__questions">
+                <div className="assessment-editor__questions-header">
+                    <h2>Questions</h2>
+                    <span className="assessment-editor__questions-count">
+                        {questions.data?.length || 0} question(s)
+                    </span>
+                </div>
+                {questions.isLoading ? (
+                    <Spinner label="Loading questions…" />
+                ) : questions.isError ? (
+                    <EmptyState icon="!" title="Could not load questions" description={questions.error.message} />
+                ) : questions.data?.length ? (
+                    <div className="assessment-editor__question-grid">
+                        {questions.data.map((question) => (
+                            <QuestionCard
+                                key={question.questionId}
+                                assessmentId={assessmentId}
+                                question={question}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <EmptyState
+                        icon="?"
+                        title="No questions yet"
+                        description="Try regenerating to fill this assessment."
+                    />
+                )}
+            </section>
+
+            <section className="assessment-editor__submissions">
+                <SubmissionPanel assessmentId={assessmentId} questions={questions.data || []} />
+            </section>
+        </>
     );
 };
 

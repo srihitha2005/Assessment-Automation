@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.env
+
+# Backend runtime artifacts
+backend/backend.db
+backend/*.db
+backend/generated_documents/
+backend/uploaded_images/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.env.local
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

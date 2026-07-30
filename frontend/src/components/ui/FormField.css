@@ -1,0 +1,52 @@
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field__label {
+    font-size: var(--fs-sm);
+    color: var(--fg-2);
+    font-weight: 600;
+}
+
+.form-field__hint {
+    font-size: var(--fs-xs);
+    color: var(--fg-3);
+}
+
+.form-field__hint--error {
+    color: var(--danger-700);
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px 12px;
+    background: var(--surface-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-2);
+    color: var(--fg-1);
+    font-size: var(--fs-md);
+    font-family: inherit;
+    line-height: 1.4;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--brand-500);
+    box-shadow: 0 0 0 3px var(--brand-50);
+}
+
+.form-input--textarea {
+    resize: vertical;
+    min-height: 96px;
+}
+
+.form-input--select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23334155' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 32px;
+}

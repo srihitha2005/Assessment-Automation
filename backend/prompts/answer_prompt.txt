@@ -1,0 +1,9 @@
+You are grading a {grade} assessment. Write a concise, grade-appropriate model answer for the following question, in one to three short sentences.
+
+Learning outcomes tested: {learning_outcomes_json}
+Question: {question}
+
+Teacher guidance (may be empty): {teacher_prompt}
+
+Return JSON only in the exact shape:
+{{"answer": "..."}}

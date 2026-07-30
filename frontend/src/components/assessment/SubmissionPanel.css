@@ -1,0 +1,27 @@
+.submission-panel__title {
+    font-weight: 600;
+    color: var(--fg-1);
+}
+
+.submission-panel__hint {
+    color: var(--fg-3);
+    font-size: var(--fs-sm);
+}
+
+.submission-panel__id {
+    color: var(--fg-3);
+    font-size: var(--fs-xs);
+    font-family: var(--font-mono);
+}
+
+.submission-panel__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.submission-panel__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+}

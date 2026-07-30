@@ -1,0 +1,290 @@
+{
+  "digest": {
+    "algorithm": "sha256",
+    "value": "eafd615dcd2353c9a20330708f0898325d2bed6245b26949808cbaee3b5d65ba"
+  },
+  "receivedAt": null,
+  "payload": {
+    "assessmentId": "cb399269-b6ce-4280-8eac-ea2134606e0c",
+    "plannerId": "P010",
+    "curriculumId": "CURR027",
+    "assessmentNumber": 1,
+    "version": 2,
+    "totalMarks": 15,
+    "marks": 15,
+    "status": "Generated",
+    "grade": "Grade 7",
+    "courseName": "Computer Science",
+    "unitName": "Programming Basics",
+    "chapterName": "Algorithms",
+    "learningOutcomes": [
+      "Define an algorithm",
+      "Trace an algorithm step by step",
+      "Write pseudo-code for a task"
+    ],
+    "learningOutcomeCount": 3,
+    "questionCount": 9,
+    "validationReport": {
+      "questionCount": 9,
+      "expectedCount": 9,
+      "totalMarks": 15,
+      "expectedMarks": 15,
+      "duplicateQuestions": [],
+      "missingOutcomes": [],
+      "needsReview": false
+    },
+    "publishTarget": null,
+    "publishDigest": null,
+    "publishedOn": null,
+    "generatedBy": "SYSTEM",
+    "generatedOn": "2026-07-30T19:27:40",
+    "updatedBy": "SYSTEM",
+    "updatedOn": "2026-07-30T19:28:29",
+    "questions": [
+      {
+        "questionId": "74927079-04f1-4b95-8cbf-4cc294f53cd0",
+        "assessmentId": "cb399269-b6ce-4280-8eac-ea2134606e0c",
+        "questionNumber": 1,
+        "version": 2,
+        "question": "What is an algorithm?",
+        "answer": "An algorithm is a step-by-step procedure or set of instructions designed to solve a problem or accomplish a task.",
+        "options": [],
+        "questionType": "MCQ",
+        "difficulty": "Easy",
+        "bloomsLevel": "Remember",
+        "bloomLevel": "Remember",
+        "learningOutcomes": [
+          "Define an algorithm"
+        ],
+        "marks": 1,
+        "image": "/uploads/967106a445744f97ba1d907e0e87e835.png",
+        "images": [
+          {
+            "imageId": "15445d55-e859-4458-a6b8-84dc30126bfa",
+            "url": "/uploads/967106a445744f97ba1d907e0e87e835.png"
+          }
+        ],
+        "needsReview": false,
+        "generatedBy": "SYSTEM",
+        "generatedOn": "2026-07-30T19:27:40",
+        "updatedBy": "SYSTEM",
+        "updatedOn": "2026-07-30T19:28:29"
+      },
+      {
+        "questionId": "9a7ec49e-e668-47cd-a587-3859b789a1c3",
+        "assessmentId": "cb399269-b6ce-4280-8eac-ea2134606e0c",
+        "questionNumber": 2,
+        "version": 1,
+        "question": "Observe the image below. What does it represent?",
+        "answer": "Blank Graph",
+        "options": [
+          "Flowchart",
+          "Blank Graph",
+          "Binary Tree",
+          "Network Diagram"
+        ],
+        "questionType": "Short Answer",
+        "difficulty": "Medium",
+        "bloomsLevel": "Understand",
+        "bloomLevel": "Understand",
+        "learningOutcomes": [
+          "Trace an algorithm step by step"
+        ],
+        "marks": 1,
+        "image": "images/blank_graph.png",
+        "images": [],
+        "needsReview": false,
+        "generatedBy": "SYSTEM",
+        "generatedOn": "2026-07-30T19:27:40",
+        "updatedBy": "SYSTEM",
+        "updatedOn": "2026-07-30T19:27:40"
+      },
+      {
+        "questionId": "156bb22b-f675-48c1-8dcf-1235987a4d26",
+        "assessmentId": "cb399269-b6ce-4280-8eac-ea2134606e0c",
+        "questionNumber": 3,
+        "version": 1,
+        "question": "Fill in the blank: The first step of most algorithms is ______.",
+        "answer": "Start",
+        "options": [],
+        "questionType": "Short Answer",
+        "difficulty": "Medium",
+        "bloomsLevel": "Apply",
+        "bloomLevel": "Apply",
+        "learningOutcomes": [
+          "Write pseudo-code for a task"
+        ],
+        "marks": 2,
+        "image": null,
+        "images": [],
+        "needsReview": false,
+        "generatedBy": "SYSTEM",
+        "generatedOn": "2026-07-30T19:27:40",
+        "updatedBy": "SYSTEM",
+        "updatedOn": "2026-07-30T19:27:40"
+      },
+      {
+        "questionId": "fbfb3997-0ce9-40cc-85aa-f93e775a06c5",
+        "assessmentId": "cb399269-b6ce-4280-8eac-ea2134606e0c",
+        "questionNumber": 4,
+        "version": 1,
+        "question": "Which of the following is NOT a characteristic of a good algorithm?",
+        "answer": "Ambiguity",
+        "options": [
+          "Finiteness",
+          "Definiteness",
+          "Ambiguity",
+          "Correctness"
+        ],
+        "questionType": "MCQ",
+        "difficulty": "Medium",
+        "bloomsLevel": "Apply",
+        "bloomLevel": "Apply",
+        "learningOutcomes": [
+          "Define an algorithm"
+        ],
+        "marks": 2,
+        "image": null,
+        "images": [],
+        "needsReview": false,
+        "generatedBy": "SYSTEM",
+        "generatedOn": "2026-07-30T19:27:40",
+        "updatedBy": "SYSTEM",
+        "updatedOn": "2026-07-30T19:27:40"
+      },
+      {
+        "questionId": "2e785193-ce3c-48f7-81cd-326aa5931763",
+        "assessmentId": "cb399269-b6ce-4280-8eac-ea2134606e0c",
+        "questionNumber": 5,
+        "version": 1,
+        "question": "Fill in the blank: Every algorithm must produce the correct ______.",
+        "answer": "output",
+        "options": [],
+        "questionType": "Fill in the Blank",
+        "difficulty": "Medium",
+        "bloomsLevel": "Apply",
+        "bloomLevel": "Apply",
+        "learningOutcomes": [
+          "Define an algorithm"
+        ],
+        "marks": 2,
+        "image": null,
+        "images": [],
+        "needsReview": false,
+        "generatedBy": "SYSTEM",
+        "generatedOn": "2026-07-30T19:27:40",
+        "updatedBy": "SYSTEM",
+        "updatedOn": "2026-07-30T19:27:40"
+      },
+      {
+        "questionId": "596d282e-6174-4ca0-ade5-49ae91383ed9",
+        "assessmentId": "cb399269-b6ce-4280-8eac-ea2134606e0c",
+        "questionNumber": 6,
+        "version": 1,
+        "question": "Observe the images and identify which one could be used to plot algorithm performance.",
+        "answer": "Blank Graph",
+        "options": [
+          "Blank Graph",
+          "Chloroplast",
+          "Food Chain"
+        ],
+        "questionType": "Short Answer",
+        "difficulty": "Hard",
+        "bloomsLevel": "Analyze",
+        "bloomLevel": "Analyze",
+        "learningOutcomes": [
+          "Trace an algorithm step by step",
+          "Write pseudo-code for a task"
+        ],
+        "marks": 3,
+        "image": null,
+        "images": [
+          "images/blank_graph.png",
+          "images/chloroplast.png",
+          "images/food_chain.png"
+        ],
+        "needsReview": false,
+        "generatedBy": "SYSTEM",
+        "generatedOn": "2026-07-30T19:27:40",
+        "updatedBy": "SYSTEM",
+        "updatedOn": "2026-07-30T19:27:40"
+      },
+      {
+        "questionId": "64cee272-31f7-47a7-8e11-999c6b041146",
+        "assessmentId": "cb399269-b6ce-4280-8eac-ea2134606e0c",
+        "questionNumber": 7,
+        "version": 1,
+        "question": "Observe the image and explain why it is unrelated to algorithms.",
+        "answer": "It is a biology diagram of a chloroplast, not an algorithm or flowchart.",
+        "options": [],
+        "questionType": "Short Answer",
+        "difficulty": "Hard",
+        "bloomsLevel": "Analyze",
+        "bloomLevel": "Analyze",
+        "learningOutcomes": [
+          "Define an algorithm"
+        ],
+        "marks": 2,
+        "image": "images/chloroplast.png",
+        "images": [],
+        "needsReview": false,
+        "generatedBy": "SYSTEM",
+        "generatedOn": "2026-07-30T19:27:40",
+        "updatedBy": "SYSTEM",
+        "updatedOn": "2026-07-30T19:27:40"
+      },
+      {
+        "questionId": "c5b54c7f-ffd3-4df7-8b41-3e47d28ee7cf",
+        "assessmentId": "cb399269-b6ce-4280-8eac-ea2134606e0c",
+        "questionNumber": 8,
+        "version": 1,
+        "question": "A flowchart makes algorithms easier to understand.",
+        "answer": "True",
+        "options": [
+          "True",
+          "False"
+        ],
+        "questionType": "True / False",
+        "difficulty": "Easy",
+        "bloomsLevel": "Understand",
+        "bloomLevel": "Understand",
+        "learningOutcomes": [
+          "Trace an algorithm step by step",
+          "Write pseudo-code for a task"
+        ],
+        "marks": 1,
+        "image": null,
+        "images": [],
+        "needsReview": false,
+        "generatedBy": "SYSTEM",
+        "generatedOn": "2026-07-30T19:27:40",
+        "updatedBy": "SYSTEM",
+        "updatedOn": "2026-07-30T19:27:40"
+      },
+      {
+        "questionId": "4036f078-a7fe-4d36-bbad-87343658d848",
+        "assessmentId": "cb399269-b6ce-4280-8eac-ea2134606e0c",
+        "questionNumber": 9,
+        "version": 1,
+        "question": "Fill in the blank: Every algorithm should have a ______ point.",
+        "answer": "starting",
+        "options": [],
+        "questionType": "Fill in the Blank",
+        "difficulty": "Easy",
+        "bloomsLevel": "Remember",
+        "bloomLevel": "Remember",
+        "learningOutcomes": [
+          "Define an algorithm"
+        ],
+        "marks": 1,
+        "image": null,
+        "images": [],
+        "needsReview": false,
+        "generatedBy": "SYSTEM",
+        "generatedOn": "2026-07-30T19:27:40",
+        "updatedBy": "SYSTEM",
+        "updatedOn": "2026-07-30T19:27:40"
+      }
+    ]
+  }
+}

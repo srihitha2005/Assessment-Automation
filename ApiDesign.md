@@ -1,656 +1,194 @@
-# Assessment Automation Backend API Documentation
+# API Reference
 
-## Base URL
+Base URL: `http://localhost:8000/api`
+Envelope: every JSON response is `{ "success": bool, "message": str, "data": ... }`.
 
+Error mapping (global exception handlers in `main.py`):
+
+| Exception | HTTP |
+|-----------|-----:|
+| `LookupError` (entity not found) | 404 |
+| `ValueError` (bad input) | 400 |
+| `RuntimeError` (upstream / portal / model) | 502 |
+| others | 500 |
+
+---
+
+## Curriculum
+
+`GET /api/grades` — list all grades.
+
+`GET /api/grades/{gradeId}/courses`
+
+`GET /api/courses/{courseId}/units`
+
+`GET /api/units/{unitId}/chapters`
+
+`POST /api/curriculum`
+```json
+{ "gradeId": 8, "courseId": 101, "unitId": 12, "chapterId": 1201 }
 ```
-/api
+Returns `{ curriculumId, chapterName }`.
+
+`GET /api/curriculum/{curriculumId}/assessments` — chapter details + all assessments for it.
+
+`GET /api/planners` — every planner (from Google Sheets or the bundled fallback).
+
+`GET /api/planners/{plannerId}` — planner details plus every assessment generated against it.
+
+---
+
+## Assessments
+
+`GET /api/assessments` — list.
+
+`POST /api/assessments`
+```json
+{ "plannerId": "P004", "prompt": "Emphasise diagrams", "generatedBy": "SYSTEM" }
+```
+Body accepts `curriculumId` instead of `plannerId` — the service resolves to a planner.
+
+`GET /api/assessments/{id}` — one assessment (without questions).
+
+`GET /api/assessments/{id}/details` — alias of the above (for legacy clients).
+
+`GET /api/assessments/{id}/questions` — all questions.
+
+`POST /api/assessments/{id}/regenerate`
+```json
+{ "prompt": "More analysis-level questions", "updatedBy": "SYSTEM" }
+```
+
+`DELETE /api/assessments/{id}`
+
+`GET /api/assessments/{id}/docx` — `FileResponse` (`.docx`).
+
+`GET /api/assessments/{id}/pdf` — `FileResponse` (`.pdf`).
+
+`POST /api/assessments/{id}/parse` — rewrites the DOCX and returns its parsed schema; `data.source` is `"metadata"` on lossless round-trip or `"regex"` for teacher-edited files.
+
+`POST /api/assessments/{id}/publish`
+```json
+{ "updatedBy": "SYSTEM" }
+```
+Returns `{ assessment, receipt: { target, digest, mode, ... } }`. Mode is `"http"` when `PORTAL_PUBLISH_URL` is set, otherwise `"artifact"` (JSON written to `generated_documents/`).
+
+`POST /api/assessments/{id}/rollback`
+```json
+{ "version": 1, "updatedBy": "SYSTEM" }
+```
+Rebuilds the assessment and its questions from the snapshot at that version — preserves `bloomsLevel`, `learningOutcomes`, `image`.
+
+`GET /api/assessments/{id}/versions` — chronological version log.
+
+`POST /api/assessments/{id}/questions` — add a question by hand (body is `QuestionInput`).
+
+---
+
+## Questions
+
+`GET /api/questions/{id}`
+
+`PUT /api/questions/{id}` — body is `QuestionPatch`; any subset of `question`, `answer`, `options`, `questionType`, `difficulty`, `bloomsLevel`, `learningOutcomes`, `marks`, `image`.
+
+`DELETE /api/questions/{id}`
+
+`POST /api/questions/{id}/regenerate` — body `{ prompt?, updatedBy? }`; rewrites question + answer + options.
+
+`POST /api/questions/{id}/answer/regenerate` — same body; rewrites the answer only.
+
+`POST /api/questions/{id}/images` — `multipart/form-data`, field name `files`; supports `.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`. Images are downscaled to a 1200 px max dimension via Pillow, served at `/uploads/<filename>`.
+
+`DELETE /api/images/{imageId}` — deletes both the file and the metadata row.
+
+---
+
+## Submissions (stretch — immutability)
+
+`POST /api/assessments/{id}/submissions`
+```json
+{
+    "studentId": "stu-42",
+    "studentName": "Alice",
+    "answers": [{ "questionNumber": 1, "answer": "Yes." }]
+}
+```
+Auto-scores by exact match (case-insensitive). Freezes the current assessment view into `lockedSnapshot`.
+
+`GET /api/assessments/{id}/submissions` — list; each row exposes its `lockedSnapshot`.
+
+---
+
+## Propagation (stretch — dynamic outcome propagation)
+
+`POST /api/planners/{plannerId}/outcomes`
+```json
+{ "learningOutcomes": ["…", "…"], "updatedBy": "SYSTEM" }
+```
+Overlays the planner outcomes in memory (or in Sheets if wired), diffs against the previous list, marks every Published assessment for that planner as `Outdated`, and records a `PropagationEvent`.
+
+`GET /api/propagation/events` — feed for the Propagation UI.
+
+---
+
+## Dashboard (stretch — teacher dashboard sync)
+
+`GET /api/dashboard/summary`
+```json
+{
+    "totals": { "assessments": 3, "published": 1, "outdated": 0, "submissions": 2, "propagationEvents": 1 },
+    "statusBreakdown": { "Generated": 2, "Published": 1, "Parsed": 0, "Outdated": 0 },
+    "averageTotalMarks": 25.0,
+    "recentAssessments": [ ... ],
+    "recentSubmissions": [ ... ]
+}
 ```
 
 ---
 
-# 1. Get All Grades
+## Static
 
-### Endpoint
+- `/static/*` → serves files under `Question Bank/` (chapter images).
+- `/uploads/*` → serves user-uploaded question images.
+- `/downloads/*` → serves generated DOCX/PDF/portal-artifact files.
 
-```http
-GET /grades
-```
+---
 
-### Description
+## Request/response schemas
 
-Returns all available grades.
+Every request body is a `pydantic.BaseModel` with `alias_generator=camel` (see `schema.py`). Both `snake_case` and `camelCase` keys are accepted; responses are always camelCase.
 
-### Request
-
-No input required.
-
-### Response
-
+Example `Assessment` response:
 ```json
 {
-  "totalGrades": 3,
-  "grades": [
-    {
-      "gradeId": 1,
-      "gradeName": "Grade 6",
-      "numberOfUnits": 5
+    "assessmentId": "24355198-a7b2-4a24-a000-…",
+    "plannerId": "P004",
+    "curriculumId": "CURR004",
+    "assessmentNumber": 1,
+    "version": 2,
+    "totalMarks": 15,
+    "marks": 15,
+    "status": "Generated",
+    "grade": "Grade 8",
+    "courseName": "Science",
+    "unitName": "Human Body",
+    "chapterName": "Digestive System",
+    "learningOutcomes": ["Identify digestive organs", "Explain digestion", "Describe nutrient absorption"],
+    "learningOutcomeCount": 3,
+    "questionCount": 9,
+    "validationReport": {
+        "questionCount": 9, "expectedCount": 9, "totalMarks": 15,
+        "expectedMarks": 15, "duplicateQuestions": [], "missingOutcomes": [],
+        "needsReview": false
     },
-    {
-      "gradeId": 2,
-      "gradeName": "Grade 7",
-      "numberOfUnits": 6
-    }
-  ]
+    "publishTarget": null,
+    "publishDigest": null,
+    "publishedOn": null,
+    "generatedBy": "SYSTEM",
+    "generatedOn": "2026-07-30T17:45:00",
+    "updatedBy": "SYSTEM",
+    "updatedOn": "2026-07-30T17:45:00"
 }
 ```
 
----
-
-# 2. Get Courses by Grade
-
-### Endpoint
-
-```http
-GET /grades/{gradeId}/courses
-```
-
-### Input
-
-| Parameter | Type |
-|-----------|------|
-| gradeId | Integer |
-
-### Response
-
-```json
-{
-  "gradeId": 1,
-  "numberOfCourses": 4,
-  "courses": [
-    {
-      "courseId": 101,
-      "courseName": "Science",
-      "numberOfUnits": 5
-    },
-    {
-      "courseId": 102,
-      "courseName": "Mathematics",
-      "numberOfUnits": 6
-    }
-  ]
-}
-```
-
----
-
-# 3. Get Units by Course
-
-### Endpoint
-
-```http
-GET /courses/{courseId}/units
-```
-
-### Input
-
-| Parameter | Type |
-|-----------|------|
-| courseId | Integer |
-
-### Response
-
-```json
-{
-  "courseId": 101,
-  "numberOfUnits": 5,
-  "units": [
-    {
-      "unitId": 11,
-      "unitName": "Human Body",
-      "numberOfChapters": 6
-    }
-  ]
-}
-```
-
----
-
-# 4. Get Chapters by Unit
-
-### Endpoint
-
-```http
-GET /units/{unitId}/chapters
-```
-
-### Input
-
-| Parameter | Type |
-|-----------|------|
-| unitId | Integer |
-
-### Response
-
-```json
-{
-  "unitId": 11,
-  "numberOfChapters": 6,
-  "chapters": [
-    {
-      "chapterId": 101,
-      "chapterName": "Digestive System",
-      "numberOfAssessments": 3
-    }
-  ]
-}
-```
-
----
-
-# 5. Get Curriculum ID
-
-### Endpoint
-
-```http
-POST /curriculum
-```
-
-### Request
-
-```json
-{
-  "gradeId": 1,
-  "courseId": 101,
-  "unitId": 11,
-  "chapterId": 101
-}
-```
-
-### Response
-
-```json
-{
-  "curriculumId": 55
-}
-```
-
----
-
-# 6. Get Assessments by Curriculum
-
-### Endpoint
-
-```http
-GET /curriculum/{curriculumId}/assessments
-```
-
-### Response
-
-```json
-{
-  "curriculumId": 55,
-  "learningOutcomes": [
-    "Identify the organs of the digestive system.",
-    "Explain the digestion process."
-  ],
-  "numberOfAssessments": 2,
-  "assessments": [
-    {
-      "assessmentId": 1,
-      "assessmentNumber": 1,
-      "status": "Published",
-      "marks": 50,
-      "numberOfQuestions": 15
-    }
-  ]
-}
-```
-
----
-
-# 7. Add Assessment
-
-### Endpoint
-
-```http
-POST /assessments
-```
-
-### Request
-
-```json
-{
-  "curriculumId": 55,
-  "prompt": "Generate more application-based questions."
-}
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Assessment generated successfully."
-}
-```
-
----
-
-# 8. Delete Assessment
-
-### Endpoint
-
-```http
-DELETE /assessments/{assessmentId}
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Assessment deleted successfully."
-}
-```
-
----
-
-# 9. View Assessment Details
-
-### Endpoint
-
-```http
-GET /assessments/{assessmentId}/details
-```
-
-### Response
-
-```json
-{
-  "assessmentId": 1,
-  "assessmentNumber": 2,
-  "version": 3,
-  "generatedOn": "2026-07-30",
-  "generatedBy": "SYSTEM",
-  "updatedOn": "2026-07-30",
-  "updatedBy": "SYSTEM",
-  "marks": 50,
-  "numberOfQuestions": 15
-}
-```
-
----
-
-# 10. View Assessment
-
-### Endpoint
-
-```http
-GET /assessments/{assessmentId}
-```
-
-### Response
-
-```json
-{
-  "assessmentId": 1,
-  "questions": [
-    {
-      "questionId": 1001,
-      "question": "What is digestion?",
-      "answer": "Process of breaking down food.",
-      "marks": 2
-    }
-  ]
-}
-```
-
----
-
-# 11. Regenerate Assessment
-
-### Endpoint
-
-```http
-POST /assessments/{assessmentId}/regenerate
-```
-
-### Request
-
-```json
-{
-  "prompt": "Increase analytical questions."
-}
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Assessment regenerated successfully."
-}
-```
-
----
-
-# 12. Generate DOCX
-
-### Endpoint
-
-```http
-GET /assessments/{assessmentId}/docx
-```
-
-### Description
-
-Generates and downloads an editable DOCX version of the assessment.
-
-### Response
-
-Returns an editable `.docx` file.
-
----
-
-# 13. Publish Assessment
-
-### Endpoint
-
-```http
-POST /assessments/{assessmentId}/publish
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Assessment published successfully."
-}
-```
-
----
-
-# 14. Rollback Assessment
-
-### Endpoint
-
-```http
-POST /assessments/{assessmentId}/rollback
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Assessment rolled back successfully."
-}
-```
-
----
-
-# 15. Generate More Questions
-
-### Endpoint
-
-```http
-POST /assessments/{assessmentId}/questions/generate
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Additional questions generated successfully."
-}
-```
-
----
-
-# 16. View Question
-
-### Endpoint
-
-```http
-GET /questions/{questionId}
-```
-
-### Response
-
-```json
-{
-  "questionId": 1001,
-  "questionNumber": 3,
-  "question": "What is digestion?",
-  "questionType": "MCQ",
-  "options": [
-    "Option A",
-    "Option B",
-    "Option C",
-    "Option D"
-  ],
-  "answer": "Option A",
-  "marks": 2,
-  "learningOutcome": "Explain digestion.",
-  "difficulty": "Medium",
-  "bloomLevel": "Understand"
-}
-```
-
----
-
-# 17. Delete Question
-
-### Endpoint
-
-```http
-DELETE /questions/{questionId}
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Question deleted successfully."
-}
-```
-
----
-
-# 18. Edit Question
-
-### Endpoint
-
-```http
-PUT /questions/{questionId}
-```
-
-### Request
-
-```json
-{
-  "question": "Edited question",
-  "answer": "Edited answer"
-}
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Question updated successfully."
-}
-```
-
----
-
-# 19. Regenerate Question
-
-### Endpoint
-
-```http
-POST /questions/{questionId}/regenerate
-```
-
-### Request
-
-```json
-{
-  "prompt": "Make it more application based."
-}
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Question regenerated successfully."
-}
-```
-
----
-
-# 20. Regenerate Answer
-
-### Endpoint
-
-```http
-POST /questions/{questionId}/answer/regenerate
-```
-
-### Request
-
-```json
-{
-  "prompt": "Provide a detailed answer."
-}
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Answer regenerated successfully."
-}
-```
-
----
-
-# 21. Rollback Question
-
-### Endpoint
-
-```http
-POST /questions/{questionId}/rollback
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Question rolled back successfully."
-}
-```
-
----
-
-# 22. Image Management
-
-## Upload Image
-
-### Endpoint
-
-```http
-POST /questions/{questionId}/images
-```
-
-### Request
-
-Multipart Form Data
-
-```
-image[]
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Image uploaded successfully."
-}
-```
-
----
-
-## Delete Image
-
-### Endpoint
-
-```http
-DELETE /images/{imageId}
-```
-
-### Response
-
-```json
-{
-  "success": true,
-  "message": "Image deleted successfully."
-}
-```
-
----
-
-# Backend Controller Structure
-
-```
-controller/
-
-├── curriculum_controller.py
-│   ├── GET /grades
-│   ├── GET /grades/{gradeId}/courses
-│   ├── GET /courses/{courseId}/units
-│   ├── GET /units/{unitId}/chapters
-│   ├── POST /curriculum
-│   └── GET /curriculum/{curriculumId}/assessments
-│
-├── assessment_controller.py
-│   ├── POST /assessments
-│   ├── DELETE /assessments/{assessmentId}
-│   ├── GET /assessments/{assessmentId}/details
-│   ├── GET /assessments/{assessmentId}
-│   ├── POST /assessments/{assessmentId}/regenerate
-│   ├── GET /assessments/{assessmentId}/docx
-│   ├── POST /assessments/{assessmentId}/publish
-│   ├── POST /assessments/{assessmentId}/rollback
-│   └── POST /assessments/{assessmentId}/questions/generate
-│
-├── question_controller.py
-│   ├── GET /questions/{questionId}
-│   ├── DELETE /questions/{questionId}
-│   ├── PUT /questions/{questionId}
-│   ├── POST /questions/{questionId}/regenerate
-│   ├── POST /questions/{questionId}/answer/regenerate
-│   ├── POST /questions/{questionId}/rollback
-│   ├── POST /questions/{questionId}/images
-│   └── DELETE /images/{imageId}
-```
-
-## Notes
-
-- Google Sheets is the source of truth for Curriculum and Planner data.
-- PostgreSQL stores Assessments, Questions, Versions and Metadata.
-- Question Bank JSON files store reusable question templates.
-- Ollama is used for question classification and fallback question generation.
-- Generated questions are added back to the Question Bank for future reuse.
-- Previous assessment questions are excluded from future assessment generation for the same curriculum whenever possible.
-- DOCX generation produces an editable assessment document ready for download.
-- Rollback restores the previous version of an assessment or question.
+Example `AssessmentQuestion` response includes both `bloomLevel` and `bloomsLevel` — camelCase clients written against the previous version keep working.

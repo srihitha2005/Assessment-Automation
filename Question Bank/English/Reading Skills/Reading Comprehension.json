@@ -139,6 +139,18 @@
     {
       "question": "Explain why reading comprehension is important.",
       "answer": "It enables readers to understand, analyze, remember, and apply information from written texts."
+    },
+    {
+      "question": "Which of the following best summarizes the main idea of the passage: 'In a small village, there lived a wise old owl. The owl was known for his ability to fly at night and solve complex problems. One day, he decided to share his knowledge with the villagers.' \na) The owl lives in a village b) The owl can fly c) The owl teaches d) The owl solves problems",
+      "answer": "c)",
+      "options": [
+        "a) The owl lives in a village",
+        "b) The owl can fly",
+        "c) The owl teaches",
+        "d) The owl solves problems"
+      ],
+      "image": null,
+      "images": []
     }
   ]
 }

@@ -1,0 +1,30 @@
+.shell {
+    display: flex;
+    min-height: 100vh;
+}
+
+.shell__main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.shell__content {
+    padding: var(--space-6) var(--space-8);
+    max-width: var(--content-max);
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+}
+
+.shell__env {
+    padding: 4px 10px;
+    background: var(--surface-2);
+    border: 1px solid var(--border-1);
+    border-radius: 999px;
+    font-size: var(--fs-xs);
+    color: var(--fg-3);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}

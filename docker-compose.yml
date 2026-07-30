@@ -1,27 +1,60 @@
 services:
-  postgres:
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_DB: assessment_automation
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    postgres:
+        image: postgres:16-alpine
+        environment:
+            POSTGRES_DB: assessment_automation
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U postgres"]
+            interval: 5s
+            timeout: 3s
+            retries: 20
 
-  backend:
-    build:
-      context: .
-      dockerfile: backend/Dockerfile
-    environment:
-      DATABASE_URL: postgresql+psycopg://postgres:postgres@postgres:5432/assessment_automation
-      OLLAMA_URL: http://host.docker.internal:11434
-      OLLAMA_MODEL: qwen2.5:3b
-    ports:
-      - "8000:8000"
-    depends_on:
-      - postgres
+    backend:
+        build:
+            context: .
+            dockerfile: backend/Dockerfile
+        environment:
+            DATABASE_URL: postgresql+psycopg://postgres:postgres@postgres:5432/assessment_automation
+            OLLAMA_URL: http://host.docker.internal:11434
+            OLLAMA_MODEL: qwen2.5:3b
+            BOOTSTRAP_DEMO_DATA: "true"
+        ports:
+            - "8000:8000"
+        depends_on:
+            postgres:
+                condition: service_healthy
+        volumes:
+            - generated_docs:/app/backend/generated_documents
+            - uploaded_images:/app/backend/uploaded_images
+        healthcheck:
+            test:
+                [
+                    "CMD-SHELL",
+                    "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/').read()\"",
+                ]
+            interval: 10s
+            timeout: 3s
+            retries: 12
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+
+    frontend:
+        build:
+            context: .
+            dockerfile: frontend/Dockerfile
+        ports:
+            - "5173:80"
+        depends_on:
+            backend:
+                condition: service_healthy
 
 volumes:
-  postgres_data:
+    postgres_data:
+    generated_docs:
+    uploaded_images:

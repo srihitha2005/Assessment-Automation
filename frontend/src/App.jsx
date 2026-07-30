@@ -1,86 +1,34 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
+import { Route, Routes } from "react-router-dom";
 
-import Curriculum from "./pages/Curriculum.jsx";
-import Courses from "./pages/Courses.jsx";
-import Units from "./pages/Units.jsx";
-import Chapters from "./pages/Chapters.jsx";
-import AssessmentViewer from "./pages/AssessmentViewer.jsx";
+import AppShell from "./AppShell.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import CurriculumBrowser from "./pages/CurriculumBrowser.jsx";
+import PlannerBrowser from "./pages/PlannerBrowser.jsx";
+import PlannerDetail from "./pages/PlannerDetail.jsx";
+import AssessmentList from "./pages/AssessmentList.jsx";
 import AssessmentEditor from "./pages/AssessmentEditor.jsx";
+import VersionHistory from "./pages/VersionHistory.jsx";
+import PublishFlow from "./pages/PublishFlow.jsx";
+import QuestionBankBrowser from "./pages/QuestionBankBrowser.jsx";
+import PropagationEvents from "./pages/PropagationEvents.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: "#2563EB"
-        },
-        background: {
-            default: "#F4F7FB"
-        },
-        text: {
-            primary: "#1E293B",
-            secondary: "#64748B"
-        }
-    },
-    typography: {
-        fontFamily: "Arial, Helvetica, sans-serif"
-    },
-    shape: {
-        borderRadius: 12
-    }
-});
-
-function App() {
-    console.log("[App] Rendering Assessment Automation frontend.");
-
-    return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <BrowserRouter>
-                <Routes>
-                    <Route
-                        path="/"
-                        element={<Curriculum />}
-                    />
-
-                    <Route
-                        path="/grades/:gradeId/courses"
-                        element={<Courses />}
-                    />
-
-                    <Route
-                        path="/grades/:gradeId/courses/:courseId/units"
-                        element={<Units />}
-                    />
-
-                    <Route
-                        path="/grades/:gradeId/courses/:courseId/units/:unitId/chapters"
-                        element={<Chapters />}
-                    />
-
-                    <Route
-                        path="/grades/:gradeId/courses/:courseId/units/:unitId/chapters/:chapterId/assessments"
-                        element={<AssessmentViewer />}
-                    />
-
-                    <Route
-                        path="/view-assessment/:assessmentId"
-                        element={<AssessmentEditor />}
-                    />
-
-                    <Route
-                        path="/view-assessments"
-                        element={<Navigate to="/" replace />}
-                    />
-
-                    <Route
-                        path="*"
-                        element={<Navigate to="/" replace />}
-                    />
-                </Routes>
-            </BrowserRouter>
-        </ThemeProvider>
-    );
-}
+const App = () => (
+    <Routes>
+        <Route element={<AppShell />}>
+            <Route index element={<Dashboard />} />
+            <Route path="curriculum" element={<CurriculumBrowser />} />
+            <Route path="planners" element={<PlannerBrowser />} />
+            <Route path="planners/:plannerId" element={<PlannerDetail />} />
+            <Route path="assessments" element={<AssessmentList />} />
+            <Route path="assessments/:assessmentId" element={<AssessmentEditor />} />
+            <Route path="assessments/:assessmentId/versions" element={<VersionHistory />} />
+            <Route path="assessments/:assessmentId/publish" element={<PublishFlow />} />
+            <Route path="question-bank" element={<QuestionBankBrowser />} />
+            <Route path="propagation" element={<PropagationEvents />} />
+            <Route path="*" element={<NotFound />} />
+        </Route>
+    </Routes>
+);
 
 export default App;

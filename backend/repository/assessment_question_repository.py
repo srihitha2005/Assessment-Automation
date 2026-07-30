@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from uuid import UUID
 
 from entity.assessment_question import AssessmentQuestion
 
@@ -12,6 +13,21 @@ class AssessmentQuestionRepository:
 
         self.db.add_all(questions)
         self.db.commit()
+
+    def get_by_id(self, question_id):
+        if isinstance(question_id, str):
+            question_id = UUID(question_id)
+        return (
+            self.db.query(AssessmentQuestion)
+            .filter(AssessmentQuestion.question_id == question_id)
+            .first()
+        )
+
+    def save(self, question):
+        self.db.add(question)
+        self.db.commit()
+        self.db.refresh(question)
+        return question
 
     def get_by_assessment(self, assessment_id):
 
@@ -36,4 +52,8 @@ class AssessmentQuestionRepository:
             .delete()
         )
 
+        self.db.commit()
+
+    def delete(self, question):
+        self.db.delete(question)
         self.db.commit()

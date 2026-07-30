@@ -1,5 +1,25 @@
 # Assessment Automation System Design Document
 
+## Running the backend
+
+The backend is complete and uses only the locally installed `qwen2.5:3b` model through Ollama. From the `backend` folder:
+
+```powershell
+python -m pip install -r requirements.txt
+$env:DATABASE_URL = "postgresql+psycopg://postgres:YOUR_PASSWORD@localhost:5432/assessment_automation"
+python -m uvicorn main:app --reload --port 8000
+```
+
+Open `http://localhost:8000/docs` to try the API. Start Ollama before generating or regenerating content:
+
+```powershell
+ollama serve
+```
+
+If Google Sheets credentials are not configured, the planner and curriculum samples from `Design.pdf` are available automatically. Copy `backend/.env.example` values into your environment to connect Sheets or a destination portal. `docker compose up --build` starts PostgreSQL and the backend; it still uses your host Ollama instance.
+
+The key endpoints are `POST /assessment/generate`, `GET /assessments`, `GET /assessments/{id}/questions`, `POST /documents/{id}/generate`, `POST /assessments/{id}/parse`, and `POST /assessments/{id}/publish`. The equivalent REST endpoints are documented in Swagger.
+
 ## 1. Overview
 
 ### Objective

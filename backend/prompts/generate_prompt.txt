@@ -1,0 +1,2 @@
+Generate one original, age-appropriate assessment question. Return only valid JSON with question, answer, options, image, and images.
+Meet the supplied learning outcome, difficulty, Bloom level, question type, and marks exactly.

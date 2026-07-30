@@ -1,0 +1,2 @@
+Classify every question for the supplied grade and learning outcomes. Return only valid JSON.
+Use one of the permitted difficulty levels, Bloom levels, and question types. Match only supplied learning outcomes.

@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from uuid import UUID
 
 from entity.assessment import Assessment
 
@@ -17,6 +18,9 @@ class AssessmentRepository:
         return assessment
 
     def get_by_id(self, assessment_id):
+
+        if isinstance(assessment_id, str):
+            assessment_id = UUID(assessment_id)
 
         return (
             self.db.query(Assessment)
@@ -37,6 +41,13 @@ class AssessmentRepository:
                 Assessment.assessment_number.desc()
             )
             .first()
+        )
+
+    def get_all(self):
+        return (
+            self.db.query(Assessment)
+            .order_by(Assessment.generated_on.desc())
+            .all()
         )
 
     def delete(self, assessment_id):

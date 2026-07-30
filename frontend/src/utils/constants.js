@@ -9,6 +9,7 @@ export const ASSESSMENT_STATUS = {
 //badge colors
 export const STATUS_COLORS = {
     Generated: "#2563EB",
+    Geenrated: "#2563EB",
     Parsed: "#F59E0B",
     Published: "#16A34A",
     "Not Generated": "#9CA3AF"
@@ -36,3 +37,5 @@ export const BLOOMS_LEVELS = {
     EVALUATE: "Evaluate",
     CREATE: "Create"
 };
+
+export const API_BASE_URL = "http://localhost:8000";

@@ -1,30 +1,105 @@
 import "./styles/AssessmentHeader.css";
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Button from "../Commons/Button.jsx";
+import PromptDialog from "../Commons/PromptDialog.jsx";
 import useAssessmentActions from "../../hooks/Assessment_Hooks/useAssessmentActions.js";
 
-function AssessmentHeader({ assessment }) {
+function AssessmentHeader({ assessment, chapterName, onRefresh, onDeleted }) {
+    const navigate = useNavigate();
+
     const {
-        generateAssessment,
         regenerateAssessment,
         generateDocument,
         publishAssessment,
         rollbackAssessment,
         deleteAssessment,
         addQuestion,
-        parseAssessment,
         loading
     } = useAssessmentActions(assessment?.assessmentId);
+
+    const [promptOpen, setPromptOpen] = useState(false);
+    const [promptAction, setPromptAction] = useState(null);
+    const [message, setMessage] = useState("");
 
     if (!assessment) {
         return null;
     }
 
-    return (
+    const runAction = async (label, action) => {
+        console.log(`[AssessmentHeader] ${label} clicked for assessment:`, assessment.assessmentId);
+        setMessage("");
 
+        try {
+            const response = await action();
+            console.log(`[AssessmentHeader] ${label} response:`, response);
+
+            if (response?.success === false) {
+                setMessage(response.message || `${label} failed.`);
+                return;
+            }
+
+            setMessage(response?.message || `${label} completed successfully.`);
+            if (onRefresh) {
+                await onRefresh();
+            }
+        } catch (error) {
+            console.error(`[AssessmentHeader] ${label} failed:`, error);
+            setMessage(`${label} failed.`);
+        }
+    };
+
+    const openPrompt = (actionName) => {
+        console.log("[AssessmentHeader] Opening prompt dialog for:", actionName);
+        setPromptAction(actionName);
+        setPromptOpen(true);
+    };
+
+    const handlePromptConfirm = async (prompt) => {
+        setPromptOpen(false);
+
+        if (promptAction === "regenerate") {
+            await runAction("Regenerate Assessment", () => regenerateAssessment(prompt));
+        }
+
+        setPromptAction(null);
+    };
+
+    const handleDelete = async () => {
+        const confirmed = window.confirm("Delete this assessment?");
+        if (!confirmed) {
+            console.log("[AssessmentHeader] Delete cancelled.");
+            return;
+        }
+
+        const response = await deleteAssessment();
+        console.log("[AssessmentHeader] Delete response:", response);
+
+        if (response?.success === false) {
+            setMessage(response.message || "Delete Assessment failed.");
+            return;
+        }
+
+        setMessage(response?.message || "Assessment deleted successfully.");
+
+        if (onDeleted) {
+            onDeleted();
+            return;
+        }
+
+        navigate("/");
+    };
+
+    const displayName = chapterName || assessment.chapterName || "";
+
+    return (
         <div className="assessment-editor-header">
 
             <h1 className="assessment-editor-title">
-                Assessment {assessment.assessmentNumber} : {assessment.chapterName}
+                Assessment {assessment.assessmentNumber}
+                {displayName ? ` : ${displayName}` : ""}
             </h1>
 
             <p className="assessment-editor-subtitle">
@@ -44,7 +119,7 @@ function AssessmentHeader({ assessment }) {
                     </div>
 
                     <div className="metadata-item">
-                        <strong>Questions:</strong> {assessment.questionCount}
+                        <strong>Questions:</strong> {assessment.numberOfQuestions ?? assessment.questionCount ?? "-"}
                     </div>
 
                     <div className="metadata-item">
@@ -52,7 +127,7 @@ function AssessmentHeader({ assessment }) {
                     </div>
 
                     <div className="metadata-item">
-                        <strong>Learning Outcomes:</strong> {assessment.learningOutcomeCount}
+                        <strong>Learning Outcomes:</strong> {assessment.learningOutcomeCount ?? "-"}
                     </div>
 
                 </div>
@@ -79,11 +154,11 @@ function AssessmentHeader({ assessment }) {
                         <strong>Status:</strong>
 
                         <span
-                            className={`status-badge ${assessment.status
+                            className={`status-badge ${(assessment.status || "unknown")
                                 .toLowerCase()
                                 .replace(/\s+/g, "-")}`}
                         >
-                            {assessment.status}
+                            {assessment.status || "Unknown"}
                         </span>
 
                     </div>
@@ -92,62 +167,69 @@ function AssessmentHeader({ assessment }) {
 
             </div>
 
+            {
+                message && (
+                    <p className="assessment-editor-subtitle">
+                        {message}
+                    </p>
+                )
+            }
+
             <div className="assessment-toolbar">
 
                 <Button
-                    text="Generate Assessment"
-                    onClick={generateAssessment}
-                    disabled={loading}
-                />
-
-                <Button
                     text="Regenerate Assessment"
-                    onClick={regenerateAssessment}
+                    onClick={() => openPrompt("regenerate")}
                     disabled={loading}
                 />
 
                 <Button
                     text="Generate DOCX"
-                    onClick={generateDocument}
+                    onClick={() => runAction("Generate DOCX", generateDocument)}
                     disabled={loading}
                 />
 
                 <Button
                     text="Publish"
-                    onClick={publishAssessment}
+                    onClick={() => runAction("Publish", publishAssessment)}
                     disabled={loading}
                 />
 
                 <Button
                     text="Rollback"
-                    onClick={rollbackAssessment}
+                    onClick={() => runAction("Rollback", rollbackAssessment)}
                     disabled={loading}
                 />
 
                 <Button
                     text="Delete Assessment"
-                    onClick={deleteAssessment}
+                    onClick={handleDelete}
                     disabled={loading}
                 />
 
                 <Button
                     text="Add Question"
-                    onClick={addQuestion}
-                    disabled={loading}
-                />
-
-                <Button
-                    text="Parse"
-                    onClick={parseAssessment}
+                    onClick={() => runAction("Add Question", addQuestion)}
                     disabled={loading}
                 />
 
             </div>
 
+            <PromptDialog
+                open={promptOpen}
+                title="Regenerate Assessment"
+                label="Optional regeneration prompt"
+                confirmText="Regenerate"
+                onClose={() => {
+                    console.log("[AssessmentHeader] Prompt dialog closed.");
+                    setPromptOpen(false);
+                    setPromptAction(null);
+                }}
+                onConfirm={handlePromptConfirm}
+            />
+
         </div>
-
     );
-
 }
 
 export default AssessmentHeader;

@@ -1,4 +1,4 @@
-import {STATUS_COLORS, QUESTION_DIFFICULTY,QUESTION_TYPES} from "./constants.js";
+import {STATUS_COLORS} from "./constants.js";
 
 export const getStatusColor = (status) => {
   return STATUS_COLORS[status] || "#9CA3AF";
@@ -45,8 +45,25 @@ export const getQuestionTypeBadgeColor = (type) => {
 };
 
 export const hasImages = (question) => {
-    return question.images.length > 0;
+    return Array.isArray(question?.images) && question.images.length > 0;
 };
+
+export const normalizeLearningOutcomes = (learningOutcomes = []) => {
+    return learningOutcomes.map((item, index) => {
+        if (typeof item === "string") {
+            return {
+                learningOutcomeId: `LO${index + 1}`,
+                description: item
+            };
+        }
+
+        return {
+            learningOutcomeId: item.learningOutcomeId || `LO${index + 1}`,
+            description: item.description || item.learningOutcome || String(item)
+        };
+    });
+};
+
 export const getLearningOutcomeDescriptions = (
     learningOutcomeIds,
     learningOutcomes
@@ -55,4 +72,3 @@ export const getLearningOutcomeDescriptions = (
         learningOutcomeIds.includes(learningOutcome.learningOutcomeId)
     );
 };
-

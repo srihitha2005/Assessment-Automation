@@ -1,588 +1,390 @@
-const delay = (ms = 1000) =>
-    new Promise(resolve => setTimeout(resolve,ms));
+import axios from "axios";
 
-const notImplemented = async (apiName) => {
-    await delay();
-    console.warn(`${apiName} is not connected to backend yet.`);
+// Use relative URLs in development so Vite can proxy to the FastAPI backend.
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+
+const client = axios.create({
+    baseURL: BASE_URL,
+    headers: {
+        "Content-Type": "application/json"
+    }
+});
+
+client.interceptors.request.use(
+    (config) => {
+        console.log("[API] Request:", config.method?.toUpperCase(), config.url, {
+            params: config.params,
+            data: config.data
+        });
+        return config;
+    },
+    (error) => {
+        console.error("[API] Request error:", error);
+        return Promise.reject(error);
+    }
+);
+
+client.interceptors.response.use(
+    (response) => {
+        console.log("[API] Response:", response.config.url, response.data);
+        return response;
+    },
+    (error) => {
+        console.error("[API] Response error:", error?.response?.status, error?.response?.data || error.message);
+        return Promise.reject(error);
+    }
+);
+
+const wrapSuccess = (data, message = "Success") => ({
+    success: true,
+    message,
+    data
+});
+
+const wrapError = (error, fallbackMessage) => {
+    const message =
+        error?.response?.data?.detail ||
+        error?.response?.data?.message ||
+        error?.message ||
+        fallbackMessage;
 
     return {
-        success : false,
-        message : `${apiName} is not implemented yet.`,
-        data : null
+        success: false,
+        message,
+        data: null
     };
 };
 
-const dummy_getAllAssessments = async (apiName) => {
-    await delay();
+const api = {
 
-    return {
-        success: true,
-        message: `${apiName} Assessments dummy data`,
-        data: [
+    // Curriculum APIs
+    getAllGrades: async () => {
+        try {
+            console.log("[API] getAllGrades");
+            const response = await client.get("/curriculum/grades");
+            return wrapSuccess(response.data, "Grades fetched successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to fetch grades.");
+        }
+    },
 
-            {
-                assessmentId: 1001,
-                assessmentNumber: 1,
-                chapterName: "Nutrition in Plants",
-                learningOutcomes: [
-                    "Explain photosynthesis",
-                    "Identify chlorophyll",
-                    "Describe stomata",
-                    "Understand autotrophic nutrition",
-                    "Differentiate producers and consumers"
-                ],
-                learningOutcomeCount: 5,
-                questionCount: 10,
-                marks: 50,
-                version: 4,
-                status: "Generated"
-            },
+    getCoursesByGrade: async (gradeId) => {
+        try {
+            console.log("[API] getCoursesByGrade:", gradeId);
+            const response = await client.get(`/curriculum/grades/${gradeId}/courses`);
+            return wrapSuccess(response.data, "Courses fetched successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to fetch courses.");
+        }
+    },
 
-            {
-                assessmentId: 1002,
-                assessmentNumber: 2,
-                chapterName: "Nutrition in Plants",
-                learningOutcomes: [
-                    "Explain aerobic respiration",
-                    "Differentiate aerobic and anaerobic respiration",
-                    "Identify products of respiration"
-                ],
-                learningOutcomeCount: 3,
-                questionCount: 8,
-                marks: 40,
-                version: 2,
-                status: "Published"
-            },
+    getUnitsByCourse: async (courseId) => {
+        try {
+            console.log("[API] getUnitsByCourse:", courseId);
+            const response = await client.get(`/curriculum/courses/${courseId}/units`);
+            return wrapSuccess(response.data, "Units fetched successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to fetch units.");
+        }
+    },
 
-            {
-                assessmentId: 1003,
-                assessmentNumber: 1,
-                chapterName: "Transportation in Animals",
-                learningOutcomes: [],
-                learningOutcomeCount: 0,
-                questionCount: 0,
-                marks: 50,
-                version: null,
-                status: "Not Generated"
-            },
+    getChaptersByUnit: async (unitId) => {
+        try {
+            console.log("[API] getChaptersByUnit:", unitId);
+            const response = await client.get(`/curriculum/units/${unitId}/chapters`);
+            return wrapSuccess(response.data, "Chapters fetched successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to fetch chapters.");
+        }
+    },
 
-            {
-                assessmentId: 1004,
-                assessmentNumber: 1,
-                chapterName: "Human Digestive System",
-                learningOutcomes: [
-                    "Identify digestive organs",
-                    "Explain digestion"
-                ],
-                learningOutcomeCount: 2,
-                questionCount: 7,
-                marks: 30,
-                version: 1,
-                status: "Parsed"
-            },
+    getCurriculumId: async (gradeId, courseId, unitId, chapterId) => {
+        try {
+            console.log("[API] getCurriculumId:", { gradeId, courseId, unitId, chapterId });
+            const response = await client.post("/curriculum/id", null, {
+                params: {
+                    grade_id: gradeId,
+                    course_id: courseId,
+                    unit_id: unitId,
+                    chapter_id: chapterId
+                }
+            });
+            return wrapSuccess(response.data, "Curriculum ID fetched successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to fetch curriculum ID.");
+        }
+    },
 
-            {
-                assessmentId: 1005,
-                assessmentNumber: 1,
-                chapterName: "Reproduction in Plants",
-                learningOutcomes: [],
-                learningOutcomeCount: 0,
-                questionCount: 0,
-                marks: 50,
-                version: null,
-                status: "Not Generated"
+    getAssessmentsByCurriculum: async (curriculumId) => {
+        try {
+            console.log("[API] getAssessmentsByCurriculum:", curriculumId);
+            const response = await client.get(`/curriculum/${curriculumId}/assessments`);
+            return wrapSuccess(response.data, "Assessments fetched successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to fetch assessments.");
+        }
+    },
+
+    // Assessment APIs
+    getAssessmentsByID: async (assessmentId) => {
+        try {
+            console.log("[API] getAssessmentsByID:", assessmentId);
+            const response = await client.get(`/assessments/${assessmentId}/details`);
+            return wrapSuccess(response.data, "Assessment details fetched successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to fetch assessment details.");
+        }
+    },
+
+    getAllAssessments: async (curriculumId) => {
+        try {
+            console.log("[API] getAllAssessments for curriculum:", curriculumId);
+            const response = await client.get(`/curriculum/${curriculumId}/assessments`);
+            return wrapSuccess(response.data, "Assessments fetched successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to fetch assessments.");
+        }
+    },
+
+    generateAssesment: async (curriculumId, prompt = "") => {
+        try {
+            console.log("[API] generateAssesment:", { curriculumId, prompt });
+            const response = await client.post("/assessments", null, {
+                params: {
+                    curriculum_id: curriculumId,
+                    prompt
+                }
+            });
+            return wrapSuccess(response.data, response.data?.message || "Assessment generated successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to generate assessment.");
+        }
+    },
+
+    reGenerateAssesment: async (assessmentId, prompt = "") => {
+        try {
+            console.log("[API] reGenerateAssesment:", { assessmentId, prompt });
+            const response = await client.post(`/assessments/${assessmentId}/regenerate`, null, {
+                params: { prompt }
+            });
+            return wrapSuccess(response.data, response.data?.message || "Assessment regenerated successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to regenerate assessment.");
+        }
+    },
+
+    deleteAssessment: async (assessmentId) => {
+        try {
+            console.log("[API] deleteAssessment:", assessmentId);
+            const response = await client.delete(`/assessments/${assessmentId}`);
+            return wrapSuccess(response.data, response.data?.message || "Assessment deleted successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to delete assessment.");
+        }
+    },
+
+    publishAssessment: async (assessmentId) => {
+        try {
+            console.log("[API] publishAssessment:", assessmentId);
+            const response = await client.post(`/assessments/${assessmentId}/publish`);
+            return wrapSuccess(response.data, response.data?.message || "Assessment published successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to publish assessment.");
+        }
+    },
+
+    rollBackAssesment: async (assessmentId) => {
+        try {
+            console.log("[API] rollBackAssesment:", assessmentId);
+            const response = await client.post(`/assessments/${assessmentId}/rollback`);
+            return wrapSuccess(response.data, response.data?.message || "Assessment rolled back successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to rollback assessment.");
+        }
+    },
+
+    generateDocument: async (assessmentId) => {
+        try {
+            console.log("[API] generateDocument:", assessmentId);
+            const response = await client.get(`/assessments/${assessmentId}/docx`);
+            return wrapSuccess(response.data, response.data?.message || "DOCX generated successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to generate document.");
+        }
+    },
+
+    generateMoreQuestions: async (assessmentId) => {
+        try {
+            console.log("[API] generateMoreQuestions:", assessmentId);
+            const response = await client.post(`/assessments/${assessmentId}/questions/generate`);
+            return wrapSuccess(response.data, response.data?.message || "Additional questions generated successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to generate more questions.");
+        }
+    },
+
+    // Question APIs
+    getQuestionsByAssessment: async (assessmentId) => {
+        try {
+            console.log("[API] getQuestionsByAssessment:", assessmentId);
+            const response = await client.get(`/assessments/${assessmentId}`);
+            const questions = response.data?.questions || [];
+
+            const detailedQuestions = await Promise.all(
+                questions.map(async (item) => {
+                    try {
+                        const detailResponse = await client.get(`/questions/${item.questionId}`);
+                        return {
+                            ...item,
+                            ...detailResponse.data,
+                            images: detailResponse.data?.images || item.images || []
+                        };
+                    } catch (detailError) {
+                        console.warn("[API] Falling back to list question data:", item.questionId, detailError);
+                        return {
+                            ...item,
+                            images: item.images || [],
+                            options: item.options || [],
+                            questionType: item.questionType || "Short Answer",
+                            difficulty: item.difficulty || "Medium",
+                            bloomsLevel: item.bloomLevel || item.bloomsLevel || "-"
+                        };
+                    }
+                })
+            );
+
+            return wrapSuccess(detailedQuestions, "Questions fetched successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to fetch questions.");
+        }
+    },
+
+    getQuestionByID: async (questionId) => {
+        try {
+            console.log("[API] getQuestionByID:", questionId);
+            const response = await client.get(`/questions/${questionId}`);
+            const data = {
+                ...response.data,
+                images: response.data?.images || [],
+                options: response.data?.options || [],
+                bloomsLevel: response.data?.bloomLevel || response.data?.bloomsLevel
+            };
+            return wrapSuccess(data, "Question fetched successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to fetch question.");
+        }
+    },
+
+    regenerateQuestion: async (questionId, prompt = "") => {
+        try {
+            console.log("[API] regenerateQuestion:", { questionId, prompt });
+            const response = await client.post(`/questions/${questionId}/regenerate`, null, {
+                params: { prompt }
+            });
+            return wrapSuccess(response.data, response.data?.message || "Question regenerated successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to regenerate question.");
+        }
+    },
+
+    regenerateQuestionWithPrompt: async (questionId, prompt = "") => {
+        return api.regenerateQuestion(questionId, prompt);
+    },
+
+    updateQuestion: async (questionId, question, answer) => {
+        try {
+            console.log("[API] updateQuestion:", { questionId, question, answer });
+            const response = await client.put(`/questions/${questionId}`, null, {
+                params: { question, answer }
+            });
+            return wrapSuccess(response.data, response.data?.message || "Question updated successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to update question.");
+        }
+    },
+
+    deleteQuestion: async (questionId) => {
+        try {
+            console.log("[API] deleteQuestion:", questionId);
+            const response = await client.delete(`/questions/${questionId}`);
+            return wrapSuccess(response.data, response.data?.message || "Question deleted successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to delete question.");
+        }
+    },
+
+    regenerateAnswer: async (questionId, prompt = "") => {
+        try {
+            console.log("[API] regenerateAnswer:", { questionId, prompt });
+            const response = await client.post(`/questions/${questionId}/answer/regenerate`, null, {
+                params: { prompt }
+            });
+            return wrapSuccess(response.data, response.data?.message || "Answer regenerated successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to regenerate answer.");
+        }
+    },
+
+    rollbackQuestion: async (questionId) => {
+        try {
+            console.log("[API] rollbackQuestion:", questionId);
+            const response = await client.post(`/questions/${questionId}/rollback`);
+            return wrapSuccess(response.data, response.data?.message || "Question rolled back successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to rollback question.");
+        }
+    },
+
+    uploadImage: async (questionId, images) => {
+        try {
+            console.log("[API] uploadImage:", questionId);
+            const formData = new FormData();
+
+            if (images) {
+                const fileList = Array.isArray(images) ? images : [images];
+                fileList.forEach((file) => {
+                    formData.append("image[]", file);
+                });
             }
 
-        ]
-    };
-};
-
-const dummyAssessments = [
-    {
-        assessmentId: 1001,
-        assessmentNumber: 1,
-        chapterName: "Nutrition in Plants",
-        learningOutcomes: [
-            "Explain photosynthesis",
-            "Identify chlorophyll",
-            "Describe stomata",
-            "Understand autotrophic nutrition",
-            "Differentiate producers and consumers"
-        ],
-        learningOutcomeCount: 5,
-        questionCount: 10,
-        marks: 50,
-        version: 4,
-        status: "Generated",
-        generatedOn: "28 Jul 2026 05:42 PM",
-        generatedBy: "Joseph Stalin",
-        updatedOn: "27 aug 2023 03:11 AM",
-        updatedBy: "Joey Tribiani"
-    },
-
-    {
-        assessmentId: 1002,
-        assessmentNumber: 2,
-        chapterName: "Nutrition in Plants",
-        learningOutcomes: [
-            "Explain aerobic respiration",
-            "Differentiate aerobic and anaerobic respiration",
-            "Identify products of respiration"
-        ],
-        learningOutcomeCount: 3,
-        questionCount: 8,
-        marks: 40,
-        version: 2,
-        status: "Published",
-        generatedOn: "28 Jul 2026 05:42 PM",
-        generatedBy: "Joseph Stalin",
-        updatedOn: "27 aug 2023 03:11 AM",
-        updatedBy: "Joey Tribiani"
-    },
-
-    {
-        assessmentId: 1003,
-        assessmentNumber: 1,
-        chapterName: "Transportation in Animals",
-        learningOutcomes: [],
-        learningOutcomeCount: 0,
-        questionCount: 0,
-        marks: 50,
-        version: null,
-        status: "Not Generated",
-        generatedOn: null,
-        generatedBy: null,
-        updatedOn: null,
-        updatedBy: null
-
-    },
-
-    {
-        assessmentId: 1004,
-        assessmentNumber: 1,
-        chapterName: "Human Digestive System",
-        learningOutcomes: [
-            "Identify digestive organs",
-            "Explain digestion"
-        ],
-        learningOutcomeCount: 2,
-        questionCount: 7,
-        marks: 30,
-        version: 1,
-        status: "Parsed",
-        generatedOn: "28 Jul 2026 05:42 PM",
-        generatedBy: "Joseph Stalin",
-        updatedOn: "27 aug 2023 03:11 AM",
-        updatedBy: "Joey Tribiani"
-    },
-
-    {
-        assessmentId: 1005,
-        assessmentNumber: 1,
-        chapterName: "Reproduction in Plants",
-        learningOutcomes: [],
-        learningOutcomeCount: 0,
-        questionCount: 0,
-        marks: 50,
-        version: null,
-        status: "Not Generated",
-        generatedOn: null,
-        generatedBy: null,
-        updatedOn: null,
-        updatedBy: null
-    }
-];
-const dummyQuestions = {
-
-    1001: [
-
-        {
-            questionId: 101,
-            assessmentId: 1001,
-            questionNumber: 1,
-            version: 4,
-
-            questionType: "MCQ",
-            difficulty: "Easy",
-            bloomsLevel: "Remember",
-
-            learningOutcomeIds: [1, 2],
-
-            marks: 2,
-
-            images: [],
-
-            question:
-                "Which pigment is primarily responsible for photosynthesis?",
-
-            options: [
-                "Chlorophyll",
-                "Melanin",
-                "Keratin",
-                "Haemoglobin"
-            ],
-
-            answer: "Chlorophyll",
-
-            lastModifiedAt: "2026-07-28T10:15:00",
-            lastModifiedBy: "John Doe"
-        },
-
-        {
-            questionId: 102,
-            assessmentId: 1001,
-            questionNumber: 2,
-            version: 4,
-
-            questionType: "Short Answer",
-            difficulty: "Medium",
-            bloomsLevel: "Understand",
-
-            learningOutcomeIds: [1, 3],
-
-            marks: 3,
-
-            images: [],
-
-            question:
-                "Explain how stomata help in photosynthesis.",
-
-            options: [],
-
-            answer:
-                "Stomata enable gaseous exchange required for photosynthesis.",
-
-
-            lastModifiedAt: "2026-07-28T10:15:00",
-            lastModifiedBy: "John Doe"
-        },
-
-        {
-            questionId: 103,
-            assessmentId: 1001,
-            questionNumber: 3,
-            version: 4,
-
-            questionType: "Long Answer",
-            difficulty: "Hard",
-            bloomsLevel: "Analyze",
-
-            learningOutcomeIds: [1, 2, 3, 4, 5],
-
-            marks: 5,
-
-            images: [],
-
-            question:
-                "Explain the complete process of photosynthesis with a neat labelled diagram.",
-
-            options: [],
-
-            answer:
-                "Photosynthesis is the process by which green plants prepare food using sunlight, carbon dioxide, water, and chlorophyll. Stomata facilitate gaseous exchange required for this process.",
-
-            lastModifiedAt: "2026-07-30T14:20:00",
-            lastModifiedBy: "John Doe"
-        }
-
-    ],
-
-    1002: [
-
-        {
-            questionId: 201,
-            assessmentId: 1002,
-            questionNumber: 1,
-            version: 2,
-
-            questionType: "MCQ",
-            difficulty: "Medium",
-            bloomsLevel: "Apply",
-
-            learningOutcomeIds: [1],
-
-            marks: 2,
-
-            images: [],
-
-            question:
-                "Which gas is required for aerobic respiration?",
-
-            options: [
-                "Oxygen",
-                "Hydrogen",
-                "Nitrogen",
-                "Carbon Dioxide"
-            ],
-
-            answer: "Oxygen",
-
-            lastModifiedAt: "2026-07-27T16:30:00",
-            lastModifiedBy: "John Doe"
-        },
-
-        {
-            questionId: 202,
-            assessmentId: 1002,
-            questionNumber: 2,
-            version: 2,
-
-            questionType: "True / False",
-            difficulty: "Easy",
-            bloomsLevel: "Remember",
-
-            learningOutcomeIds: [2, 3],
-
-            marks: 1,
-
-            images: [],
-
-            question:
-                "Anaerobic respiration requires oxygen.",
-
-            options: [
-                "True",
-                "False"
-            ],
-
-            answer: "False",
-
-            lastModifiedAt: "2026-07-28T11:05:00",
-            lastModifiedBy: "John Doe"
-        }
-
-    ],
-
-    1003: [],
-
-    1004: [
-
-        {
-            questionId: 401,
-            assessmentId: 1004,
-            questionNumber: 1,
-            version: 1,
-
-            questionType: "Diagram Based",
-            difficulty: "Medium",
-            bloomsLevel: "Understand",
-
-            learningOutcomeIds: [1],
-
-            marks: 5,
-
-            images: [
-                {
-                    imageId: 1,
-                    imageName: "digestive_system.png",
-                    imagePath: "/images/digestive_system.png"
+            const response = await client.post(`/questions/${questionId}/images`, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
                 }
-            ],
-
-            question:
-                "Identify the labelled organs in the digestive system shown below.",
-
-            options: [],
-
-            answer:
-                "Stomach, Liver, Pancreas, Small Intestine, Large Intestine.",
-
-            lastModifiedAt: "2026-07-29T15:50:00",
-            lastModifiedBy: "John Doe"
-        },
-
-        {
-            questionId: 402,
-            assessmentId: 1004,
-            questionNumber: 2,
-            version: 1,
-
-            questionType: "Fill in the Blank",
-            difficulty: "Easy",
-            bloomsLevel: "Remember",
-
-            learningOutcomeIds: [2],
-
-            marks: 2,
-
-            images: [],
-
-            question:
-                "The __________ is the largest gland in the human body.",
-
-            options: [],
-
-            answer: "Liver",
-
-            lastModifiedAt: "2026-07-30T08:25:00",
-            lastModifiedBy: "John Doe"
+            });
+            return wrapSuccess(response.data, response.data?.message || "Image(s) uploaded successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to upload image(s).");
         }
+    },
 
-    ],
-
-    1005: []
-
-};
-
-const dummy_getQuestionsByAssessment = async (
-    apiName,
-    assessmentId
-) => {
-
-    console.log("[API] Fetching questions for assessment:", assessmentId);
-    await delay();
-
-    const questions = dummyQuestions[assessmentId] ?? [];
-    console.log("[API] Questions found:", questions.length);
-
-    return {
-
-        success: true,
-
-        message: `${apiName} Questions dummy data`,
-
-        data: questions
-
-    };
-
-};
-
-const dummy_getQuestionById = async (
-    apiName,
-    questionId
-) => {
-
-    await delay();
-
-    const questions = Object.values(dummyQuestions).flat();
-
-    const question = questions.find(
-        question => question.questionId === questionId
-    );
-
-    if (!question) {
-
-        return {
-
-            success: false,
-
-            message: "Question not found.",
-
-            data: null
-
-        };
-
-    }
-
-    return {
-
-        success: true,
-
-        message: `${apiName} Question dummy data`,
-
-        data: question
-
-    };
-
-};
-
-const dummy_generateDocument = async (apiName, assessmentId) => {
-
-    await delay();
-
-    return {
-
-        success: true,
-
-        message: `${apiName} Document generated successfully.`,
-
-        data: {
-
-            assessmentId,
-
-            documentName: `Assessment_${assessmentId}.docx`,
-
-            documentStatus: "Generated"
-
+    deleteImage: async (imageId) => {
+        try {
+            console.log("[API] deleteImage:", imageId);
+            const response = await client.delete(`/questions/images/${imageId}`);
+            return wrapSuccess(response.data, response.data?.message || "Image deleted successfully.");
+        } catch (error) {
+            return wrapError(error, "Unable to delete image.");
         }
+    },
 
-    };
+    addQuestion: async (assessmentId) => {
+        try {
+            console.log("[API] addQuestion via generateMoreQuestions:", assessmentId);
+            return await api.generateMoreQuestions(assessmentId);
+        } catch (error) {
+            return wrapError(error, "Unable to add question.");
+        }
+    },
 
-};
-
-const dummy_getAssessmentsByID = async (apiName, assessmentId) => {
-    console.log("[API] Fetching assessment ID:", assessmentId);
-    await delay();
-    const assessment = dummyAssessments.find(
-        (assessment) => assessment.assessmentId === Number(assessmentId)
-    );
-
-    if (!assessment) {
-
-        console.error("[API] Assessment not found:", assessmentId);
-
+    parseAssesment: async () => {
+        console.warn("[API] parseAssesment is not available in the backend.");
         return {
             success: false,
-            message: "Assessment not found.",
+            message: "Parse assessment is not available in the backend.",
             data: null
         };
-
     }
-
-    console.log("[API] Assessment found:", assessment.assessmentId);
-
-    return {
-        success: true,
-        message: `${apiName} Assessment dummy data`,
-        data: assessment
-    };
-
-};
-const api = {
-    // Assessment APIs : all start with the normal local host / port/ assessments
-
-    //should return Learning outcomes, marks of each assessment, version of assessment if id is there else return not there ( so can mark generated or not ) ,
-    getAssessmentsByID: (assessmentId) => dummy_getAssessmentsByID("GET /id", assessmentId),
-    //should return All assessments, their Chapters and AssesmentIds learning outcomes, marks, version.
-    getAllAssessments: () => dummy_getAllAssessments("GET /all"),
-    // should generate assesmnet and show success or failure
-    generateAssesment: () => notImplemented("POST /generate"),
-    //should regenerate assesment and show success or failure
-    reGenerateAssesment: () => notImplemented("PUT /re-generate"),
-    //should update adn show success or failure
-    updateAssesment: () => notImplemented("PUT /update"),
-    //should delete and show success or failure
-    deleteAssessment: () => notImplemented("DELETE /delete"),
-    //should publish an assesment and return success or failure
-    publishAssessment: () => notImplemented("POST /publish"),
-    //should paerse assignment and return success or failure
-    parseAssesment: () => notImplemented("POST /parse"),
-
-    // Question APIs : all start with the normal local host / port/ questions
-
-    //should give  all questions and for each question should give question ,image if it is  there,  version, marks, id, type, answer, difficulty, blooms bucket, Learning outcome tested
-    getQuestionsByAssessment: (assessmentID) => dummy_getQuestionsByAssessment("GET /assessment_id", assessmentID),
-    //should give question , marks, type, answer, difficulty, version,  blooms bucket, image if  it is there, Learning outcomes tested
-    getQuestionByID: (questionID) => dummy_getQuestionById("GET /id", questionID),
-    //regenerate question , answer,  options if  they are there with or without prommmpt and return success or failure
-    regenerateQuestion: () => notImplemented("POST /regenerate"),
-    //update question or answer or options if they are there  by manual entry
-    updateQuestion: () => notImplemented("PUT /update"),
-    //add Question by ai with or without prompt / manually
-    addQuestion: () => notImplemented("POST /add"),
-    //delete question
-    deleteQuestion: () => notImplemented("DELETE /delete"),
-    regenerateAnswer: () => notImplemented("POST /regenerate-answer"),
-    //Document APIs: all start with the normal local host / port/ document
-
-    //should upload images
-    uploadImage: () => notImplemented("POST /upload"),
-    parseImage: () => notImplemented("POST /parse-images"),
-    generateDocument: (assessmentID) => dummy_generateDocument("POST /generate-document", assessmentID),
-
-    //version APIs : : all start with the normal local host / port/ versions
-    rollbackQuestion: () => notImplemented("POST /question"),
-    rollBackAssesment: () => notImplemented("POST /assessmnet")
 
 };
 

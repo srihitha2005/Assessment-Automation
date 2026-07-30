@@ -6,16 +6,20 @@ import {
     getStatusColor,
 } from "../../utils/helper.js";
 
-function AssesssmentCard({ assessment = {}, onView }) {
+function AssesssmentCard({ assessment = {}, onView, onDelete, disabled = false }) {
     const {
         assessmentId,
+        assessmentNumber,
         chapterName,
         learningOutcomes,
         marks,
         questionCount,
+        numberOfQuestions,
         status,
         version,
     } = assessment;
+
+    const questions = questionCount ?? numberOfQuestions;
 
     const handleView = () => {
         if (assessmentId == null) {
@@ -25,7 +29,7 @@ function AssesssmentCard({ assessment = {}, onView }) {
             return;
         }
 
-        console.log("[AssessmentCard] View assessment logggg:", assessmentId);
+        console.log("[AssessmentCard] View assessment:", assessmentId);
 
         try {
             onView(assessmentId);
@@ -36,15 +40,26 @@ function AssesssmentCard({ assessment = {}, onView }) {
             });
             throw error;
         }
+    };
 
-        console.log("After onView, {}", assessmentId);
+    const handleDelete = () => {
+        if (assessmentId == null) {
+            console.error("[AssessmentCard] Cannot delete assessment: missing assessment ID.");
+            return;
+        }
+
+        console.log("[AssessmentCard] Delete assessment:", assessmentId);
+        onDelete?.(assessmentId);
     };
 
     return (
         <div className="assessment-card">
             <div className="assessment-header">
                 <div>
-                    <h2>Assessment {assessmentId ?? "--"}: {chapterName || "Untitled"}</h2>
+                    <h2>
+                        Assessment {assessmentNumber ?? assessmentId ?? "--"}
+                        {chapterName ? `: ${chapterName}` : ""}
+                    </h2>
                 </div>
 
                 <div
@@ -67,7 +82,7 @@ function AssesssmentCard({ assessment = {}, onView }) {
                 <div>
                     <strong>Questions</strong>
                     <br />
-                    {questionCount ?? "--"}
+                    {questions ?? "--"}
                 </div>
 
                 <div>
@@ -84,7 +99,16 @@ function AssesssmentCard({ assessment = {}, onView }) {
             </div>
 
             <div className="assessment-footer">
-                <Button text="View Assessment" onClick={handleView} />
+                <Button
+                    text="Delete"
+                    onClick={handleDelete}
+                    disabled={disabled}
+                />
+                <Button
+                    text="View Assessment"
+                    onClick={handleView}
+                    disabled={disabled}
+                />
             </div>
         </div>
     );

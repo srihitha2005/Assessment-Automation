@@ -1,41 +1,54 @@
 import { useState } from "react";
 import api from "../../utils/api.js";
 
-function useQuestionToolbarActions() {
+function useQuestionToolbarActions(onRefresh) {
     const [loading, setLoading] = useState(false);
-    const execute = async (apiCall) => {
+
+    const execute = async (label, apiCall) => {
+        console.log(`[useQuestionToolbarActions] Starting: ${label}`);
         setLoading(true);
+
         try {
-            return await apiCall();
-        }
-        finally {
+            const response = await apiCall();
+            console.log(`[useQuestionToolbarActions] ${label} response:`, response);
+
+            if (onRefresh) {
+                await onRefresh();
+            }
+
+            return response;
+        } catch (error) {
+            console.error(`[useQuestionToolbarActions] ${label} failed:`, error);
+            throw error;
+        } finally {
             setLoading(false);
+            console.log(`[useQuestionToolbarActions] Finished: ${label}`);
         }
     };
 
-    const saveQuestion = (question) =>
-        execute(() => api.updateQuestion(question));
+    const saveQuestion = (questionId, questionText, answer) =>
+        execute("Save Question", () => api.updateQuestion(questionId, questionText, answer));
 
-    const regenerateQuestion = (questionId) =>
-        execute(() => api.regenerateQuestion(questionId));
+    const regenerateQuestion = (questionId, prompt = "") =>
+        execute("Regenerate Question", () => api.regenerateQuestion(questionId, prompt));
 
-    const regenerateQuestionWithPrompt = (questionId) =>
-        execute(() => api.regenerateQuestionWithPrompt(questionId));
+    const regenerateQuestionWithPrompt = (questionId, prompt = "") =>
+        execute("Regenerate Question With Prompt", () => api.regenerateQuestion(questionId, prompt));
 
     const rollbackQuestion = (questionId) =>
-        execute(() => api.rollbackQuestion(questionId));
+        execute("Rollback Question", () => api.rollbackQuestion(questionId));
 
-    const regenerateAnswer = (questionId) =>
-        execute(() => api.regenerateAnswer(questionId));
+    const regenerateAnswer = (questionId, prompt = "") =>
+        execute("Regenerate Answer", () => api.regenerateAnswer(questionId, prompt));
 
     const uploadImages = (questionId, images) =>
-        execute(() => api.uploadImage(questionId, images));
+        execute("Upload Images", () => api.uploadImage(questionId, images));
 
-    const deleteImages = (questionId) =>
-        execute(() => api.deleteImage(questionId));
+    const deleteImages = (imageId) =>
+        execute("Delete Image", () => api.deleteImage(imageId));
 
     const deleteQuestion = (questionId) =>
-        execute(() => api.deleteQuestion(questionId));
+        execute("Delete Question", () => api.deleteQuestion(questionId));
 
     return {
         loading,
@@ -48,7 +61,6 @@ function useQuestionToolbarActions() {
         deleteImages,
         deleteQuestion
     };
-
 }
 
 export default useQuestionToolbarActions;

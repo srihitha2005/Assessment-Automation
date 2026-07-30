@@ -8,4 +8,20 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  server: {
+    proxy: {
+      '/curriculum': {
+        target: 'http://localhost:8000',
+        changeOrigin: true
+      },
+      '/assessments': {
+        target: 'http://localhost:8000',
+        changeOrigin: true
+      },
+      '/questions': {
+        target: 'http://localhost:8000',
+        changeOrigin: true
+      }
+    }
+  }
 })

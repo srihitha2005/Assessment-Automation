@@ -4,7 +4,7 @@ body{
     font-family:Arial, Helvetica, sans-serif;
 }
 
-.assessment-viewer{
+.page-shell{
     width:90%;
     max-width:1200px;
     margin:40px auto;
@@ -26,7 +26,14 @@ body{
     color:#64748B;
 }
 
-.assessment-grid{
+.page-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.curriculum-grid{
     display:grid;
     grid-template-columns:1fr;
     gap:25px;
@@ -36,8 +43,7 @@ body{
     text-align:center;
     font-size:18px;
     color:#64748B;
-    margin-top:20px;
-    margin-bottom:20px;
+    margin-top:50px;
 }
 
 .page-error{
@@ -45,4 +51,23 @@ body{
     color:red;
     font-size:18px;
     margin-top:50px;
+}
+
+.learning-outcomes-section{
+    background:white;
+    border-radius:15px;
+    padding:22px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+}
+
+@media(max-width:768px){
+    .page-shell{
+        width:95%;
+        margin:20px auto;
+    }
+
+    .page-actions{
+        flex-direction:column;
+    }
 }

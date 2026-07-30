@@ -1,45 +1,50 @@
 import { useState } from "react";
 import api from "../../utils/api.js";
-import useQuestions from "./useQuestions";
 
-function useQuestionActions(assessmentId) {
+function useQuestionActions(assessmentId, refreshQuestions) {
     const [loading, setLoading] = useState(false);
-    const { getQuestions } = useQuestions(assessmentId);
-    const execute = async (apiCall) => {
+
+    const execute = async (label, apiCall) => {
+        console.log(`[useQuestionActions] Starting: ${label}`);
         setLoading(true);
+
         try {
             const response = await apiCall();
-            await getQuestions(assessmentId);
+            console.log(`[useQuestionActions] ${label} response:`, response);
+
+            if (refreshQuestions && assessmentId) {
+                await refreshQuestions(assessmentId);
+            }
+
             return response;
-        }
-        finally {
+        } catch (error) {
+            console.error(`[useQuestionActions] ${label} failed:`, error);
+            throw error;
+        } finally {
             setLoading(false);
         }
     };
 
-    const regenerateQuestion = (questionId) =>
-        execute(() => api.regenerateQuestion());
+    const regenerateQuestion = (questionId, prompt = "") =>
+        execute("Regenerate Question", () => api.regenerateQuestion(questionId, prompt));
 
-    const updateQuestion = (question) =>
-        execute(() => api.updateQuestion());
+    const updateQuestion = (questionId, question, answer) =>
+        execute("Update Question", () => api.updateQuestion(questionId, question, answer));
 
     const deleteQuestion = (questionId) =>
-        execute(() => api.deleteQuestion());
+        execute("Delete Question", () => api.deleteQuestion(questionId));
 
     const addQuestion = () =>
-        execute(() => api.addQuestion());
+        execute("Add Question", () => api.addQuestion(assessmentId));
 
     const rollbackQuestion = (questionId) =>
-        execute(() => api.rollbackQuestion());
+        execute("Rollback Question", () => api.rollbackQuestion(questionId));
 
-    const generateAnswer = (questionId) =>
-        execute(() => api.regenerateAnswer());
+    const generateAnswer = (questionId, prompt = "") =>
+        execute("Regenerate Answer", () => api.regenerateAnswer(questionId, prompt));
 
     const uploadImage = (questionId, image) =>
-        execute(() => api.uploadImage());
-
-    const parseImage = (questionId) =>
-        execute(() => api.parseImage());
+        execute("Upload Image", () => api.uploadImage(questionId, image));
 
     return {
         loading,
@@ -49,11 +54,8 @@ function useQuestionActions(assessmentId) {
         addQuestion,
         rollbackQuestion,
         generateAnswer,
-        uploadImage,
-        parseImage
-
+        uploadImage
     };
-
 }
 
 export default useQuestionActions;

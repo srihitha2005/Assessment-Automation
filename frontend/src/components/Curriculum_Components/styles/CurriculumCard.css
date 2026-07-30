@@ -1,59 +1,65 @@
-.assessment-card{
+.curriculum-card{
     background:white;
     border-radius:15px;
     padding:22px;
     box-shadow:0 6px 18px rgba(0,0,0,0.08);
     transition:0.25s;
+    text-align:left;
 }
 
-.assessment-card:hover{
+.curriculum-card:hover{
     transform:translateY(-5px);
     box-shadow:0 10px 22px rgba(0,0,0,0.15);
 }
 
-.assessment-header{
+.curriculum-card-header{
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
     margin-bottom:20px;
 }
 
-.assessment-header h2{
+.curriculum-card-header h2{
     margin:0;
     color:#1E293B;
+    font-size:24px;
 }
 
-.assessment-header p{
+.curriculum-card-header p{
     margin-top:5px;
     color:#64748B;
 }
 
-.status-badge{
-    color:white;
-    padding:8px 15px;
-    border-radius:20px;
-    font-size:14px;
-    font-weight:600;
-}
-
-.assessment-details{
+.curriculum-card-details{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:20px;
     margin-bottom:25px;
 }
 
-.assessment-details strong{
+.curriculum-card-details strong{
     color:#334155;
 }
 
-.assessment-details div{
+.curriculum-card-details div{
     color:#64748B;
 }
 
-.assessment-footer{
+.curriculum-card-footer{
     display:flex;
     justify-content:flex-end;
-    gap:12px;
-    flex-wrap:wrap;
+}
+
+@media(max-width:768px){
+    .curriculum-card-details{
+        grid-template-columns:1fr;
+    }
+
+    .curriculum-card-footer{
+        justify-content:stretch;
+    }
+
+    .curriculum-card-footer .button{
+        width:100%;
+    }
 }

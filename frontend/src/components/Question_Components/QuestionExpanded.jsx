@@ -4,20 +4,21 @@ import QuestionMetadata from "./QuestionMetadata.jsx";
 import QuestionToolbar from "./QuestionToolBar.jsx";
 
 function QuestionExpanded({
-                              question,
-                              learningOutcomes,
-
-                              isEditing,
-                              onEdit,
-                              onSave,
-                              onCancel
-                          }){
-
-    return(
+    question,
+    learningOutcomes,
+    isEditing,
+    onEdit,
+    onSave,
+    onCancel,
+    onRefresh,
+    editedQuestion,
+    editedAnswer
+}) {
+    return (
         <div className="question-expanded">
             <QuestionMetadata
                 question={question}
-                learningOutcomes={["LO1","LO2"]}
+                learningOutcomes={learningOutcomes}
             />
 
             <QuestionToolbar
@@ -26,12 +27,12 @@ function QuestionExpanded({
                 onEdit={onEdit}
                 onSave={onSave}
                 onCancel={onCancel}
+                onRefresh={onRefresh}
+                editedQuestion={editedQuestion}
+                editedAnswer={editedAnswer}
             />
-
         </div>
-
     );
-
 }
 
 export default QuestionExpanded;

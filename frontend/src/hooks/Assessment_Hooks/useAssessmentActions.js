@@ -1,77 +1,54 @@
 import { useState } from "react";
 import api from "../../utils/api.js";
-import useGetAllQuestions from "../Question_Hooks/useGetAllQuestions.js";
 
 function useAssessmentActions(assessmentId) {
 
     const [loading, setLoading] = useState(false);
 
-    const { refresh } = useGetAllQuestions(assessmentId);
-
-    const execute = async (apiCall) => {
-
+    const execute = async (label, apiCall) => {
+        console.log(`[useAssessmentActions] Starting: ${label}`);
         setLoading(true);
 
         try {
-
             const response = await apiCall();
-
-            await refresh();
-
+            console.log(`[useAssessmentActions] ${label} response:`, response);
             return response;
-
         } catch (error) {
-
-            console.error("[useAssessmentActions]", error);
+            console.error(`[useAssessmentActions] ${label} failed:`, error);
             throw error;
-
         } finally {
-
             setLoading(false);
-
+            console.log(`[useAssessmentActions] Finished: ${label}`);
         }
-
     };
 
-    const generateAssessment = () =>
-        execute(() => api.generateAssesment());
-
-    const regenerateAssessment = () =>
-        execute(() => api.reGenerateAssesment());
+    const regenerateAssessment = (prompt = "") =>
+        execute("Regenerate Assessment", () => api.reGenerateAssesment(assessmentId, prompt));
 
     const generateDocument = () =>
-        execute(() => api.generateDocument(assessmentId));
+        execute("Generate Document", () => api.generateDocument(assessmentId));
 
     const publishAssessment = () =>
-        execute(() => api.publishAssessment());
+        execute("Publish Assessment", () => api.publishAssessment(assessmentId));
 
     const rollbackAssessment = () =>
-        execute(() => api.rollBackAssesment());
+        execute("Rollback Assessment", () => api.rollBackAssesment(assessmentId));
 
     const deleteAssessment = () =>
-        execute(() => api.deleteAssessment());
+        execute("Delete Assessment", () => api.deleteAssessment(assessmentId));
 
     const addQuestion = () =>
-        execute(() => api.addQuestion());
-
-    const parseAssessment = () =>
-        execute(() => api.parseAssesment());
+        execute("Add Question", () => api.addQuestion(assessmentId));
 
     return {
-
         loading,
-
-        generateAssessment,
         regenerateAssessment,
         generateDocument,
         publishAssessment,
         rollbackAssessment,
         deleteAssessment,
-        addQuestion,
-        parseAssessment
-
+        addQuestion
     };
-
 }
 
 export default useAssessmentActions;

@@ -1,101 +1,74 @@
+import logging
+logger = logging.getLogger(__name__)
+
 from fastapi import APIRouter
+from service.assessment_service import AssessmentService
 
 router = APIRouter(
-    prefix = "/assessments",
+    prefix="/assessments",
     tags=["Assessment"]
 )
 
-#7. Add assessments
-@router.post("")
-def add_assessment( curriculum_id: int, prompt: str = "" ):
-    return {
-        "success": True,
-        "message": "Assessment generated successfully."
-    }
+service = AssessmentService()
 
-# 8. Delete assessment
+# 7. Add Assessment
+@router.post("")
+def add_assessment(curriculum_id: int, prompt: str = ""):
+    logger.info(f"[AssessmentController][add_assessment] Entered with curriculum_id: {curriculum_id}, prompt: {prompt}")
+    return service.add_assessment(curriculum_id, prompt)
+
+
+# 8. Delete Assessment
 @router.delete("/{assessment_id}")
-def delete_assessment( assessment_id: int):
-    return {
-        "success": True,
-        "message": "Assessment deleted successfully."
-    }
+def delete_assessment(assessment_id: int):
+    logger.info(f"[AssessmentController][delete_assessment] Entered with assessment_id: {assessment_id}")
+    return service.delete_assessment(assessment_id)
+
 
 # 9. View Assessment Details
 @router.get("/{assessment_id}/details")
-def get_assessment_details( assessment_id: int):
-    return {
-        "assessmentId": assessment_id,
-        "assessmentNumber": 2,
-        "version": 3,
-        "generatedOn": "2026-07-30",
-        "generatedBy": "SYSTEM",
-        "updatedOn": "2026-07-30",
-        "updatedBy": "SYSTEM",
-        "marks": 50,
-        "numberOfQuestions": 15,
-        "learningOutcomes" : 23,
-        "status" : "Generated"
-    }
+def get_assessment_details(assessment_id: int):
+    logger.info(f"[AssessmentController][get_assessment_details] Entered with assessment_id: {assessment_id}")
+    return service.get_assessment_details(assessment_id)
 
-#10. View Assessment
+
+# 10. View Assessment
 @router.get("/{assessment_id}")
 def get_assessment(assessment_id: int):
-    return {
-        "assessmentId": assessment_id,
-        "questions": [
-            {
-                "questionId": 1001,
-                "question": "What is digestion?",
-                "answer": "The process of breaking down food.",
-                "marks": 2
-            },
-            {
-                "questionId": 1002,
-                "question": "Name one digestive organ.",
-                "answer": "Stomach",
-                "marks": 1
-            }
-        ]
-    }
+    logger.info(f"[AssessmentController][get_assessment] Entered with assessment_id: {assessment_id}")
+    return service.get_assessment(assessment_id)
 
-#11. Regenarate Assessment
+
+# 11. Regenerate Assessment
 @router.post("/{assessment_id}/regenerate")
-def regenerate_assessment( assessment_id: int, prompt: str = ""):
-    return {
-        "success": True,
-        "message": "Assessment regenerated successfully."
-    }
+def regenerate_assessment(assessment_id: int, prompt: str = ""):
+    logger.info(f"[AssessmentController][regenerate_assessment] Entered with assessment_id: {assessment_id}, prompt: {prompt}")
+    return service.regenerate_assessment(assessment_id, prompt)
 
-#12. Genrate Docs
+
+# 12. Generate DOCX
 @router.get("/{assessment_id}/docx")
-def generate_docx( assessment_id: int):
-    return {
-        "success": True,
-        "message": "DOCX generated successfully.",
-        "downloadUrl": "/downloads/assessment.docx"
-    }
+def generate_docx(assessment_id: int):
+    logger.info(f"[AssessmentController][generate_docx] Entered with assessment_id: {assessment_id}")
+    return service.generate_docx(assessment_id)
 
-#13. publish Assessment
+
+# 13. Publish Assessment
 @router.post("/{assessment_id}/publish")
-def publish_assessment( assessment_id: int):
-    return {
-        "success": True,
-        "message": "Assessment published successfully."
-    }
+def publish_assessment(assessment_id: int):
+    logger.info(f"[AssessmentController][publish_assessment] Entered with assessment_id: {assessment_id}")
+    return service.publish_assessment(assessment_id)
 
-#14. Rolback assessments
+
+# 14. Rollback Assessment
 @router.post("/{assessment_id}/rollback")
 def rollback_assessment(assessment_id: int):
-    return {
-        "success": True,
-        "message": "Assessment rolled back successfully."
-    }
+    logger.info(f"[AssessmentController][rollback_assessment] Entered with assessment_id: {assessment_id}")
+    return service.rollback_assessment(assessment_id)
 
-#15. Generate More Questions
+
+# 15. Generate More Questions
 @router.post("/{assessment_id}/questions/generate")
-def generate_more_questions( assessment_id: int):
-    return {
-        "success": True,
-        "message": "Additional questions generated successfully."
-    }
+def generate_more_questions(assessment_id: int):
+    logger.info(f"[AssessmentController][generate_more_questions] Entered with assessment_id: {assessment_id}")
+    return service.generate_more_questions(assessment_id)

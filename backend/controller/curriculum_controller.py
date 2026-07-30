@@ -1,133 +1,54 @@
+import logging
+logger = logging.getLogger(__name__)
+
 from fastapi import APIRouter
+from service.curriculum_service import CurriculumService
 
 router = APIRouter(
-    prefix = "/curriculum",
-    tags = ["Curriculum"]
+    prefix="/curriculum",
+    tags=["Curriculum"]
 )
 
-# 1. Get all grades
+service = CurriculumService()
+
+
+# 1. Get All Grades
 @router.get("/grades")
 def get_all_grades():
-     return {
-            "totalGrades": 3,
-            "grades": [
-                {
-                    "gradeId": 1,
-                    "gradeName": "Grade 6",
-                    "numberOfUnits": 5
-                },
-                {
-                    "gradeId": 2,
-                    "gradeName": "Grade 7",
-                    "numberOfUnits": 6
-                },
-                {
-                    "gradeId": 3,
-                    "gradeName": "Grade 8",
-                    "numberOfUnits": 4
-                }
-            ]
-        }
+    logger.info("[CurriculumController][get_all_grades] Entered")
+    return service.get_all_grades()
 
-#2. Get all courses in a grade
+
+# 2. Get Courses by Grade
 @router.get("/grades/{grade_id}/courses")
 def get_courses_by_grade(grade_id: int):
+    logger.info(f"[CurriculumController][get_courses_by_grade] Entered with grade_id: {grade_id}")
+    return service.get_courses_by_grade(grade_id)
 
-    return {
-        "gradeId": grade_id,
-        "numberOfCourses": 2,
-        "courses": [
-            {
-                "courseId": 101,
-                "courseName": "Science",
-                "numberOfUnits": 5
-            },
-            {
-                "courseId": 102,
-                "courseName": "Mathematics",
-                "numberOfUnits": 4
-            }
-        ]
-    }
 
-#3. Get all units in a course
+# 3. Get Units by Course
 @router.get("/courses/{course_id}/units")
 def get_units_by_course(course_id: int):
+    logger.info(f"[CurriculumController][get_units_by_course] Entered with course_id: {course_id}")
+    return service.get_units_by_course(course_id)
 
-    return {
-        "courseId": course_id,
-        "numberOfUnits": 3,
-        "units": [
-            {
-                "unitId": 11,
-                "unitName": "Human Body",
-                "numberOfChapters": 6
-            },
-            {
-                "unitId": 12,
-                "unitName": "Plants",
-                "numberOfChapters": 5
-            },
-            {
-                "unitId": 13,
-                "unitName": "Matter",
-                "numberOfChapters": 4
-            }
-        ]
-    }
 
-#4. Get all chapters in a unit
+# 4. Get Chapters by Unit
 @router.get("/units/{unit_id}/chapters")
 def get_chapters_by_unit(unit_id: int):
+    logger.info(f"[CurriculumController][get_chapters_by_unit] Entered with unit_id: {unit_id}")
+    return service.get_chapters_by_unit(unit_id)
 
-    return {
-        "unitId": unit_id,
-        "numberOfChapters": 2,
-        "chapters": [
-            {
-                "chapterId": 101,
-                "chapterName": "Digestive System",
-                "numberOfAssessments": 3
-            },
-            {
-                "chapterId": 102,
-                "chapterName": "Respiratory System",
-                "numberOfAssessments": 2
-            }
-        ]
-    }
 
-#5. Get curriculum id
+# 5. Get Curriculum ID
 @router.post("/id")
-def get_curriculum_id( grade_id: int, course_id: int, unit_id: int, chapter_id: int ):
-    return {
-        "curriculumId": 55
-    }
+def get_curriculum_id(grade_id: int, course_id: int, unit_id: int, chapter_id: int):
+    logger.info(f"[CurriculumController][get_curriculum_id] Entered with grade_id: {grade_id}, course_id: {course_id}, unit_id: {unit_id}, chapter_id: {chapter_id}")
+    return service.get_curriculum_id(grade_id, course_id, unit_id, chapter_id)
 
-#6. Get assesment for a curriculum
+
+# 6. Get Assessments
 @router.get("/{curriculum_id}/assessments")
 def get_assessments(curriculum_id: int):
-    return {
-        "Chapter Name": "Chapter Name",
-        "learningOutcomes": [
-            "Identify the organs of the digestive system.",
-            "Explain the digestion process."
-        ],
-        "numberOfAssessments": 2,
-        "assessments": [
-            {
-                "assessmentId": 1,
-                "assessmentNumber": 1,
-                "status": "Published",
-                "marks": 50,
-                "numberOfQuestions": 15
-            },
-            {
-                "assessmentId": 2,
-                "assessmentNumber": 2,
-                "status": "Geenrated",
-                "marks": 40,
-                "numberOfQuestions": 12
-            }
-        ]
-    }
+    logger.info(f"[CurriculumController][get_assessments] Entered with curriculum_id: {curriculum_id}")
+    return service.get_assessments(curriculum_id)

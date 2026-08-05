@@ -12,18 +12,18 @@ export const useCourses = (gradeId) =>
         enabled: Boolean(gradeId),
     });
 
-export const useUnits = (courseId) =>
+export const useUnits = (gradeId, courseId) =>
     useQuery({
-        queryKey: ["curriculum", "courses", courseId, "units"],
-        queryFn: () => curriculumApi.unitsByCourse(courseId),
-        enabled: Boolean(courseId),
+        queryKey: ["curriculum", "courses", gradeId, courseId, "units"],
+        queryFn: () => curriculumApi.unitsByCourse(gradeId, courseId),
+        enabled: Boolean(courseId) && Boolean(gradeId),
     });
 
-export const useChapters = (unitId) =>
+export const useChapters = (gradeId, courseId, unitId) =>
     useQuery({
-        queryKey: ["curriculum", "units", unitId, "chapters"],
-        queryFn: () => curriculumApi.chaptersByUnit(unitId),
-        enabled: Boolean(unitId),
+        queryKey: ["curriculum", "units", gradeId, courseId, unitId, "chapters"],
+        queryFn: () => curriculumApi.chaptersByUnit(gradeId, courseId, unitId),
+        enabled: Boolean(unitId) && Boolean(courseId) && Boolean(gradeId),
     });
 
 export const usePlanners = () =>
@@ -34,4 +34,12 @@ export const usePlanner = (plannerId) =>
         queryKey: ["planners", plannerId],
         queryFn: () => plannerApi.byId(plannerId),
         enabled: Boolean(plannerId),
+    });
+
+export const usePlannerDocument = (plannerId) =>
+    useQuery({
+        queryKey: ["planners", plannerId, "document"],
+        queryFn: () => plannerApi.document(plannerId),
+        enabled: false,
+        retry: 1,
     });

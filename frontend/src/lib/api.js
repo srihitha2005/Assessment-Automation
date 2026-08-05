@@ -3,8 +3,8 @@ import { http, get, post, put, del } from "./http.js";
 export const curriculumApi = {
     grades: () => get("/grades"),
     coursesByGrade: (gradeId) => get(`/grades/${gradeId}/courses`),
-    unitsByCourse: (courseId) => get(`/courses/${courseId}/units`),
-    chaptersByUnit: (unitId) => get(`/units/${unitId}/chapters`),
+    unitsByCourse: (gradeId, courseId) => get(`/courses/${gradeId}/${courseId}/units`),
+    chaptersByUnit: (gradeId, courseId, unitId) => get(`/units/${gradeId}/${courseId}/${unitId}/chapters`),
     resolve: (payload) => post("/curriculum", payload),
     assessmentsForCurriculum: (curriculumId) => get(`/curriculum/${curriculumId}/assessments`),
 };

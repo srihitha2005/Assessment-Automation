@@ -114,7 +114,8 @@ Backend (see `backend/.env.example`):
 | `PORTAL_API_KEY` | unset | Sent as `Authorization: Bearer …` |
 | `BOOTSTRAP_DEMO_DATA` | `true` | Seed one assessment on first boot |
 | `ENABLE_PDF_EXPORT` | `true` | Toggle ReportLab PDF path |
-| `GOOGLE_SPREADSHEET_ID`, `GOOGLE_SERVICE_ACCOUNT_FILE` | unset | Read curriculum/planners from Sheets |
+| `GOOGLE_SPREADSHEET_ID`, `GOOGLE_SERVICE_ACCOUNT_FILE` | local Assessment_automation defaults | Read curriculum/planners from Sheets |
+| `GOOGLE_CURRICULUM_SHEET`, `GOOGLE_PLANNER_SHEET` | `Curriculum`, `Planner_details` | Source tab names |
 
 Frontend: `VITE_API_BASE_URL` (default `/api` via Vite proxy).
 
@@ -154,3 +155,15 @@ docker-compose.yml           Postgres + backend + frontend
 - **Doc round-trip**: hidden JSON footer preserves `questionType`, `bloomLevel`, `learningOutcomes` that a visible parser would lose.
 
 See `docs/blueprint.md` for the full architecture, API schemas, prompt templates, and error strategy.
+
+### Google Sheets planner setup
+
+The local defaults use `backend/google_credentials.json` and the configured
+`Assessment_automation` workbook. Create a `Planner_details` tab with the required
+headings `Planner_name` and `Planer_link` (the supplied spelling is supported).
+Optional `Planner_ID`, `Curriculum_ID`, `Learning_Outcomes`, `Grade`,
+`Course_Name`, `Unit_Name`, and `Chapter_Name` columns are also understood. When
+only a name and Google Docs link are supplied, the app derives a stable planner ID,
+parses the linked document on demand, and matches its chapter to the `Curriculum`
+tab. Share each document with the service-account email from the credential file,
+then use **View parsed planner** before generating an assessment.

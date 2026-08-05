@@ -97,14 +97,20 @@ const PlannerDetail = () => {
                         <Badge tone="brand">{planner.learningOutcomes.length}</Badge>
                     </CardHeader>
                     <CardBody>
-                        <ul className="planner-detail__outcomes">
-                            {planner.learningOutcomes.map((outcome, index) => (
-                                <li key={outcome}>
-                                    <span className="planner-detail__outcome-index">{index + 1}</span>
-                                    {outcome}
-                                </li>
-                            ))}
-                        </ul>
+                        {planner.learningOutcomes.length > 0 ? (
+                            <ul className="planner-detail__outcomes">
+                                {planner.learningOutcomes.map((outcome, index) => (
+                                    <li key={outcome}>
+                                        <span className="planner-detail__outcome-index">{index + 1}</span>
+                                        {outcome}
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <div className="planner-detail__empty-outcomes">
+                                Open the parsed planner document to load its learning outcomes.
+                            </div>
+                        )}
                     </CardBody>
                 </Card>
 

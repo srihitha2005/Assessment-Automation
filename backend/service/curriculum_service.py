@@ -12,14 +12,15 @@ from repository.assessment_repository import AssessmentRepository
 
 
 class CurriculumService:
-    def __init__(self, db: Session, assessment_response):
+    def __init__(self, db: Session = None, assessment_response = None):
         self.sheets = GoogleSheetsDataSource()
-        self.assessments = AssessmentRepository(db)
+        self.assessments = AssessmentRepository(db) if db else None
         self._assessment_response = assessment_response
 
     # ---------------------------------------------------------------- grades
 
     def list_grades(self) -> dict:
+        print("[CurriculumService] list_grades called")
         rows = self.sheets.get_curriculum()
         by_grade: dict[int, dict] = {}
         for row in rows:
@@ -44,6 +45,7 @@ class CurriculumService:
     # ---------------------------------------------------------------- courses
 
     def list_courses(self, grade_id: int) -> dict:
+        print(f"[CurriculumService] list_courses called with grade_id: {grade_id}")
         rows = [row for row in self.sheets.get_curriculum() if row.get("gradeId") == grade_id]
         by_course: dict[int, dict] = {}
         for row in rows:
@@ -64,8 +66,9 @@ class CurriculumService:
 
     # ---------------------------------------------------------------- units
 
-    def list_units(self, course_id: int) -> dict:
-        rows = [row for row in self.sheets.get_curriculum() if row.get("courseId") == course_id]
+    def list_units(self, grade_id: int, course_id: int) -> dict:
+        print(f"[CurriculumService] list_units called with grade_id: {grade_id}, course_id: {course_id}")
+        rows = [row for row in self.sheets.get_curriculum() if row.get("courseId") == course_id and row.get("gradeId") == grade_id]
         by_unit: dict[int, dict] = {}
         for row in rows:
             unit_id = row.get("unitId") or 0
@@ -85,17 +88,15 @@ class CurriculumService:
 
     # -------------------------------------------------------------- chapters
 
-    def list_chapters(self, unit_id: int) -> dict:
-        rows = [row for row in self.sheets.get_curriculum() if row.get("unitId") == unit_id]
+    def list_chapters(self, grade_id: int, course_id: int, unit_id: int) -> dict:
+        print(f"[CurriculumService] list_chapters called with grade_id: {grade_id}, course_id: {course_id}, unit_id: {unit_id}")
+        rows = [row for row in self.sheets.get_curriculum() if row.get("unitId") == unit_id and row.get("courseId") == course_id and row.get("gradeId") == grade_id]
         chapters = []
         for row in rows:
-            assessments = self.assessments.get_by_curriculum(row.get("curriculumId"))
             chapters.append(
                 {
                     "chapterId": row.get("chapterId"),
                     "chapterName": row.get("chapterName"),
-                    "curriculumId": row.get("curriculumId"),
-                    "numberOfAssessments": len(assessments),
                 }
             )
         chapters.sort(key=lambda item: item["chapterId"])

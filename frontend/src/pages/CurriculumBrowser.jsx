@@ -46,8 +46,8 @@ const CurriculumBrowser = () => {
 
     const grades = useGrades();
     const courses = useCourses(grade);
-    const units = useUnits(course);
-    const chapters = useChapters(unit);
+    const units = useUnits(grade,course);
+    const chapters = useChapters(grade, course, unit);
 
     const gradeItems = useMemo(
         () => (grades.data?.grades || []).map((row) => ({ id: row.gradeId, ...row })),
@@ -141,16 +141,7 @@ const CurriculumBrowser = () => {
                     onSelect={() => {}}
                     isLoading={unit && chapters.isLoading}
                     renderItem={(row) => (
-                        <div className="col__chapter">
-                            <span>{row.chapterName}</span>
-                            <Link
-                                className="col__link"
-                                to={`/planners?chapter=${encodeURIComponent(row.chapterName)}`}
-                            >
-                                planners →
-                            </Link>
-                            <span className="col__meta">{row.numberOfAssessments} assessments</span>
-                        </div>
+                        <span>{row.chapterName}</span>
                     )}
                 />
             </div>

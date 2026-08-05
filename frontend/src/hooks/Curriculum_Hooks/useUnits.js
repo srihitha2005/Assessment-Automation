@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 import api from "../../utils/api.js";
 
-const useUnits = (courseId) => {
+const useUnits = (gradeId, courseId) => {
     const [units, setUnits] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const fetchUnits = async (id) => {
-        if (!id) {
-            console.warn("[useUnits] Missing courseId.");
+    const fetchUnits = async (gid, cid) => {
+        if (!cid || !gid) {
+            console.warn("[useUnits] Missing courseId or gradeId.");
             setLoading(false);
             return;
         }
 
-        console.log("[useUnits] Loading units for course:", id);
+        console.log("[useUnits] Loading units for grade:", gid, "course:", cid);
 
         try {
             setLoading(true);
             setError(null);
 
-            const response = await api.getUnitsByCourse(id);
+            const response = await api.getUnitsByCourse(gid, cid);
 
             if (response.success) {
                 const unitList = response.data?.units || [];
@@ -39,8 +39,8 @@ const useUnits = (courseId) => {
     };
 
     useEffect(() => {
-        fetchUnits(courseId);
-    }, [courseId]);
+        fetchUnits(gradeId, courseId);
+    }, [gradeId, courseId]);
 
     return {
         units,

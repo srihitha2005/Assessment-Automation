@@ -78,20 +78,20 @@ const api = {
         }
     },
 
-    getUnitsByCourse: async (courseId) => {
+    getUnitsByCourse: async (gradeId, courseId) => {
         try {
-            console.log("[API] getUnitsByCourse:", courseId);
-            const response = await client.get(`/curriculum/courses/${courseId}/units`);
+            console.log("[API] getUnitsByCourse:", { gradeId, courseId });
+            const response = await client.get(`/curriculum/courses/${gradeId}/${courseId}/units`);
             return wrapSuccess(response.data, "Units fetched successfully.");
         } catch (error) {
             return wrapError(error, "Unable to fetch units.");
         }
     },
 
-    getChaptersByUnit: async (unitId) => {
+    getChaptersByUnit: async (gradeId, courseId, unitId) => {
         try {
-            console.log("[API] getChaptersByUnit:", unitId);
-            const response = await client.get(`/curriculum/units/${unitId}/chapters`);
+            console.log("[API] getChaptersByUnit:", { gradeId, courseId, unitId });
+            const response = await client.get(`/curriculum/units/${gradeId}/${courseId}/${unitId}/chapters`);
             return wrapSuccess(response.data, "Chapters fetched successfully.");
         } catch (error) {
             return wrapError(error, "Unable to fetch chapters.");

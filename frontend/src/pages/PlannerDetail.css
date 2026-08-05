@@ -57,6 +57,51 @@
     justify-content: flex-end;
 }
 
+.planner-detail__source-link {
+    color: var(--brand-600);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    margin-right: auto;
+}
+
+.planner-document {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.planner-document__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.planner-document__outcomes {
+    padding: var(--space-3);
+    background: var(--surface-2);
+    border-radius: var(--radius-2);
+}
+
+.planner-document__outcomes ul {
+    margin: var(--space-2) 0 0;
+    padding-left: 20px;
+    color: var(--fg-2);
+}
+
+.planner-document__content {
+    margin: 0;
+    padding: var(--space-3);
+    max-height: 420px;
+    overflow: auto;
+    white-space: pre-wrap;
+    font: inherit;
+    line-height: 1.6;
+    color: var(--fg-1);
+    background: var(--surface-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-2);
+}
+
 @media (max-width: 900px) {
     .planner-detail__grid {
         grid-template-columns: 1fr;

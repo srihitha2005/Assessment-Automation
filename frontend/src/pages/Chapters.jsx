@@ -15,22 +15,7 @@ function Chapters() {
     const gradeName = location.state?.gradeName || `Grade ${gradeId}`;
     const courseName = location.state?.courseName || `Course ${courseId}`;
     const unitName = location.state?.unitName || `Unit ${unitId}`;
-    const { chapters, loading, error } = useChapters(unitId);
-
-    const handleOpenChapter = (chapter) => {
-        console.log("[Chapters] Navigating to assessments for chapter:", chapter.chapterId);
-        navigate(
-            `/grades/${gradeId}/courses/${courseId}/units/${unitId}/chapters/${chapter.chapterId}/assessments`,
-            {
-                state: {
-                    gradeName,
-                    courseName,
-                    unitName,
-                    chapterName: chapter.chapterName
-                }
-            }
-        );
-    };
+    const { chapters, loading, error } = useChapters(gradeId, courseId, unitId);
 
     return (
         <div className="page-shell">
@@ -78,7 +63,6 @@ function Chapters() {
                                             <ChapterCard
                                                 key={chapter.chapterId}
                                                 chapter={chapter}
-                                                onOpen={handleOpenChapter}
                                             />
                                         ))
                                     }

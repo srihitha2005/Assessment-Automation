@@ -127,6 +127,7 @@ class GoogleSheetsDataSource:
     def get_curriculum(self) -> list[dict]:
         rows = self._read_rows("Curriculum!A:I")
         if not rows:
+            logger.warning("Curriculum data not found in Google Sheets; using bundled fallback data.")
             return deepcopy(FALLBACK_CURRICULUM)
         return [
             {
@@ -144,7 +145,7 @@ class GoogleSheetsDataSource:
         ]
 
     def get_planners(self) -> list[dict]:
-        rows = self._read_rows("Planners!A:D")
+        rows = self._read_rows("Planner_details!A:E")
         if not rows:
             base = deepcopy(FALLBACK_PLANNERS)
         else:
@@ -152,7 +153,8 @@ class GoogleSheetsDataSource:
                 {
                     "plannerId": row.get("Planner_ID", ""),
                     "curriculumId": row.get("Curriculum_ID", ""),
-                    "plannerName": row.get("Planner_Name", ""),
+                    "plannerName": row.get("Planner_name", ""),
+                    "plannerLink":row.get("Planner_link", ""),
                     "learningOutcomes": _split_outcomes(row.get("Learning_Outcomes", "")),
                 }
                 for row in rows

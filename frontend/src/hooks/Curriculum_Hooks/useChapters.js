@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 import api from "../../utils/api.js";
 
-const useChapters = (unitId) => {
+const useChapters = (gradeId, courseId, unitId) => {
     const [chapters, setChapters] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const fetchChapters = async (id) => {
-        if (!id) {
-            console.warn("[useChapters] Missing unitId.");
+    const fetchChapters = async (gid, cid, uid) => {
+        if (!uid || !cid || !gid) {
+            console.warn("[useChapters] Missing unitId, courseId, or gradeId.");
             setLoading(false);
             return;
         }
 
-        console.log("[useChapters] Loading chapters for unit:", id);
+        console.log("[useChapters] Loading chapters for grade:", gid, "course:", cid, "unit:", uid);
 
         try {
             setLoading(true);
             setError(null);
 
-            const response = await api.getChaptersByUnit(id);
+            const response = await api.getChaptersByUnit(gid, cid, uid);
 
             if (response.success) {
                 const chapterList = response.data?.chapters || [];
@@ -39,8 +39,8 @@ const useChapters = (unitId) => {
     };
 
     useEffect(() => {
-        fetchChapters(unitId);
-    }, [unitId]);
+        fetchChapters(gradeId, courseId, unitId);
+    }, [gradeId, courseId, unitId]);
 
     return {
         chapters,

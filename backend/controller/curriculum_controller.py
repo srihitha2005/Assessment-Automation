@@ -26,14 +26,16 @@ def list_courses(grade_id: int, db: Session = Depends(get_db)):
     return ApiResponse(success=True, message="OK", data=_curriculum(db).list_courses(grade_id))
 
 
-@router.get("/courses/{course_id}/units", response_model=ApiResponse)
-def list_units(course_id: int, db: Session = Depends(get_db)):
-    return ApiResponse(success=True, message="OK", data=_curriculum(db).list_units(course_id))
+@router.get("/courses/{grade_id}/{course_id}/units", response_model=ApiResponse)
+def list_units(grade_id: int, course_id: int, db: Session = Depends(get_db)):
+    print(f"[Controller] list_units called with grade_id: {grade_id}, course_id: {course_id}")
+    return ApiResponse(success=True, message="OK", data=_curriculum(db).list_units(grade_id, course_id))
 
 
-@router.get("/units/{unit_id}/chapters", response_model=ApiResponse)
-def list_chapters(unit_id: int, db: Session = Depends(get_db)):
-    return ApiResponse(success=True, message="OK", data=_curriculum(db).list_chapters(unit_id))
+@router.get("/units/{grade_id}/{course_id}/{unit_id}/chapters", response_model=ApiResponse)
+def list_chapters(grade_id: int, course_id: int, unit_id: int, db: Session = Depends(get_db)):
+    print(f"[Controller] list_chapters called with grade_id: {grade_id}, course_id: {course_id}, unit_id: {unit_id}")
+    return ApiResponse(success=True, message="OK", data=_curriculum(db).list_chapters(grade_id, course_id, unit_id))
 
 
 @router.post("/curriculum", response_model=ApiResponse)

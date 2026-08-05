@@ -14,7 +14,7 @@ function Units() {
 
     const gradeName = location.state?.gradeName || `Grade ${gradeId}`;
     const courseName = location.state?.courseName || `Course ${courseId}`;
-    const { units, loading, error } = useUnits(courseId);
+    const { units, loading, error } = useUnits(gradeId, courseId);
 
     const handleOpenUnit = (unit) => {
         console.log("[Units] Navigating to chapters for unit:", unit.unitId);

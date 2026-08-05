@@ -44,8 +44,8 @@ class Settings:
         os.getenv("UPLOADED_IMAGE_ROOT", str(BACKEND_ROOT / "uploaded_images"))
     )
 
-    google_spreadsheet_id: str | None = os.getenv("GOOGLE_SPREADSHEET_ID")
-    google_service_account_file: str | None = os.getenv("GOOGLE_SERVICE_ACCOUNT_FILE")
+    google_spreadsheet_id: str = "1WdKIK8--BEabPnOmGPTHLIXW58HJ1k-RJNQ23mYFj40"
+    google_service_account_file: str = "google_credentials.json"
 
     portal_publish_url: str | None = os.getenv("PORTAL_PUBLISH_URL")
     portal_api_key: str | None = os.getenv("PORTAL_API_KEY")
